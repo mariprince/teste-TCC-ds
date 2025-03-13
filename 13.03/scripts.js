@@ -1,25 +1,25 @@
-document.getElementById('form-cliente').addEventListener('submit', function(event) {
+/*document.getElementById('form-motorista').addEventListener('submit', function(event) {
     event.preventDefault();
-    const nome = document.getElementById('nome-cliente').value;
-    const email = document.getElementById('email-cliente').value;
-    // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Cliente cadastrado: ${nome}, ${email}`);
-});
+    const nome = document.getElementById('nome-motorista').value;
+    const email = document.getElementById('email-motorista').value;
+    Aqui você pode adicionar a lógica para enviar os dados para o backend
+   console.log(`Motorista cadastrado: ${nome}, ${email}`);
+}); */
 
-document.getElementById('form-estabelecimento').addEventListener('submit', function(event) {
+document.getElementById('form-empresa').addEventListener('submit', function(event) {
     event.preventDefault();
-    const nome = document.getElementById('nome-estabelecimento').value;
+    const nome = document.getElementById('nome-empresa').value;
     const cnpj = document.getElementById('cnpj').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Estabelecimento cadastrado: ${nome}, ${cnpj}`);
+    console.log(`Empresa cadastrado: ${nome}, ${cnpj}`);
 });
 
-document.getElementById('form-entregador').addEventListener('submit', function(event) {
+document.getElementById('form-motorista').addEventListener('submit', function(event) {
     event.preventDefault();
-    const nome = document.getElementById('nome-entregador').value;
+    const nome = document.getElementById('nome-motorista').value;
     const cpf = document.getElementById('cpf').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Entregador cadastrado: ${nome}, ${cpf}`);
+    console.log(`motorista cadastrado: ${nome}, ${cpf}`);
 });
 
 document.getElementById('form-endereco').addEventListener('submit', function(event) {
