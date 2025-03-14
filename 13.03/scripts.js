@@ -9,9 +9,10 @@
 document.getElementById('form-empresa').addEventListener('submit', function(event) {
     event.preventDefault();
     const nome = document.getElementById('nome-empresa').value;
+    const email = document.getElementById('email-empresa').value;
     const cnpj = document.getElementById('cnpj').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Empresa cadastrado: ${nome}, ${cnpj}`);
+    console.log(`Empresa cadastrado: ${nome}, ${cnpj} ${email}`);
 });
 
 document.getElementById('form-motorista').addEventListener('submit', function(event) {
@@ -27,8 +28,10 @@ document.getElementById('form-endereco').addEventListener('submit', function(eve
     const rua = document.getElementById('rua').value;
     const numero = document.getElementById('numero').value;
     const cidade = document.getElementById('cidade').value;
+    const origem = document.getElementById('origem').value;
+    const destino = document.getElementById('destino').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Endereço cadastrado: ${rua}, ${numero}, ${cidade}`);
+    console.log(`Endereço cadastrado: ${rua}, ${numero}, ${cidade} ${origem} ${destino}`);
 });
 
 // Selecione o botão de enviar currículo
