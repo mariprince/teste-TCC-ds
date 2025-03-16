@@ -17,11 +17,11 @@
         </nav>
     </header>
     <section>
-        <form id="form-motorista">
+        <form id="form-motorista" method="post">
             <label for="nome-motorista">Nome:</label>
             <input type="text" id="nome-motorista" name="nome-motorista" required>
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" required>
+            <input type="text" id="cpf" name="cpf" required> <!-- formatação de cpf -->
             <label for="curriculo">Currículo:</label>
             <input type="file" id="curriculo" name="curriculo" accept=".pdf, .docx, .xlsx" multiple>
             <button type="submit" class="btn btn-light">Cadastrar</button>
