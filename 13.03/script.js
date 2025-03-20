@@ -54,20 +54,3 @@ enviarCurriculoButton.addEventListener('click', () => {
     console.log('Currículo enviado com sucesso!');
 });
 
-// Slider
-const box = document.querySelector(".slide");
-const imagens = document.querySelectorAll(".slide img"); // Corrigido para selecionar todas as imagens
-
-let contador = 0;
-
-function slider() {
-    contador++;
-
-    if (contador > imagens.length - 1) {
-        contador = 0;
-    }
-
-    box.style.transform = `translateX(${-contador * 100}%)`;
-}
-
-setInterval(slider, 2000);
