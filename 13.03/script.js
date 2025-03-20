@@ -9,10 +9,11 @@
 document.getElementById('form-empresa').addEventListener('submit', function(event) {
     event.preventDefault();
     const nome = document.getElementById('nome-empresa').value;
-    const email = document.getElementById('email-empresa').value;
     const cnpj = document.getElementById('cnpj').value;
+    const email = document.getElementById('email-empresa').value;
+    
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Empresa cadastrado: ${nome}, ${cnpj} ${email}`);
+    console.log(`Empresa cadastrada: ${nome}, ${cnpj}, ${email}`);
 });
 
 document.getElementById('form-motorista').addEventListener('submit', function(event) {
@@ -20,7 +21,7 @@ document.getElementById('form-motorista').addEventListener('submit', function(ev
     const nome = document.getElementById('nome-motorista').value;
     const cpf = document.getElementById('cpf').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`motorista cadastrado: ${nome}, ${cpf}`);
+    console.log(`Motorista cadastrado: ${nome}, ${cpf}`);
 });
 
 document.getElementById('form-endereco').addEventListener('submit', function(event) {
@@ -31,7 +32,7 @@ document.getElementById('form-endereco').addEventListener('submit', function(eve
     const origem = document.getElementById('origem').value;
     const destino = document.getElementById('destino').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Endereço cadastrado: ${rua}, ${numero}, ${cidade} ${origem} ${destino}`);
+    console.log(`Endereço cadastrado: ${rua}, ${numero}, ${cidade}, ${origem}, ${destino}`);
 });
 
 // Selecione o botão de enviar currículo
@@ -52,3 +53,21 @@ enviarCurriculoButton.addEventListener('click', () => {
     // Aqui você pode adicionar a lógica para enviar o arquivo para o servidor
     console.log('Currículo enviado com sucesso!');
 });
+
+// Slider
+const box = document.querySelector(".slide");
+const imagens = document.querySelectorAll(".slide img"); // Corrigido para selecionar todas as imagens
+
+let contador = 0;
+
+function slider() {
+    contador++;
+
+    if (contador > imagens.length - 1) {
+        contador = 0;
+    }
+
+    box.style.transform = `translateX(${-contador * 100}%)`;
+}
+
+setInterval(slider, 2000);
