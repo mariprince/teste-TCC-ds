@@ -20,8 +20,9 @@ document.getElementById('form-motorista').addEventListener('submit', function(ev
     event.preventDefault();
     const nome = document.getElementById('nome-motorista').value;
     const cpf = document.getElementById('cpf').value;
+    const curriculo = document.getElementById('curriculo').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Motorista cadastrado: ${nome}, ${cpf}`);
+    console.log(`Motorista cadastrado: ${nome}, ${cpf}, ${curriculo}`);
 });
 
 document.getElementById('form-endereco').addEventListener('submit', function(event) {
