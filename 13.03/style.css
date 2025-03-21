@@ -1,3 +1,23 @@
+html, body {
+    height: 100%; /* Garante que o body ocupe toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
+}
+
+body {
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.media {
+    text-align: center; /* Centraliza o texto dentro da div */
+    padding: 20px; /* Adiciona um pouco de espaço ao redor do conteúdo */
+    border: 1px solid #ccc; /* Opcional: adiciona uma borda para destaque */
+    border-radius: 8px; /* Opcional: bordas arredondadas */
+    background-color: #f9f9f9; /* Opcional: cor de fundo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para efeito de profundidade */
+}
+
+
 *{
     padding: 0;
     margin: 0;
