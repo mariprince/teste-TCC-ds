@@ -1,17 +1,17 @@
 // Slider
-const box = document.querySelector(".slide");
-const imagens = document.querySelectorAll(".slide img"); // Corrigido para selecionar todas as imagens
-
+const box = document.querySelector(".slides");
+const imagens = document.querySelectorAll(".slide"); // Seleciona todas as divs de slide
 let contador = 0;
 
+// Função para mudar a imagem
 function slide() {
     contador++;
-
     if (contador > imagens.length - 1) {
         contador = 0;
     }
-
-    box.style.transform = `translateX(${-contador * 1260}px)`;
+    // Muda o botão de rádio correspondente
+    document.getElementById(`radio${contador + 1}`).checked = true;
 }
 
-setInterval(slide, 2000);
+// Troca de imagem a cada 2 segundos
+setInterval(slide, 5000);
