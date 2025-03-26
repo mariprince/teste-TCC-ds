@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -43,3 +45,4 @@ app.listen(PORT, () => {
 
 // Selecione o botão de enviar currículo
 const enviarCurriculoButton = document.getElementById('enviar-curriculo');
+
