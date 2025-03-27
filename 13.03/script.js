@@ -19,9 +19,9 @@ document.getElementById('form_empresa').addEventListener('submit', function(even
     console.log(`Empresa cadastrada: ${nome}, ${cnpj}, ${email}`);
 });
 
-document.getElementById('form-motorista').addEventListener('submit', function(event) {
+document.getElementById('form_motorista').addEventListener('submit', function(event) {
     event.preventDefault();
-    const nome = document.getElementById('nome-motorista').value;
+    const nome = document.getElementById('nome_motorista').value;
     const cpf = document.getElementById('cpf').value;
     const curriculo = document.getElementById('curriculo').value;
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
@@ -60,17 +60,17 @@ enviarCurriculoButton.addEventListener('click', () => {
 
 async function criarEPopularTabelaEmpresas(nome_empresa, cnpj, email_empresa) {
     const db = await open({
-        filename: './banco.db',
+        filename: './banco/banco.db',
         driver: sqlite3.Database,
     });
 
-    db.run(`CREATE TABLE IF NOT EXISTS empresa(nome-empresa TEXT, cnpj INTEGER PRIMARY KEY, email-empresa TEXT)`
+    db.run(`CREATE TABLE IF NOT EXISTS motorista(nome_motorista TEXT, cpf INTEGER PRIMARY KEY, email_motorista TEXT)`
 
     );
-    db.run(`INSERT INTO empresa (nome_empresa, cnpj, email_empresa) VALUES (?,?)`, [
-        nome_empresa,
-         cnpj,
-          email_empresa
+    db.run(`INSERT INTO motorista (nome_motorista, cnpj, email_motorista) VALUES (?,?)`, [
+        nome_motorista,
+         cpf,
+          email_motorista
         ]);
 }
 

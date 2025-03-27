@@ -41,7 +41,7 @@
     </div>
     </section>
     <section>
-        <form id="form_empresa" method="post">
+        <form id="FORM_EMPRESA  " method="post">
             <label for="nome_empresa">Nome Fantasia:</label>
             <input type="text" id="nome_empresa" name="nome_empresa" required>
             <label for="cnpj">CNPJ:</label>
@@ -51,6 +51,13 @@
             <button type="submit">Cadastrar</button>
         </form>
     </section>
+
+    <script>
+        document.getElementById('FORM_EMPRESA').addEventListener('submit', function(event) {
+            event.preventDefault(); // Para evitar o envio do formulário
+            console.log('Formulário enviado!');
+        });
+    </script>
    
 </body>
 <script src="script.js"></script>
