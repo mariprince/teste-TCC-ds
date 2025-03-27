@@ -91,6 +91,7 @@ body {
 }
 
 .media-body{
+    margin: auto;
     display: flex;
     align-items: center;
 }
