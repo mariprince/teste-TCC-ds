@@ -46,11 +46,17 @@ nav ul li a {
 }
 
 section {
-    margin: 20px;
-    padding: 20px;
+    margin: 30px;
+    padding: 10px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-left: 20%;
+    height: 30%;
 }
 
 h2 {
@@ -71,11 +77,17 @@ body {
 
 
 .texto {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
 }
+    .subtexto{
+        max-width: 30%;
+        padding: 5px;
+        max-width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
 .imagem {
     width: 300px;
