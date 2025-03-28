@@ -4,8 +4,10 @@ html, body {
 }
 
 body {
+    display: grid;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura da viewport */
 }
 
 .media {
@@ -15,14 +17,22 @@ body {
     border-radius: 8px; /* Opcional: bordas arredondadas */
     background-color: #f9f9f9; /* Opcional: cor de fundo */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para efeito de profundidade */
+    justify-content: center;
+    align-items: center;
 }
 
+.media-body{
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 header {
     background-color: #e06919;
     color: #fff;
@@ -75,7 +85,6 @@ body {
     justify-content: center;
 }
 
-
 .texto {
     align-items: center;
     justify-content: space-between;
@@ -100,12 +109,6 @@ body {
     font-size: 18px;
     color: #333;
     width: 500px;
-}
-
-.media-body{
-    margin: auto;
-    display: flex;
-    align-items: center;
 }
 
 .slider{

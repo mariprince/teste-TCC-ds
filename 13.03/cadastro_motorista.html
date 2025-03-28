@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Motorista</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header>
-        <h1>Cadastro Motorista</h1>
+        <h1>Motorista</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Página Inicial</a></li>
@@ -22,7 +23,8 @@
                 <img class="align-self-center mr-3" src="imagens\Motorista M1.png" width="200" height="200">
                 <p>🚚 Junte-se à equipe da DevLog! Estamos em busca de motoristas dedicados para fazer parte da nossa transportadora. 
                     Oferecemos um ambiente de trabalho seguro, salário competitivo, benefícios como vale-alimentação e plano de saúde, 
-                    além de oportunidades de crescimento profissional. Envie seu currículo e venha fazer a diferença conosco!</p>
+                    além de oportunidades de crescimento profissional. Envie seu currículo e venha fazer a diferença conosco!
+                </p>
             </div>
         </div>
     </section>
@@ -30,7 +32,9 @@
         <div class="media">
             <div class="media-body">
                 <img class="align-self-center mr-3" src="imagens\Motorista M2.jpg" width="200" height="200">
-                <p> Para você que quer enfrentar novos desafios e a se aprimorar constantemente, a DevLog oferece o ambiente ideal para isso!</p>
+                <p> 
+                🚛 Para você que quer enfrentar novos desafios e a se aprimorar constantemente, a DevLog oferece o ambiente ideal para isso!
+                </p>
             </div>
         </div>
     </section>
@@ -38,13 +42,17 @@
         <form id="form_motorista" method="post">
             <div class="media">
                 <h2>Cadastre-se!</h2>
+                <br>
                 <label for="nome_motorista">Nome:</label>
                 <input type="text" id="nome_motorista" name="nome_motorista" required>
+                <br>
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" required> <!-- formatação de cpf -->
+                <br>
                 <label for="curriculo">Currículo:</label>
                 <input type="file" id="curriculo" name="curriculo" accept=".pdf, .docx, .xlsx" multiple>
-                <button type="submit" class="btn btn-light">Cadastrar</button>
+                <br>
+                <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
             </div>
         </form>
     </section>
