@@ -1,5 +1,20 @@
-//import sqlite3 from 'sqlite3';
-//import {open} from 'sqlite';
+
+const express = require('express');
+
+const mysql = require('mysql2')
+
+const app = express()
+
+const conexao = mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    database:'projeto',
+});
+
+conexao.connect(function(erro){
+    if(erro) throw erro;
+    console.log('Conexão efetuada com sucesso');
+});
 
 document.querySelector('.custom-btn').addEventListener('click', function() {    event.preventDefault();
 
@@ -19,10 +34,12 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
     document.getElementById('form_motorista').reset();
 });
 
+app.listen(8080)
 
-/*async function criarEPopularTabelaEmpresas(nome_empresa, cnpj, email_empresa) {
+
+/*async function criarEPopularTabelaMotorista(nomeM, cpf, curriculo) {
     const db = await open({
-        filename: './banco/banco.db',
+        filename: 'banco.db',
         driver: sqlite3.Database,
     });
 
@@ -36,5 +53,4 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
         ]);
 }
 
-criarEPopularTabelaEmpresas('Juan Futuro feito', '20.182.807/0004-42', 'juanfuturista@gmail.com');
-*/
+criarEPopularTabelaEmpresas('Juan Futuro feito', '487.747.968-60');*/
