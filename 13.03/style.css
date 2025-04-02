@@ -213,11 +213,3 @@ body {
 #radio3:checked ~ .navigation-auto .auto-btn3{
     background-color: #fff;
 }
-
-/*aspect-ratio: 1;
-    grid-column: 1;
-    grid-row: 1;
-    height: 20pc;
-    width: 85%;
-    object-fit: cover;
-    object-position: 30%;*/
