@@ -3,7 +3,6 @@ html, body {
     margin: 0; /* Remove margens padrão */
 }
 
-
 body {
     display: grid;
     justify-content: center; /* Centraliza horizontalmente */
@@ -22,16 +21,68 @@ body {
     align-items: center;
 }
 
-.media-body{
+section {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    /*
+    display: flex; /* Use flexbox for layout 
+    align-items: center; /* Center items vertically 
+    align-content: center;
+    margin: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+    */
+    width: auto;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text within the form */
+    border: 1px solid #ccc; /* Optional: border for the form */
+    padding: 20px; /* Optional: padding around the form */
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.imgMC {
+    border-radius: 20%;
+    float: left; /* Float the image to the left 
+    margin-right: 15px; /* Add some space between the image and the text */
+}
+
+.media-body {
     margin: auto;
     display: flex;
     align-items: center;
 }
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+h2M {
+    margin: 15px;
+    padding: 15px; 
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    font-style: normal;
+}
+
+p1 {
+    font-size: 22px; /* Set the font size */
+    color: #333; /* Set the text color */
+    line-height: 1.5; /* Set the line height for better readability */
+    margin: 50px 0; /* Set top and bottom margins */
+    text-align: left; /* Align text to the left (can be center or right as needed) */
 }
 
 header {
@@ -56,27 +107,10 @@ nav ul li a {
     text-decoration: none;
 }
 
-section {
-    margin: 30px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    margin-left: 20%;
-    height: 30%;
-}
-
 h2 {
     color: #333;
 }
 
-/*Parte de baixo do header
-#e06919
-*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -91,13 +125,14 @@ body {
     justify-content: space-between;
     padding: 20px;
 }
-    .subtexto{
-        max-width: 30%;
-        padding: 5px;
-        max-width: 60%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+
+.subtexto {
+    max-width: 30%;
+    padding: 5px;
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .imagem {
     width: 300px;
@@ -112,42 +147,38 @@ body {
     width: 500px;
 }
 
-.slider{
+.slider {
     width: 100%;
     height: 400px;
     overflow: hidden;
-    
 }
 
-.slides{
+.slides {
     width: 400%;
     height: 400px;
     display: flex;
-    
 }
 
-.slides input{
+.slides input {
     display: none;
 }
 
-.slide{
+.slide {
     width: 25%;
     position: relative;
     transition: 2s ease-in-out;
     display: flex;
     transform: translateX(0);
-    
 }
 
-.slide img{
+.slide img {
     width: 100%;
     height: 400px;
     filter: drop-shadow(0px 0px 10px #000);
     margin: 10;
-    
 }
 
-.manual-navigation{
+.manual-navigation {
     position: absolute;
     width: 100%; 
     margin-top: -40px;
@@ -155,7 +186,7 @@ body {
     justify-content: center;
 }
 
-.manual-btn{
+.manual-btn {
     border: 2px solid #fff;
     padding: 5px;
     border-radius: 10px;
@@ -163,27 +194,27 @@ body {
     transition: 1s;
 }
 
-.manual-btn:not(:last-child){
+.manual-btn:not(:last-child) {
     margin-right: 40px;
 }
 
-.manual-btn:hover{
+.manual-btn:hover {
     background-color: #fff;
 }
 
-#radio1:checked ~ .first{
+#radio1:checked ~ .first {
     margin-left: 0;
 }
 
-#radio2:checked ~ .first{
+#radio2:checked ~ .first {
     margin-left: -25%;
 }
 
-#radio3:checked ~ .first{
+#radio3:checked ~ .first {
     margin-left: -50%;
 }
 
-.navigation-auto div{
+.navigation-auto div {
     border: 2px solid #e06919;
     padding: 5px;
     border-radius: 10px;
@@ -191,7 +222,7 @@ body {
     transition: 1s;
 }
 
-.navigation-auto{
+.navigation-auto {
     position: absolute;
     width: 100%;
     margin-top: 360px;
@@ -199,18 +230,18 @@ body {
     justify-content: center;
 }
 
-.navigation-auto div:not(:last-child){
+.navigation-auto div:not(:last-child) {
     margin-right: 40px;
 }
 
-#radio1:checked ~ .navigation-auto .auto-btn1{
+#radio1:checked ~ .navigation-auto .auto-btn1 {
     background-color: #fff;
 }
 
-#radio2:checked ~ .navigation-auto .auto-btn2{
+#radio2:checked ~ .navigation-auto .auto-btn2 {
     background-color: #fff;
 }
 
-#radio3:checked ~ .navigation-auto .auto-btn3{
+#radio3:checked ~ .navigation-auto .auto-btn3 {
     background-color: #fff;
 }
