@@ -3,6 +3,7 @@ html, body {
     margin: 0; /* Remove margens padrão */
 }
 
+
 body {
     display: grid;
     justify-content: center; /* Centraliza horizontalmente */
