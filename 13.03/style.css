@@ -21,13 +21,15 @@ body {
     align-items: center;
 }
 
-section {
+.card {
     display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    margin: 30px;
+    align-items: center;
+    justify-content: center;
+    width: 50%; /* Center items vertically */
+    margin-left: 30%;
     padding: 20px;
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
