@@ -25,11 +25,10 @@ body {
     display: flex; /* Use flexbox for layout */
     align-items: center;
     justify-content: center;
-    width: 50%; /* Center items vertically */
+    width: 50%;
     margin-left: 30%;
     padding: 20px;
     background-color: #fff;
-    border-radius: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
