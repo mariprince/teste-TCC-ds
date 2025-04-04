@@ -21,16 +21,26 @@ body {
     align-items: center;
 }
 
-.card {
-    display: flex; /* Use flexbox for layout */
+.cartoes{
     align-items: center;
     justify-content: center;
+    display: flex;
+    transform: translateY(-60px);
+}
+.card {
     width: 50%;
-    margin-left: 30%;
+    margin-right: 10px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+.card2 {
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
 
 form {
     /*
