@@ -10,16 +10,17 @@ body {
     height: 100vh; /* Altura da viewport */
 }
 
-.media {
+/* .media {
     text-align: center; /* Centraliza o texto dentro da div */
-    padding: 20px; /* Adiciona um pouco de espaço ao redor do conteúdo */
-    border: 1px solid #ccc; /* Opcional: adiciona uma borda para destaque */
-    border-radius: 8px; /* Opcional: bordas arredondadas */
-    background-color: #f9f9f9; /* Opcional: cor de fundo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para efeito de profundidade */
+    /* padding: 20px;  Adiciona um pouco de espaço ao redor do conteúdo */
+    /* border: 1px solid #ccc; /* Opcional: adiciona uma borda para destaque */
+    /* border-radius: 50px; /* Opcional: bordas arredondadas */
+    /* background-color: #f9f9f9; /* Opcional: cor de fundo */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para efeito de profundidade 
     justify-content: center;
     align-items: center;
 }
+*/
 
 .cartoes{
     align-items: center;
@@ -41,6 +42,23 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
+section{
+    width: 1600px;
+    height: 242px;
+    margin: auto;
+    margin-top: 35px;
+    margin-bottom: 35x;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text within the form */
+    border: 1px solid #ccc; /* Optional: border for the form */
+    padding: 20px; /* Optional: padding around the form */
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
 
 form {
     /*
@@ -56,6 +74,8 @@ form {
     width: auto;
     height: auto;
     margin: auto;
+    margin-top: 35px;
+    margin-bottom: 35x;
     display: flex;
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center items horizontally */
@@ -91,9 +111,20 @@ h2M {
 p1 {
     font-size: 22px; /* Set the font size */
     color: #333; /* Set the text color */
-    line-height: 1.5; /* Set the line height for better readability */
-    margin: 50px 0; /* Set top and bottom margins */
-    text-align: left; /* Align text to the left (can be center or right as needed) */
+    line-height: 3; /* Set the line height for better readability */
+    /* Set top and bottom margins */
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center; /* Align text to the left (can be center or right as needed) */
+}
+p2 {
+    font-size: 22px; /* Set the font size */
+    color: #333; /* Set the text color */
+    line-height: 8; /* Set the line height for better readability */
+    /* Set top and bottom margins */
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center; /* Align text to the left (can be center or right as needed) */
 }
 
 header {
