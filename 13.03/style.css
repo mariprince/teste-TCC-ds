@@ -41,7 +41,9 @@ body {
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-
+.balao{
+    width: 50%;
+}
 section{
     width: 1600px;
     height: 242px;
@@ -61,16 +63,6 @@ section{
 
 
 form {
-    /*
-    display: flex; /* Use flexbox for layout 
-    align-items: center; /* Center items vertically 
-    align-content: center;
-    margin: 30px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 50px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
-    */
     width: auto;
     height: auto;
     margin: auto;
@@ -108,7 +100,7 @@ h2M {
     font-style: normal;
 }
 
-p1 {
+#p1 {
     font-size: 22px; /* Set the font size */
     color: #333; /* Set the text color */
     line-height: 3; /* Set the line height for better readability */
@@ -117,7 +109,7 @@ p1 {
     margin-bottom: auto;
     text-align: center; /* Align text to the left (can be center or right as needed) */
 }
-p2 {
+.p2 {
     font-size: 22px; /* Set the font size */
     color: #333; /* Set the text color */
     line-height: 8; /* Set the line height for better readability */
