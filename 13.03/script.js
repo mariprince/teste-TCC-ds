@@ -1,5 +1,5 @@
 
-const express = require('express');
+/*const express = require('express');
 
 const mysql = require('mysql2')
 
@@ -14,13 +14,13 @@ const conexao = mysql.createConnection({
 conexao.connect(function(erro){
     if(erro) throw erro;
     console.log('Conexão efetuada com sucesso');
-});
+});*/
 
 document.querySelector('.custom-btn').addEventListener('click', function() {    event.preventDefault();
 
     const nomeM = document.getElementById('nome_motorista').value;
     const cpf = document.getElementById('cpf').value;
-    const curriculo = document.getElementById('curriculo').value;
+    const curriculo = document.getElementById('formFile').value;
     if (curriculo.length > 0) {
         console.log('Currículos selecionados:');
         for (let i = 0; i < curriculo.length; i++) {
@@ -34,7 +34,7 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
     document.getElementById('form_motorista').reset();
 });
 
-app.listen(8080)
+//app.listen(8080)
 
 
 /*async function criarEPopularTabelaMotorista(nomeM, cpf, curriculo) {
