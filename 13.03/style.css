@@ -1,10 +1,10 @@
+
 html, body {
     height: 100%; /* Garante que o body ocupe toda a altura da tela */
     margin: 0; /* Remove margens padrão */
 }
 
 body {
-    display: grid;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     height: 100vh; /* Altura da viewport */
@@ -37,13 +37,53 @@ body {
 }
 .card2 {
     width: 50%;
+    margin-right: 10px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-.balao{
-    width: 50%;
+@media (max-width: 400px){
+    .cartoes{
+        grid-template-columns: repeat(2, 1fr);
+        display: contents;
+    } 
+    .card{
+        margin: 20px;
+    }
+    .card2{
+        margin: 20px;
+    }
+    h1{
+        font-size: 35px;
+    }
+    nav{
+        grid-template-columns: repeat(2, 1fr);
+        size: 10px;
+    }
+    header{
+        width: 50vw;
+        padding: 0%;
+    }
+
 }
+.caixap1{
+    width: 50%;
+    background-color: #fff;
+}
+.caixap2{
+    width: 50%;
+    background-color: #fff;
+}
+#form_motorista{
+    width: 40%;
+    background-color: #fff;
+}
+.formcontrol{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
 section{
     width: 1600px;
     height: 242px;
@@ -91,32 +131,36 @@ form {
     align-items: center;
 }
 
-h2M {
+#h2M {
     margin: 15px;
     padding: 15px; 
     font-weight: bold;
-    font-size: 28px;
-    text-align: center;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
     font-style: normal;
 }
 
 #p1 {
-    font-size: 22px; /* Set the font size */
-    color: #333; /* Set the text color */
-    line-height: 3; /* Set the line height for better readability */
-    /* Set top and bottom margins */
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: center; /* Align text to the left (can be center or right as needed) */
+    font-size: 18px;
+    color: #333;
+    margin-top: 5%; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-weight: bolder
 }
 .p2 {
-    font-size: 22px; /* Set the font size */
-    color: #333; /* Set the text color */
-    line-height: 8; /* Set the line height for better readability */
-    /* Set top and bottom margins */
-    margin-top: auto;
+    font-size: 18px;
+    color: #333;
+    margin-top: 10%;
+    padding: 1px    ;
     margin-bottom: auto;
-    text-align: center; /* Align text to the left (can be center or right as needed) */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-weight: bolder
 }
 
 header {
@@ -126,6 +170,7 @@ header {
     text-align: center;
     width: 100vw;
 }
+
 
 nav ul {
     list-style: none;
@@ -147,6 +192,14 @@ h2 {
 }
 
 body {
+    font-family: Helvetica;
+    margin: 0;
+    background-color: #FAFBE4;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.motorista {
     font-family: Helvetica;
     margin: 0;
     background-color: #FAFBE4;

@@ -10,7 +10,7 @@
 </head>
 
 
-    <header>
+    <header class="hdmotorista">
         <div class="container-fluid bg-orange text-white text-center p-4">
         <h1>Motorista</h1>
         </div>
@@ -21,23 +21,21 @@
             </ul>
         </nav>
     </header>
-    <body>
-    <h2M>Seja parte da equipe DevLog!</h2M>
-    <section class="balao">
+    <body class="motorista">
+    <h2M id="h2M">Seja parte da equipe DevLog!</h2M>
+    <section class="caixap1">
         <img class="imgMC" src="imagens\Motorista M1.png" width="200" height="200">
-        <p1 for="p1">
+        <p1 id="p1">
             🚚 Estamos em busca de motoristas dedicados para fazer parte da nossa transportadora.
             Oferecemos um ambiente de trabalho seguro, salário competitivo, benefícios como vale-alimentação e plano de
-            saúde,
-            além de oportunidades de crescimento profissional. Envie seu currículo e venha fazer a diferença conosco!
+            saúde, além de oportunidades de crescimento profissional. Envie seu currículo e venha fazer a diferença conosco!
         </p1>
     </section>
-    <section>
+    <section class="caixap2">
         <img class="imgMC" src="imagens\Motorista M2.jpg" width="200" height="200">
-        <p2 class="p2">
-            🚛 Para você que quer enfrentar novos desafios e a se aprimorar constantemente, a DevLog oferece o
-            ambiente ideal para isso!
-        </p2>
+        <p1 class="p2">
+            🚛 Para você que quer enfrentar novos desafios e a se aprimorar constantemente, a DevLog oferece o ambiente ideal para isso!
+        </p1>
     </section>
     <form id="form_motorista" method="post">
         <h2>Cadastre-se!</h2>
@@ -48,7 +46,7 @@
         <label for="cpf">CPF:</label>
         <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
         <label for="formFile" class="form-label"><h3>Currículo</h3></label>
-        <input class="form-control" type="file" id="formFile">
+        <input class="formcontrol" type="file" id="formFile">
         <br>
         <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
     </form>
