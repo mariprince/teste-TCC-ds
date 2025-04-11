@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Empresa</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    <header>
-        <div class="container-fluid bg-orange text-white text-center p-4">
+<header>
+    <div class="container-fluid bg-orange text-white text-center p-4">
         <h1>Empresa</h1>
     </div>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="cadastro_motorista.html">Seja Nosso Motorista</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <body>
-        
+    <nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="cadastro_motorista.html">Seja Nosso Motorista</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+
+    <h2>Porque voce deve cadastrar sua empresa?</h2>
     <section>
-        <h2>Porque voce deve cadastrar sua empresa?</h2>
+
         <p class="texto"> Oferecemos a melhor infraestrutura para fretar seus produtos</p>
-        
-        <p class="texto"> A DevLog não é apenas uma empresa de transporte, 
-            mas sim uma referência em eficiência, 
+
+        <p class="texto"> A DevLog não é apenas uma empresa de transporte,
+            mas sim uma referência em eficiência,
             inovação e compromisso com a satisfação do cliente.
         </p>
     </section>
     <section>
-    <div class="texto">
-        <div class="">
-            <h2>Rastreamento</h2>
-            <p class="texto"> 📦 Entrega segura com acompanhamento via whatsapp do veículo, 
-                onde será registrado o momento de entrada e saída 
-                da carga de cada pontom, incluindo as paradas ao longo do caminho.</p>
+        <div class="texto">
+            <div class="">
+                <h2>Rastreamento</h2>
+                <p class="texto"> 📦 Entrega segura com acompanhamento via whatsapp do veículo,
+                    onde será registrado o momento de entrada e saída
+                    da carga de cada pontom, incluindo as paradas ao longo do caminho.</p>
+            </div>
         </div>
-    </div>
     </section>
     <form id="form_empresa" method="post">
         <label for="nome_empresa">Nome Fantasia:</label>
@@ -48,10 +50,11 @@
         <label for="email_empresa">Email para contato:</label>
         <input type="email" id="email_empresa" name="email_empresa" required>
         <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
-    </form>   
+    </form>
 </body>
 <script src="script_empresa.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </html>
