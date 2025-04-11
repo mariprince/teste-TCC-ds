@@ -34,8 +34,21 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
     document.getElementById('form_motorista').reset();
 });
 
-const lastOne = document
 
+
+const myObserver = new IntersectionObserver( (entries) => {
+    entries.forEach( (entry) => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show')
+        }else{
+            entry.target.classList.remove('show')
+        }
+    })
+})
+
+const elements = document.querySelectorAll('.pagcadastro');
+
+elements.forEach( (element) => myObserver.observe(element))
 //app.listen(8080)
 
 
