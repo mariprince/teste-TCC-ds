@@ -34,6 +34,8 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
     document.getElementById('form_motorista').reset();
 });
 
+const lastOne = document
+
 //app.listen(8080)
 
 

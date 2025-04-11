@@ -21,7 +21,10 @@ body {
     align-items: center;
 }
 */
-
+.pagcadastro{
+    background-color: #FAFBE4;
+    padding: 9%;
+}
 .cartoes{
     align-items: center;
     justify-content: center;
