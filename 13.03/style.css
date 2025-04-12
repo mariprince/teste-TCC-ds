@@ -89,10 +89,32 @@ body {
     width: 40%;
     background-color: #fff;
 }
+#form_empresa{
+    width: 40%;
+    background-color: #fff;
+}
 .formcontrol{
     align-items: center;
     justify-content: center;
     display: flex;
+}
+.butao{
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #ffffff; /* Cor da borda do botão */
+    border-radius: 5px;
+    background-color: #3498db; /* Cor de fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.butao:hover {
+    background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efeito de luz ao redor do botão */
 }
 
 section{
@@ -113,7 +135,13 @@ section{
     background-color: white;
 }
 
-
+.voltar{
+    background-color: #fff;
+    border-radius: 100%;
+    color: #e06919  ;
+    margin-right: 80%;
+    font-size: 20px;
+}
 form {
     width: auto;
     height: auto;

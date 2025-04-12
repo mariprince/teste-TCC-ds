@@ -7,3 +7,17 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
     console.log(`Empresa cadastrada: ${nomeE}, ${cnpj}, ${emailE}`);
     document.getElementById('form_empresa').reset();
 });
+
+const myObserver = new IntersectionObserver( (entries) => {
+    entries.forEach( (entry) => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show')
+        }else{
+            entry.target.classList.remove('show')
+        }
+    })
+})
+
+const elements = document.querySelectorAll('.pagcadastro');
+
+elements.forEach( (element) => myObserver.observe(element));

@@ -50,7 +50,6 @@ const elements = document.querySelectorAll('.pagcadastro');
 
 elements.forEach( (element) => myObserver.observe(element));
 
-<button onclick="javascript:history.back()">Voltar</button>
 //app.listen(8080)
 
 
