@@ -8,35 +8,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="pagcadastro">
-    <form id="form_motorista" method="post">
-        <button class="voltar" onclick="javascript:history.back()">🠔</button>
-        <h2>Cadastre-se!</h2>
-        <br>
-        <label for="nome_motorista">Nome:</label>
-        <input type="text" id="nome_motorista" name="nome_motorista" required>
-        <br>
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
-        <label for="formFile" class="form-label"><h3>Currículo</h3></label>
-        <input class="formcontrol" type="file" id="formFile">
-        <br>
-        <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
-    </form>
-    <form id="form_empresa" method="post">
-        <button class="voltar" onclick="javascript:history.back()">🠔</button>
-        <h2>Cadastre sua Empresa!</h2>
-        <br>
-        <label for="nome_empresa">Nome Empresa:</label>
-        <input type="text" id="nome_empresa" name="nome_empresa" required>
-        <br>
-        <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
-        <label class="block text-gray-700 mb-1">Email para contato</label>
-        <input type="email_empresa" id="email_empresa" class="w-full border border-gray-300 rounded-md p-2" required>
-        <br>
-        <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
-    </form>
+    <div class="card">
+    <div class="Esquerda">
+        <div class="FormMotorista">
+            <form id="form_motorista" method="post">
+                <button class="voltar" onclick="javascript:history.back()">🠔</button>
+                <h2>Cadastre-se!</h2>
+                <br>
+                <label for="nome_motorista">Nome:</label>
+                <input type="text" id="nome_motorista" name="nome_motorista" required>
+                <br>
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
+                <label for="formFile" class="form-label"><h3>Currículo</h3></label>
+                <input class="formcontrol" type="file" id="formFile">
+                <br>
+                <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
+            </form>
+        </div>
+        <div class="LoginMotorista">
+            <h2> Quer ser <br>um Motorista?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Fuga doloribus eius dolor, dolorum corrupti id ducimus,</p>
+                <button>Quero Ser Motorista</button>
+        </div>
+    </div>
+    <div class="Direita">
+        <div class="EmpresaForm">
+            <h2>Empresa</h2>
+            <form id="form_empresa" method="post">
+                <button class="voltar" onclick="javascript:history.back()">🠔</button>
+                <h2>Cadastre sua Empresa!</h2>
+                <br>
+                <label for="nome_empresa">Nome Empresa:</label>
+                <input type="text" id="nome_empresa" name="nome_empresa" required>
+                <br>
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"><br>
+                <label class="block text-gray-700 mb-1">Email para contato</label>
+                <input type="email_empresa" id="email_empresa" class="w-full border border-gray-300 rounded-md p-2" required>
+                <br>
+                <button type="button" class="btn btn-outline-warning custom-btn">Cadastrar</button>
+            </form>
+        </div>
+        <div class="LoginEmpresa">
+            <h2>Quer ser<br>uma Pessoa Jurídica</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             Eum ex recusandae, nemo illo vero enim aliquid.</p>
+            <button>Cadastro Empresa</button>
+        </div>
+    </div>
+    </div>
 </body>
 <script src="script.js"></script>
 
 </html>
+
+https://www.youtube.com/watch?v=as_rZNjjbUQ
