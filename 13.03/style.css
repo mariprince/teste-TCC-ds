@@ -9,7 +9,10 @@ body {
     min-height: 100vh;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Altura da viewport */
+    font-family: Helvetica;
+    background-color: #FAFBE4;
+    align-items: center;
+    justify-content: center;
 }
 /* .media {
     text-align: center; /* Centraliza o texto dentro da div */
@@ -81,13 +84,24 @@ body {
     }
 
 }
+
+.titulo{
+    float: center;
+    justify-self: center;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .caixap1{
     width: 50%;
+    height: 90%;
     background-color: #fff;
+    float: left;
 }
 .caixap2{
-    width: 50%;
+   width: 30%;
+    height: 40%;
     background-color: #fff;
+    float: right;
 }
 #form_motorista{
     width: 40%;
@@ -162,8 +176,8 @@ form {
 }
 .imgMC {
     border-radius: 20%;
-    float: left; /* Float the image to the left 
-    margin-right: 15px; /* Add some space between the image and the text */
+    justify-self: left;
+    float: left;
 }
 .media-body {
     margin: auto;
@@ -220,14 +234,6 @@ body {
     justify-content: center;
 }
 
-.motorista {
-    font-family: Helvetica;
-    margin: 0;
-    background-color: #FAFBE4;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
 
 .texto {
     align-items: center;
