@@ -47,6 +47,7 @@ body {
     transform: translateY(-60px);
 }
 .card {
+    top: 500;
     width: 50%;
     margin-right: 10px;
     padding: 20px;
@@ -134,7 +135,7 @@ body {
     background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efeito de luz ao redor do botão */
 }
-section{
+.emp-text {
     width: 1400px;
     height: 242px;
     margin: auto;
@@ -364,6 +365,83 @@ body {
     background-color: #fff;
 }
 
+
+.sobre-nos {
+    width: 100%;
+    padding: 2rem;
+    background-color: #FAFBE4; /* EA580C laranja forte -- bege FAFBE4*/
+    color: #111;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sobre-nos-header h1 {
+    font-size: 3rem;
+    background-color: #FAFBE4;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .sobre-nos-header p {
+    max-width: 400px;
+    margin-top: 1rem;
+    color: #222;
+    font-size: 0.9rem;
+  }
+  
+  .sobre-nos-equipe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    background: #EA580C;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .membro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1 1 200px;
+    background: #EA580C;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .membro:hover {
+    transform: translateY(-5px);
+  }
+  
+  .membro img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .membro h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .membro p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .sobre-nos-header h1 {
+      font-size: 2rem;
+    }
+    .sobre-nos-equipe {
+      flex-direction: column;
+    }
+  }
+--  
 
 footer{
     text-align: center;
