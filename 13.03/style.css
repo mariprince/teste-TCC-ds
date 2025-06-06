@@ -41,26 +41,38 @@ body {
     transition: all 2s;
 }
 .cartoes{
-    align-items: center;
+    margin-top: 500px;
+    align-items: center; 
     justify-content: center;
     display: flex;
     transform: translateY(-60px);
+
+    .card {
+        width: 50%;
+        margin-right: 10px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .card2 {
+        width: 50%;
+        margin-right: 10px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    } 
+    .card3 {
+        width: 50%;
+        margin-right: 10px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    } 
+    .card-title {
+        align-items: center;
+    }
 }
-.card {
-    top: 500;
-    width: 50%;
-    margin-right: 10px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-.card2 {
-    width: 50%;
-    margin-right: 10px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
+
 @media (max-width: 400px){
     .cartoes{
         grid-template-columns: repeat(2, 1fr);
@@ -70,6 +82,9 @@ body {
         margin: 20px;
     }
     .card2{
+        margin: 20px;
+    }
+    .card3{
         margin: 20px;
     }
     h1{
@@ -388,12 +403,26 @@ body {
     font-size: 0.9rem;
   }
   
-  .sobre-nos-equipe {
+  .equipeDS{
     display: flex;
-    flex-wrap: wrap;
+    justify-self: right;
+    align-items: right;
     gap: 1rem;
     margin-top: 2rem;
     background: #EA580C;
+    color: #FAFBE4;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .equipeDOC{
+    display: flex;
+    justify-self: left;
+    align-items: left;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    background: #e96b27;
     padding: 1rem;
     border-radius: 10px;
   }
