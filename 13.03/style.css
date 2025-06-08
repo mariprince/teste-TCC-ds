@@ -408,6 +408,7 @@ nav{
     transform: rotate(45deg) translate(-5px, -7px);
   }
 .titulo {
+  margin-top: 30vw;
   justify-self: center;
   font-size: 40px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
