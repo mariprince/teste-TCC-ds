@@ -25,21 +25,17 @@ a:hover {
 /* INDEX PAG */
 .container{
   background-size: cover;
-  margin-top: 917px;
-  width: 1500px;
-  height: 100%;
+  width: 1400px;
+  height: 700px;
 }
 .banner {
-  background-size: cover;
-  /*background-position: center center; */
-  width: 1500px;
+  margin-top: 917px;
+  width: 1400px;
   height: 100%;
-  margin-left: 0;
 }
 .banner img {
   width: 1400px;
-  height: 100%; 
-  margin-left: -5vw;
+  height: 100%;
 }
 
 .cartoes {
@@ -207,7 +203,8 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
-  background: #e96b27;
+  background: #ea580c;
+  color: #fafbe4;
   padding: 1rem;
   border-radius: 10px;
 }
