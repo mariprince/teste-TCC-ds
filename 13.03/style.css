@@ -22,20 +22,21 @@ a:hover {
   opacity: 0.7;
 }
 
-/* INDEX PAG */
+/* INDEX PAG 
 .container{
   background-size: cover;
   width: 1400px;
-  height: 700px;
-}
+  height: 45000px;
+}*/
 .banner {
   margin-top: 917px;
-  width: 1400px;
-  height: 100%;
+  width: 100%;
+  height: 900px;
 }
 .banner img {
-  width: 1400px;
-  height: 100%;
+  width: 100%;
+  height: 900px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
 }
 
 .cartoes {
@@ -50,7 +51,36 @@ a:hover {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 3rem;
 }
+/* New styles for card-body to centralize content */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* Make sure image inside card-body is centered and sized nicely */
+.card-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/*.cartoes {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transform: translateY(-60px);
+}
+.card {
+  width: 50%;
+  margin-right: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+} */
 .card2 {
   width: 50%;
   margin-right: 10px;
@@ -67,6 +97,8 @@ a:hover {
 }
 .card-title {
   align-items: center;
+  color: #e06919;
+
 }
 .card img {
   align-self: center;
@@ -87,6 +119,7 @@ a:hover {
   border-radius: 10px;
   object-fit: cover;
 }
+
 @media (max-width: 400px) {
   .cartoes {
     grid-template-columns: repeat(2, 1fr);
@@ -178,7 +211,7 @@ body {
 
 .sobre-nos-header p {
   padding-left: 45px;
-  max-width: 400px;
+  max-width: 800px;
   margin-top: 1rem;
   color: #222;
   font-size: 0.9rem;
