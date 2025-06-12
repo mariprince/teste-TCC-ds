@@ -47,6 +47,7 @@ a:hover {
 }
 .card {
   width: 50%;
+  font-size: 20px;
   margin-right: 10px;
   padding: 20px;
   background-color: #fff;
@@ -83,6 +84,7 @@ a:hover {
 } */
 .card2 {
   width: 50%;
+  font-size: 20px;
   margin-right: 10px;
   padding: 20px;
   background-color: #fff;
@@ -90,6 +92,7 @@ a:hover {
 }
 .card3 {
   width: 50%;
+  font-size: 20px;
   margin-right: 10px;
   padding: 20px;
   background-color: #fff;
@@ -102,20 +105,20 @@ a:hover {
 }
 .card img {
   align-self: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   object-fit: cover;
 }
 .card2 img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   object-fit: cover;
 }
 .card3 img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -419,19 +422,19 @@ nav{
 .mobile-menu.active .line1 {
     transform: rotate(-45deg) translate(-8px, 8px);
   }
-  .mobile-menu.active .line2{
+  .mobile-menu.active .line2 {
     opacity: 0;
   }
   .mobile-menu.active .line3 {
     transform: rotate(45deg) translate(-5px, -7px);
   }
 .titulo {
-  margin-top: 30vw;
+  margin-top: 15vw;
   justify-self: center;
   font-size: 40px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-#caixas{
+#caixas {
   display: grid;
   grid-template-rows: auto auto;
 }
@@ -485,7 +488,7 @@ nav{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .cadastroBT{
-  background-color: rgb(227, 114, 16);
+  background-color: #ea580c;
   color: #ffffff;
   border: #ffffff solid;
   border-radius: 10px;
