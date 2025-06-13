@@ -12,40 +12,49 @@
 </head>
 
 <body class="bg-amber-50 font-sans text-gray-800">
-  <header class="bg-orange-600 text-white p-4 shadow-md">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold">DevLog</h1>
-      <nav class="space-x-4">
-        <a href="empresa.html" class="text-2xl hover:underline">Empresa</a>
-        <a href="motorista.html" class="text-2xl hover:underline">Motorista</a>
-      </nav>
-    </div>
+  <header>
+    <nav>
+      <a class="logo">DevLog</a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="motorista.html">Motorista</a></li>
+        <li><a href="empresa.html">Empresa</a></li>
+        <li><a href="cadastros.html">Login</a></li>
+      </ul>
+    </nav>
   </header>
+    <div class="banner">
+      <img src="imagens/BannerIdx1.png">
+    </div>
   <div class="cartoes">
-    <div class="card" style="width: 18rem; border-radius: 3rem;">
+    <div class="card" style="width: 25rem; height: 20rem; border-radius: 3rem;">
       <div class="card-body">
-        <img src="13.03\imagens\motIdx.png">
+        <img src="imagens\motIdx.png">
         <h5 class="card-title">Motorista</h5>
-        <p class="card-text">Se você é capacitado, tem tempo de estrada e precisa de conexões, aqui é o seu lugar!</p>
-        <a href="motorista.html" class="btn btn-primary" style="border-radius: 1rem;">Saiba Mais</a>
+        <p class="card-text">Se você é capacitado, tem experiência na estrada e precisa de conexões, aqui é o seu lugar!</p>
+        <a href="motorista.html" class="rounded-2x1 p-4 text-center text-orange font-bold flex justify-between items-center" style="color: #e06919; border-radius: 1rem; justify-self:center; margin: 1%;">Saiba Mais</a>
       </div>
     </div>
 
-    <div class="card2" style="width: 18rem; border-radius: 3rem;">
+    <div class="card2" style="width: 25rem; height: 20rem; border-radius: 3rem;">
       <div class="card-body">
-        <img src="13.03\imagens\empIdx.png">
+        <img src="imagens\empIdx.png">
         <h5 class="card-title">Empresa</h5>
-        <p class="card-text">Se sua empresa tem as vendas mas não tem quem entregá-las, aqui é a melhor plataforma para encontrar o motorista ideal.</p>
-        <a href="empresa.html" class="btn btn-primary" style="border-radius: 1rem;">Saiba Mais</a>
+        <p class="card-text">Se sua empresa não tem quem entrega suas vendas, aqui é a melhor plataforma para encontrar o motorista ideal.</p>
+        <a href="empresa.html" class="rounded-2x1 p-4 text-center text-orange font-bold flex" style="color: #e06919; border-radius: 1rem; margin-bottom: 5%;">Saiba Mais</a>
       </div>
     </div>
 
-    <div class="card3" style="width: 18rem; border-radius: 3rem;">
+    <div class="card3" style="width: 25rem; height: 20rem; border-radius: 3rem;">
       <div class="card-body">
-        <img src="13.03\imagens\4.png">
+        <img src="imagens\4.png">
         <h5 class="card-title">Seja Parte do Time</h5>
-        <p class="card-text">A melhor plataforma para conectar motoristas e empresas na realização de frete.</p>
-        <a href="cadastros.html" class="btn btn-primary" style="border-radius: 1rem;">Cadastre-se</a>
+        <p class="card-text">A melhor plataforma para conectar motoristas e empresas para realização de frete.</p>
+        <a href="cadastros.html" class="rounded-2x1 p-4 text-center text-orange font-bold flex justify-between items-center" style="color: #e06919; border-radius: 1rem; justify-self:center; margin: 1%;">Cadastre-se</a>
       </div>
     </div>
   </div>
@@ -54,7 +63,7 @@
     <div class="sobre-nos-header">
       <h1>SOBRE<br>NÓS</h1>
       <p>
-        <strong>LOREM</strong> ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        <strong>EQUIPE DEVLOG</strong> Com o objetivo de otimizar a etapa de entrega da cadeia de suprimentos, nós desenvolvemos a plataforma para conectar motoristas aptos e comprometidos a realizar fretes de curta a longa distância a empresas que tem as vendas, tem a movimentção de mercado, mas não tem o modal adequado, ou o próprio profissional para realizar a fretagem.
       </p>
     </div>
   
@@ -104,11 +113,12 @@
     <p>&copy; 2025 DevLog. Todos os direitos reservados.</p>
   </footer>
 
+  <script src="script_index.js"></script>
+  <script src="mobile-navbar.js"></script>
 </body>
 
 
 
-<script src="script_index.js"></script>
 
 <!-- teste de commit em casa  
  Links q nn sei pra q q serve
