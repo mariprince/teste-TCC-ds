@@ -291,59 +291,7 @@ body {
 /* FIM INDEX PAG */
 
 /* CADASTROS PAG */
-.pagcadastro {
-  background-color: #fafbe4;
-  padding: 9%;
-  opacity: 0%;
-  transform: translateX(-100%);
-  transition: all 2s;
-}
-#form_empresa {
-  display: flex;
-}
-.voltar {
-  background-color: #fff;
-  border-radius: 100%;
-  color: #e06919;
-  margin-right: 80%;
-  font-size: 20px;
-}
-#form_motorista {
-  width: 40%;
-  background-color: #fff;
-}
-#form_empresa {
-  width: 40%;
-  background-color: #fff;
-}
-.formcontrol {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-.butao {
-  display: inline-block;
-  padding: 15px 30px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid #ffffff; /* Cor da borda do botão */
-  border-radius: 5px;
-  background-color: #3498db; /* Cor de fundo do botão */
-  color: #ffffff; /* Cor do texto do botão */
-  position: relative;
-  overflow: hidden;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.butao:hover {
-  background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efeito de luz ao redor do botão */
-}
-.show {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 2s;
-}
+
 /* FIM CADASTROS PAG */
 /*  MOTORISTAS PAG */
 .logo{
@@ -543,13 +491,12 @@ form {
   display: flex;
   align-items: center;
 }
-<<<<<<< HEAD
 footer{
     text-align: center;
     position: absolute;
     bottom: -0;
     width: 100%;
-=======
+}
 footer {
   text-align: center;
   position: relative;
@@ -558,5 +505,4 @@ footer {
   height: 40px;
   background-color: #ea580c;
   color: #fff;
->>>>>>> 7590c34244d55eb6c43a877ae6f3735a133fe0b3
 }
