@@ -1,21 +1,4 @@
 
-/*const express = require('express');
-
-const mysql = require('mysql2')
-
-const app = express()
-
-const conexao = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    database:'projeto',
-});
-
-conexao.connect(function(erro){
-    if(erro) throw erro;
-    console.log('Conexão efetuada com sucesso');
-});*/
-
 document.querySelector('.custom-btn').addEventListener('click', function() {    event.preventDefault();
 
     const nomeM = document.getElementById('nome_motorista').value;
@@ -50,23 +33,16 @@ const elements = document.querySelectorAll('.pagcadastro');
 
 elements.forEach( (element) => myObserver.observe(element));
 
-//app.listen(8080)
+let card = document.querySelector(".cardBI")
+let motoristaButton = document.querySelector(".motoristaButton")
+let empresaButton = document.querySelector(".empresaButton")
 
-
-/*async function criarEPopularTabelaMotorista(nomeM, cpf, curriculo) {
-    const db = await open({
-        filename: 'banco.db',
-        driver: sqlite3.Database,
-    });
-
-    db.run(`CREATE TABLE IF NOT EXISTS motorista(nome_motorista TEXT, cpf INTEGER PRIMARY KEY, email_motorista TEXT)`
-
-    );
-    db.run(`INSERT INTO motorista (nome_motorista, cnpj, email_motorista) VALUES (?,?)`, [
-        nome_motorista,
-         cpf,
-          email_motorista
-        ]);
+motoristaButton.onclick = () => {
+    card.classList.remove("cadastroActive")
+    card.classList.add("loginActive")
 }
 
-criarEPopularTabelaEmpresas('Juan Futuro feito', '487.747.968-60');*/
+empresaButton.onclick = () => {
+    card.classList.remove("loginActive")
+    card.classList.add("cadastroActive")
+}
