@@ -29,7 +29,7 @@ a:hover {
   height: 45000px;
 }*/
 .banner {
-  margin-top: 917px;
+  margin-top: 1817px;
   width: 100%;
   height: 900px;
 }
@@ -47,6 +47,7 @@ a:hover {
   display: flex;
   transform: translateY(-60px);
 }
+
 .card {
   width: 50%;
   font-size: 20px;
