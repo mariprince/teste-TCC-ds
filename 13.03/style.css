@@ -297,7 +297,7 @@ body {
     flex-direction: column;
   }
 }
-/*footer da vovo*/
+/*footer da vovo
 .footter
 {
     background: #fff;
@@ -403,7 +403,122 @@ body {
 {
     color: var(--laranja);
     cursor: pointer;
+}  footttttter da vovo*/
+/*footer do blackbox*/
+  
+h3 {
+  color: #ea580c;           /* Cor dos detalhes */
 }
+
+.footter .box-conteiner {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem; /* Aumenta o espaço entre as caixas */
+  padding: 0 2rem; /* Adiciona padding lateral */
+}
+
+.footter .box {
+  background: #15366a; 
+  border-radius: 1rem; /* Adiciona bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Adiciona sombra para profundidade */
+  padding: 1.5rem; /* Adiciona padding interno */
+  transition: transform 0.3s; /* Transição suave para hover */
+}
+
+.footter .box:hover {
+  transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+}
+
+.footter .box h3 {
+  color: #ffffff; 
+  font-size: 1.8rem; /* Ajusta o tamanho da fonte */
+  margin-bottom: 1rem; /* Adiciona espaço abaixo do TÍTULO */
+}
+
+.footter .box h3 i {
+  color: #e06919; /* Mantém a cor do ícone */
+}
+
+.footter .box .links {
+  display: block;
+  color: #555; /* Um tom mais escuro para as links */
+  font-size: 1.2rem; /* Ajusta o tamanho da fonte */
+  padding: 0.5rem 0; /* Ajusta o padding */
+  transition: color 0.3s; /* Transição suave para hover */
+}
+
+.footter .box .links:hover {
+  color: #e06919; /* Muda a cor ao passar o mouse */
+}
+
+.footter .box p {
+  line-height: 1.6; /* Ajusta o espaçamento entre linhas */
+  color: #666; /* Um tom mais claro para o texto */
+  font-size: 1rem; /* Ajusta o tamanho da fonte */
+  margin-bottom: 1rem; /* Adiciona espaço abaixo do parágrafo */
+}
+
+.footter .box .share a {
+  height: 3rem; /* Ajusta a altura dos ícones de compartilhamento */
+  width: 3rem; /* Ajusta a largura dos ícones de compartilhamento */
+  line-height: 3rem; /* Centraliza o texto verticalmente */
+  color: #333; /* Cor do ícone */
+  font-size: 1.5rem; /* Ajusta o tamanho do ícone */
+  margin: 0 0.5rem; /* Ajusta o espaço entre os ícones */
+  border-radius: 50%; /* Torna os ícones circulares */
+  background: #eee; /* Fundo dos ícones */
+  text-align: center;
+  transition: background 0.3s; /* Transição suave para hover */
+}
+
+.footter .box .share a:hover {
+  background: #e06919; /* Muda a cor de fundo ao passar o mouse */
+  color: #ffffff; /* Muda a cor do ícone ao passar o mouse */
+}
+
+.footter .box .email {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  color: #333; /* Cor do texto do input */
+  background: #f0f0f0; /* Fundo do input */
+  border-radius: 0.5rem;
+  font-size: 1rem; /* Ajusta o tamanho da fonte */
+  border: 1px solid #ccc; /* Adiciona uma borda ao input */
+}
+
+.footter .box .btn {
+  width: 100%;
+  padding: 1rem; /* Adiciona padding ao botão */
+  background: #e06919; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none; /* Remove a borda padrão */
+  border-radius: 0.5rem; /* Bordas arredondadas */
+  font-size: 1rem; /* Ajusta o tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para pointer */
+  transition: background 0.3s; /* Transição suave para hover */
+}
+
+.footter .box .btn:hover {
+  background: #d05e17; /* Muda a cor ao passar o mouse */
+}
+
+.footter .creditos {
+  text-align: center;
+  background-color: #f9f9f9; /* Mantém o fundo suave */
+  padding: 1rem;
+  font-size: 1.2rem; /* Ajusta o tamanho da fonte */
+  font-weight: 600;
+  color: #333; /* Cor do texto */
+  border-top: 1px solid #ccc; /* Adiciona uma borda superior */
+}
+
+.footter .creditos span {
+  color: #e06919; /* Mantém a cor do destaque */
+  cursor: pointer;
+}
+
+/*fim do footer do blackbox*/
 /* FIM INDEX PAG */
 
 /* CADASTROS PAG */
