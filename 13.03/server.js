@@ -17,60 +17,72 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+// ...existing code...
 app.post("/cadastro", async (req, res) => {
-    const { email, cpf, password } = req.body;
-    const { user, error } = await supabase.auth.signUp({ email, cpf, password });
-
-    if (error) return res.redirect(`/error.html?`)
+  const { email, cpf, password } = req.body;
+  // O Supabase só aceita email e password para autenticação
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password
+  });
+  if (error) {
+    return res.redirect("/error.html");
+  }
+  // Salva dados adicionais (CPF) em uma tabela separada, se desejar
+  await supabase
+    .from('motoristas')
+    .insert([{ email, cpf }]);
+  return res.redirect("/login.html");
 });
+// ...existing code...
 
-app.post("/login", async (req , res) => {
-    const { email, password } = req.body;
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
-    res.cookie("acess_token", data.session.access_token, { httpOnly: true});
-    res.redirect("/index");
+  res.cookie("acess_token", data.session.access_token, { httpOnly: true });
+  res.redirect("/index");
 });
 
 app.get("/private", async (req, res) => {
-    const token = req.cookies.acess_token;
-    if (!token) return res.redirect("/");
+  const token = req.cookies.acess_token;
+  if (!token) return res.redirect("/");
 
-    const { data, error } = await supabase.auth.getUser(token);
-    if (error) return res.redirect("/")
-    
-        const filePath = path.join(__dirname, "private.html");
+  const { data, error } = await supabase.auth.getUser(token);
+  if (error) return res.redirect("/")
 
-    fs.readFile(filePath, "utf8", (err, html) => {
-        if (err) {
-            console.error("Error: private.html could not be loaded!", err);
-            return res.status(500).send("Server error: private.html not found. ");
-        }
+  const filePath = path.join(__dirname, "private.html");
 
-        const modifiedHtml = html.replace("{{userEmail}}", data.user.email);
-        res.send(modifiedHtml);
-    });
+  fs.readFile(filePath, "utf8", (err, html) => {
+    if (err) {
+      console.error("Error: private.html could not be loaded!", err);
+      return res.status(500).send("Server error: private.html not found. ");
+    }
+
+    const modifiedHtml = html.replace("{{userEmail}}", data.user.email);
+    res.send(modifiedHtml);
+  });
 });
 
 app.get("/logout", (req, res) => {
-    res.clearCookie("access_token");
-    res.redirect("/");
+  res.clearCookie("access_token");
+  res.redirect("/");
 });
 
 // Endpoint para cadastro de empresa
 app.post('/cadastro-empresa', async (req, res) => {
-    const { nome_empresa, email_empresa, senha_empresa, cnpj } = req.body;
-    // Salva na tabela 'empresas' do Supabase
-    const { data, error } = await supabase
-        .from('empresas')
-        .insert([{ nome_empresa, email_empresa, senha_empresa, cnpj }]);
-    if (error) {
-        return res.status(400).json({ error: error.message });
-    }
-    return res.status(200).json({ success: true });
+  const { nome_empresa, email_empresa, senha_empresa, cnpj } = req.body;
+  // Salva na tabela 'empresas' do Supabase
+  const { data, error } = await supabase
+    .from('empresas')
+    .insert([{ nome_empresa, email_empresa, senha_empresa, cnpj }]);
+  if (error) {
+    return res.status(400).json({ error: error.message });
+  }
+  return res.status(200).json({ success: true });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
