@@ -1,7 +1,6 @@
-
 document.querySelector('.custom-btn').addEventListener('click', function() {    event.preventDefault();
-
-    const nomeM = document.getElementById('nome_motorista').value;
+    const emailM = document.getElementById('email').value;
+    const senha = document.getElementById('password')
     const cpf = document.getElementById('cpf').value;
     const curriculo = document.getElementById('formFile').value;
     if (curriculo.length > 0) {
@@ -13,12 +12,9 @@ document.querySelector('.custom-btn').addEventListener('click', function() {    
         console.log('Nenhum currículo selecionado.');
     }
     // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Motorista cadastrado: ${nomeM}, ${cpf}, ${curriculo}`);
-    document.getElementById('form_motorista').reset();
+    console.log(`Motorista cadastrado: ${emailM}, ${password}, ${cpf}, ${curriculo}`);
+    document.getElementById('formCadastroMotorista').reset();
 });
-
-
-
 const myObserver = new IntersectionObserver( (entries) => {
     entries.forEach( (entry) => {
         if(entry.isIntersecting){
@@ -30,7 +26,6 @@ const myObserver = new IntersectionObserver( (entries) => {
 })
 
 const elements = document.querySelectorAll('.pagcadastro');
-
 elements.forEach( (element) => myObserver.observe(element));
 
 let card = document.querySelector(".cardBI")
@@ -46,3 +41,4 @@ empresaButton.onclick = () => {
     card.classList.remove("loginActive")
     card.classList.add("cadastroActive")
 }
+

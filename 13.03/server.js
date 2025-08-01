@@ -59,5 +59,37 @@ app.get("/logout", (req, res) => {
     res.clearCookie("access_token");
     res.redirect("/");
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formCadastroMotorista");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // impede que o formulário recarregue a página
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.ok) {
+        // Redireciona para página de sucesso ou login
+        window.location.href = "/login.html";
+      } else {
+        // Redireciona para página de erro
+        window.location.href = "/error.html";
+      }
+    } catch (error) {
+      console.error("Erro no cadastro:", error);
+      window.location.href = "/error.html";
+    }
+  });
+});
+
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
