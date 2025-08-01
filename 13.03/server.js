@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/cadastro", async (req, res) => {
-    const { email, password } = req.body;
-    const { user, error } = await supabase.auth.signUp({ email, password });
+    const { email, cpf, password } = req.body;
+    const { user, error } = await supabase.auth.signUp({ email, cpf, password });
 
     if (error) return res.redirect(`/error.html?`)
 });
@@ -59,6 +59,20 @@ app.get("/logout", (req, res) => {
     res.clearCookie("access_token");
     res.redirect("/");
 });
+
+// Endpoint para cadastro de empresa
+app.post('/cadastro-empresa', async (req, res) => {
+    const { nome_empresa, email_empresa, senha_empresa, cnpj } = req.body;
+    // Salva na tabela 'empresas' do Supabase
+    const { data, error } = await supabase
+        .from('empresas')
+        .insert([{ nome_empresa, email_empresa, senha_empresa, cnpj }]);
+    if (error) {
+        return res.status(400).json({ error: error.message });
+    }
+    return res.status(200).json({ success: true });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formCadastroMotorista");
 
