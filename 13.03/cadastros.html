@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastros</title>
-  <link rel="stylesheet" href="cadastro.css"/>
+  <link rel="stylesheet" href="cadastro.css" />
   <script src="script.js" defer></script>
 </head>
+
 <body>
   <section class="containerPai">
     <div class="cardBI loginActive">
       <div class="esquerda">
         <div class="formMotorista">
           <h2>Cadastre-se</h2>
-          <form>
+          <!-- ...existing code... -->
+          <form id="formCadastroMotorista" action="/cadastro" method="POST">
             <button class="voltar" onclick="javascript:history.back()">🠔</button>
-            <input type="text" placeholder=" Seu E-mail">
-            <input type="text" id="cpf" name="cpf" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-              required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-            <input type="password" placeholder="Crie sua Senha">
-              <label for="formFile" class="form-label">
+            <input type="email" id="email" name="email" placeholder=" Seu E-mail" required />
+            <input type="text" id="cpf" name="cpf" placeholder="CPF" required />
+            <input type="password" id="password" name="password" placeholder="Crie sua Senha" required />
+            <label for="formFile" class="form-label">
               <h3>Currículo</h3>
             </label>
             <input class="formcontrol" type="file" id="formFile" />
-            <button type="button" class="btn btn-outline-warning custom-btn">
-              Cadastrar
-            </button>
+            <button type="submit" class="btn btn-outline-warning custom-btn">Cadastrar</button>
           </form>
+          <!-- ...existing code... -->
           <a href="login.html">
             Já tem conta? Login aqui
-            </a>
+          </a>
         </div>
         <div class="cadastroMotorista">
           <h2>Quer ser <br />um Motorista?</h2>
@@ -48,11 +49,10 @@
             <input type="text" placeholder="Nome Empresa">
             <input type="email" placeholder="Email Empresa">
             <input type="senha" placeholder="Crie sua Senha">
-            <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ"
-              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required
+            <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required
               oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
-            <input placeholder="Email Empresa"   type="email_empresa" id="email_empresa" class="w-full border border-gray-300 rounded-md p-2"
-              required />
+            <input placeholder="Email Empresa" type="email_empresa" id="email_empresa"
+              class="w-full border border-gray-300 rounded-md p-2" required />
             <br />
             <button type="submit" class="btn btn-outline-warning custom-btn">
               Cadastrar
@@ -67,13 +67,12 @@
           </p>
           <button class="empresaButton">Cadastro Empresa</button>
         </div>
-         <a href="login.html">
-            Já cadastrou sua Empresa? Login aqui
-            </a>
+        <a href="login.html">
+          Já cadastrou sua Empresa? Login aqui
+        </a>
       </div>
     </div>
   </section>
-  <script src="script.js"></script>
 </body>
 
 </html>
