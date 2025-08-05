@@ -413,12 +413,11 @@ h3 {
 
 .footter .box-conteiner {
   display: flex;
-  width: 130%; 
-  margin-left: 0,5%;
-  margin-right: 0,5%;
+  width: 100%; 
+  /* margin-left: -20px; */
   background: #293649; 
   grid-template-rows: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 2rem; /* Aumenta o espaço entre as caixas */
+  gap: 9rem; /* Aumenta o espaço entre as caixas */
   padding: 0 2rem; /* Adiciona padding lateral 
   border-radius: 1rem; /* Adiciona bordas arredondadas 
   box-shadow: 0 4px 10px rgba(255, 251, 251, 0.1); /* Adiciona sombra para profundidade */
@@ -458,7 +457,7 @@ h3 {
 
 .footter .box p {
   line-height: 1.6; /* Ajusta o espaçamento entre linhas */
-  color: #666; /* Um tom mais claro para o texto */
+  color: #d1cece; /* Um tom mais claro para o texto */
   font-size: 1rem; /* Ajusta o tamanho da fonte */
   margin-bottom: 1rem; /* Adiciona espaço abaixo do parágrafo */
 }
