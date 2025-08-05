@@ -29,7 +29,7 @@ a:hover {
   height: 45000px;
 }*/
 .banner {
-  margin-top: 1817px;
+  margin-top: 1417px;
   width: 100%;
   height: 900px;
 }
@@ -413,7 +413,9 @@ h3 {
 
 .footter .box-conteiner {
   display: flex;
-  width: 100%;
+  width: 130%; 
+  margin-left: 0,5%;
+  margin-right: 0,5%;
   background: #293649; 
   grid-template-rows: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 2rem; /* Aumenta o espaço entre as caixas */
