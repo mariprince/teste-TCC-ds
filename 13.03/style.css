@@ -43,6 +43,7 @@ a:hover {
 }
 
 .cartoes {
+  margin-top: 80px;
   align-items: center;
   justify-content: center;
   display: flex;
