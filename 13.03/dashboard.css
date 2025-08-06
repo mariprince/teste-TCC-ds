@@ -12,10 +12,15 @@
   
   header {
     background-color: #fff;
+    text-align: center;
+    top: 0;
+    width: 100vw;
+    height: 80px;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /*justify-content: space-between;
+    position: absolute;
+    align-items: center;*/
     border-bottom: 1px solid #ddd;
   }
   
