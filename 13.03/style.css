@@ -29,7 +29,7 @@ a:hover {
   height: 45000px;
 }*/
 .banner {
-  margin-top: 1200px;
+  margin-top: 1300px;
   width: 100%;
   height: 900px;
 }
@@ -66,6 +66,14 @@ a:hover {
   align-items: center;
   text-align: center;
 }
+
+.card-body a{
+  color: #e06919; 
+  border-radius: 1rem; 
+  justify-self:center; 
+  margin: 1%;
+}
+
 /* Make sure image inside card-body is centered and sized nicely */
 .card-body img {
   display: block;
@@ -74,19 +82,6 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-/*.cartoes {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  transform: translateY(-60px);
-}
-.card {
-  width: 50%;
-  margin-right: 10px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-} */
 .card2 {
   width: 50%;
   font-size: 20px;
@@ -106,7 +101,6 @@ a:hover {
 .card-title {
   align-items: center;
   color: #e06919;
-
 }
 .card img {
   align-self: center;
@@ -209,7 +203,7 @@ body {
 }
 
 .sobre-nos-header h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   background-color: rgb(255 251 235);
   font-weight: bold;
   line-height: 1;
@@ -218,22 +212,40 @@ body {
 
 .sobre-nos-header p {
   padding-left: 45px;
-  max-width: 800px;
+  text-align: justify;
+  max-width: 1000px;
   margin-top: 1rem;
   color: #222;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
 }
 
 .equipeDS {
   display: flex;
   justify-self: right;
   align-items: right;
+  width: 650px;
+  height: 100px;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 0rem;
   background: #ea580c;
   color: #fafbe4;
   padding: 1rem;
   border-radius: 10px;
+}
+
+.equipeDS h4{
+  justify-self: center;
+  font-size: 1.6rem;
+}
+
+.equipeDS p{
+  justify-self: center;
+  font-size: 1.4rem;
+}
+
+.equipeDS :hover{
+  transform: translateY(-5px);
+  color: #293649
 }
 
 .equipeDS img {
@@ -247,6 +259,8 @@ body {
   display: flex;
   justify-self: left;
   align-items: left;
+  width: 470px;
+  height: 100px;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
@@ -256,39 +270,22 @@ body {
   border-radius: 10px;
 }
 
-.membro {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex: 1 1 200px;
-  background: #ea580c;
-  padding: 1rem;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+.equipeDOC h4{
+  justify-self: center;
+  font-size: 1.6rem;
 }
 
-.membro:hover {
+.equipeDOC p{
+  justify-self: center;
+  font-size: 1.4rem;
+}
+
+.equipeDOC :hover{
   transform: translateY(-5px);
+  color: #293649
 }
 
-.membro img {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.membro h4 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.membro p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #555;
-}
+/* add transição quando descer na página nas equipes*/
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -299,114 +296,6 @@ body {
     flex-direction: column;
   }
 }
-/*footer da vovo
-.footter
-{
-    background: #fff;
-}
-.footter .box-conteiner
-{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 1.5rem;
-}
-.footter .box-conteiner .box
-{
-    overflow: hidden;
-    background: #fff;
-}
-.footter .box-conteiner .box h3
-{
-    color: var(--black);
-    font-size: 2rem;
-    padding: 1rem 0;
-}
-.footter .box-conteiner .box h3 i
-{
-    color: var(--laranja);
-}
-.footter .box-conteiner .box .links
-{   
-    display: block;
-    color: var(--ligth-color);
-    font-size: 1.5rem;
-    padding: 1rem 0;
-}
-.footter .box-conteiner .box p
-{   
-    line-height: 1.8;
-    color: var(--ligth-color);
-    font-size: 1.5rem;
-    padding: 1rem 0;
-}
-.footter .box-conteiner .box .links i
-{
-    color: var(--laranja);
-    padding-right: .5rem;
-}
-.footter .box-conteiner .box .links:hover i
-{
-    padding-right: 2rem;
-}
-.footter .box-conteiner .box .share a
-{
-    height: 4rem;
-    width: 4rem;
-    line-height: 4rem;
-    color: var(--black);
-    font-size: 2rem;
-    margin-left: .2rem;
-    border-radius: .5rem;
-    background: #eee;
-    text-align: center;
-}
-.footter .box-conteiner .box .share a:hover
-{
-    color: #ffffff;
-    background: var(--laranja);
-}
-.footter .box-conteiner .box .email
-{
-    width: 100%;
-    margin: .7rem 0;
-    padding: 1rem;
-    color: var(--black);
-    text-transform: none;
-    background: #eee;
-    border-radius: .5rem;
-    font-size: 1.6rem;
-}
-.footter .box-conteiner .box img
-{
-    margin: 2rem 0;
-    height: 3rem;
-    text-align: center;
-}
-.footter .box-conteiner .box .btn
-{
-    width: 100%;
-
-}
-.footter .creditos
-{
-    text-align: center;
-    text-transform: none;
-    background-color: #fff;
-    padding: 1rem;
-    padding-top: 2rem;
-    
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--black);
-    border-top: var(--border);
-
-}
-.footter .creditos span
-{
-    color: var(--laranja);
-    cursor: pointer;
-}  footttttter da vovo*/
-/*footer do blackbox*/
   
 h3 {
   color: #ea580c;           /* Cor dos detalhes */
