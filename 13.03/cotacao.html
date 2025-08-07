@@ -1,56 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotação Frete</title>
-    <link rel="stylesheet" href="cotacao.css">
-</head>
-<body>
-    <header>
-      <nav>
-        <a class="logo">🚚 DevLog</a>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="cadastros.html">Login</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="cotar">
-      <h4> INFORME A ORIGEM </h4>
-      <div class="formCota">
-        <form action="">
-          <label for="">CEP de Origem</label><br>
-          <input type="" placeholder="XXXXX-XXX"></input>
-          <button> SALVAR</button>
-          <button>LIMPAR</button>
-          <label for="">Formato</label>
-          <select name="" id="">
-            <option value="">Caixa/Pacote</option>
-            <option value="">Rolo / Cilindro ou Esfera</option>
-            <option value="">Envelope</option>
-          </select>
-          <label for="">Peso</label>
-          <input type="">
-          <label for="">Altura</label>
-          <input type="">
-          <label for="">Largura</label>
-          <input type="">
-          <label for="">Comprimento</label>
-          <input type="">
-        </form>
-      </div>
-      <div class="destino">
-      <h4>INFORME O DESTINO</h4>
-      <label for="">CEP de Origem</label>
-          <input type="" placeholder="XXXXX-XXX"></input>
 
-          <button>CALCULAR FRETE</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotação Frete</title>
+  <link rel="stylesheet" href="cotacao.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="logo">🚚 DevLog</a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="cadastros.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="cotar" style="position: a;">
+    <h4> INFORME A ORIGEM </h4>
+    <div class="formCota">
+      <form action="" style="">
+        <div class="" style="display: flex; flex-direction: row; align-items: center;">
+          <div style="position: relative;">
+            <label for="" id="label" style="position: absolute;">CEP de Origem</label><br>
+            <input type="" placeholder="XXXXX-XXX" class="input"></input>
+          </div>
+          <div class="" style="margin-left: 10px;">
+            <button> SALVAR</button>
+            <button>LIMPAR</button>
+          </div>
         </div>
+
+        <div class="" style="display: flex; flex-direction: row; align-items: center;">
+          <div class="" style="margin: 10px;">
+            <label for="" id="label">Formato</label>
+            <select name="" id="" class="input">
+              <option value="">Caixa/Pacote</option>
+              <option value="">Rolo / Cilindro ou Esfera</option>
+              <option value="">Envelope</option>
+            </select>
+          </div>
+          <div class="">
+            <label for="" id="label">Peso</label>
+            <select class="input">
+              <option value="" aria-placeholder="" style="color: cadetblue;">Selecione</option>
+              <option value="">Até 300g</option>
+              <option value="">Até 1Kg</option>
+              <option value="">Até 2Kg</option>
+              <option value="">Até 3Kg</option>
+              <option value="">Até 4Kg</option>
+              <option value="">Até 5Kg</option>
+              <option value="">Até 6Kg</option>
+              <option value="">Até 7Kg</option>
+              <option value="">Até 8Kg</option>
+              <option value="">Até 9Kg</option>
+              <option value="">Até 10Kg</option>
+              <option value="">Até 11Kg</option>
+              <option value="">Até 12Kg</option>
+              <option value="">Até 13Kg</option>
+              <option value="">Até 14Kg</option>
+              <option value="">Até 15Kg</option>
+              <option value="">Até 16Kg</option>
+              <option value="">Até 17Kg</option>
+              <option value="">Até 18Kg</option>
+              <option value="">Até 19Kg</option>
+              <option value="">Até 20Kg</option>
+              <option value="">Até 21Kg</option>
+              <option value="">Até 22Kg</option>
+              <option value="">Até 23Kg</option>
+              <option value="">Até 24Kg</option>
+              <option value="">Até 25Kg</option>
+              <option value="">Até 26Kg</option>
+              <option value="">Até 27Kg</option>
+              <option value="">Até 28Kg</option>
+              <option value="">Até 29Kg</option>
+              <option value="">Até 30Kg</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="" style="display: flex; flex-direction: row; align-items: center;">
+          <div class="" style="margin: 10px;">
+            <label for="" id="label">Altura</label>
+            <input type="" class="input">
+          </div>
+          <div class="">
+            <label for="" id="label">Largura</label>
+            <input type="" class="input">
+          </div>
+        </div>
+
+
+        <label for="" id="label">Comprimento</label>
+        <input type="" class="input">
+      </form>
     </div>
+    <div class="destino">
+      <h4>INFORME O DESTINO</h4>
+      <label for="" id="label">CEP de Origem</label>
+      <input type="" placeholder="XXXXX-XXX" class="input"></input>
+
+      <button style="margin: 10px;">CALCULAR FRETE</button>
+    </div>
+  </div>
 </body>
+
 </html>

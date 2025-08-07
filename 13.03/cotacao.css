@@ -54,6 +54,24 @@
     margin: 8px;
     transition: 0.3s;
   }
+
+  #label {
+    font-size: 12px;
+  }
+
+  .input {
+    width: 225px;
+    height: 40px;
+    padding-block: 10px;
+    padding-inline: 5px;
+    outline: none;
+    border-bottom: 1px solid black;
+    transition: 0.3s;
+  }
+
+  .input:hover {
+    border-bottom: 2px solid black;
+  }
   
   @media (max-width: 999px) {
       body{
