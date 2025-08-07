@@ -29,7 +29,7 @@ a:hover {
   height: 45000px;
 }*/
 .banner {
-  margin-top: 1417px;
+  margin-top: 1200px;
   width: 100%;
   height: 900px;
 }
@@ -43,6 +43,7 @@ a:hover {
 }
 
 .cartoes {
+  margin-top: 80px;
   align-items: center;
   justify-content: center;
   display: flex;
