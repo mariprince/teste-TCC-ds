@@ -18,7 +18,7 @@
         <div class="line3"></div>
       </div>
       <ul class="nav-list">
-        <li><a href="cadastros.html">Login</a></li>
+        <li><a href="cadastros.html" style="color: #fff;text-decoration: none ;">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -31,12 +31,11 @@
             <label for="" id="label" style="position: absolute;">CEP de Origem</label><br>
             <input type="" placeholder="XXXXX-XXX" class="input"></input>
           </div>
-          <div class="" style="margin-left: 10px;">
-            <button> SALVAR</button>
-            <button>LIMPAR</button>
+          <div class="butoes" style="padding: 10px;">
+            <button class="btSalvar"> SALVAR</button>
+            <button class="btLimpar">LIMPAR</button>
           </div>
         </div>
-
         <div class="" style="display: flex; flex-direction: row; align-items: center;">
           <div class="" style="margin: 10px;">
             <label for="" id="label">Formato</label>
@@ -81,24 +80,28 @@
               <option value="">Até 28Kg</option>
               <option value="">Até 29Kg</option>
               <option value="">Até 30Kg</option>
-              </select>
+            </select>
           </div>
         </div>
 
         <div class="" style="display: flex; flex-direction: row; align-items: center;">
-          <div class="" style="margin: 10px;">
+          <div class="box-input-trhee" style="margin: 10px;">
             <label for="" id="label">Altura</label>
-            <input type="" class="input">
+            <input type="" class="input" style="width: 100px;" placeholder="00">
           </div>
-          <div class="">
+          <div class="box-input-trhee">
             <label for="" id="label">Largura</label>
-            <input type="" class="input">
+            <input type="" class="input" style="width: 100px; " placeholder="00">
           </div>
+          <div class="box-input-trhee">
+            <label for="" id="label">Comprimento</label>
+            <input type="" class="input" style="margin-left: 10px; width: 100px ;" placeholder="00">
+          </div>
+
         </div>
 
 
-        <label for="" id="label">Comprimento</label>
-        <input type="" class="input">
+
       </form>
     </div>
     <div class="destino">
@@ -106,7 +109,7 @@
       <label for="" id="label">CEP de Origem</label>
       <input type="" placeholder="XXXXX-XXX" class="input"></input>
 
-      <button style="margin: 10px;">CALCULAR FRETE</button>
+      <button class="btCalcular" style="margin: 10px;">CALCULAR FRETE</button>
     </div>
   </div>
 </body>

@@ -11,8 +11,9 @@
     align-items: center;    
   }
   header{
-    background-color: #ec7e42;
+    background-color: #ea580c;
     height: 7vh;
+    color: #fff;
 
     nav{
         display: flex;
@@ -71,6 +72,10 @@
 
   .input:hover {
     border-bottom: 2px solid black;
+  }
+
+  .box-input-trhee {
+    max-width: 120;
   }
   
   @media (max-width: 999px) {
@@ -135,7 +140,56 @@
         .destino{
             padding: 10px;
         }
-    }
+      }
+      .btSalvar{
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #ea580c;
+        color: #fff;
+        border: none;
+        height: 30px;
+        width: 60px;
+      }
+      .btSalvar:hover{
+        background-color: #bb490c;
+        transition: 0.2s;
+      }
+
+      .btLimpar{
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #ea580c;
+        color: #fff;
+        border: none;
+        height: 30px;
+        width: 60px;
+        margin-left: 20px;
+      }
+      .btLimpar:hover{
+        background-color: #bb490c;
+        transition: 0.2s;
+
+      }
+
+
+      .btCalcular{
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #ea580c;
+        color: #fff;
+        border: none;
+        height: 30px;
+        width: 100%;
+      }
+      .btCalcular:hover{
+        background-color: #bb490c;
+        transition: 0.2s;
+      }
+
+
     label, input, select{
         display: flex;
         border: 0px;
