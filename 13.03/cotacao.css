@@ -196,3 +196,12 @@
         background-color: #f2f4f8;
         padding: 2px 0px 3px;
     }
+    footer {
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #ea580c;
+      color: #fff;
+  }
