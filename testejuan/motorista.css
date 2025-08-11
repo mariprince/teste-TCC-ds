@@ -1,0 +1,149 @@
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            padding-top: 80px; /* Espaço para o header fixo */
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header estilizado */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #d1560f 0%, #ca5e06 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            padding-left: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        nav ul li a:hover {
+            color: #d1e0fb;
+        }
+        
+        /* Conteúdo de exemplo para demonstrar scrolling */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        
+        /* Efeito de header reduzido ao scroll */
+        header.scrolled {
+            padding: 8px 0;
+            background: rgba(58, 123, 213, 0.95);
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+
+        .imgMotorista{
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 25%;
+            margin-left: 2.5rem;
+          } 
+          #titu{
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+          }
+          .hero{
+            display: flex;
+            padding-bottom: 3rem;
+            justify-content: center;
+          }
+          .row{
+            display: flex;
+            justify-content: center;
+          }
+          .sobreMto{
+            margin-bottom: 1rem;
+            margin-top: 0;
+            display: block;
+            unicode-bidi: isolate;
+            
+          }
+          .sobreEsq{
+            width: 500px;
+          }
+          .aa{
+            padding-left: 1rem;
+            width: 1000px;
+          }
+          .sobreCargo{
+            width: 700px;
+            margin-left: 3.5rem;
+            justify-content: center;
+            align-items: center;
+          
+            #textCargo{
+              margin: 1rem;
+              margin-left: 2.5rem;
+            }
+          }

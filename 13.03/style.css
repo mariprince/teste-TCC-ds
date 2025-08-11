@@ -21,6 +21,11 @@ a{
 a:hover {
   opacity: 0.7;
 }
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
 /* INDEX PAG 
 .container{
@@ -627,4 +632,46 @@ footer {
   height: 40px;
   background-color: #ea580c;
   color: #fff;
+}
+
+.imgMotorista{
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 25%;
+} 
+#titu{
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.hero{
+  display: flex;
+  padding-bottom: 3rem;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
+.sobreMto{
+  margin-bottom: 1rem;
+  margin-top: 0;
+  display: block;
+  unicode-bidi: isolate;
+  
+}
+.sobreEsq{
+  width: 500px;
+}
+.aa{
+  padding-left: 1rem;
+  width: 1000px;
+}
+.sobreCargo{
+  width: 500px;
+
+  #textCargo{
+    margin: 1rem;
+    padding-left: 1rem;
+  }
 }
