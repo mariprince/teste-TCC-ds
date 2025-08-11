@@ -29,9 +29,9 @@ a:hover {
   height: 45000px;
 }*/
 .banner {
-  margin-top: 1300px;
+  margin-top: 710px;
   width: 100%;
-  height: 900px;
+  height: 750px;
 }
 
 .banner img {
@@ -99,6 +99,7 @@ a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .card-title {
+  
   align-items: center;
   color: #e06919;
 }
@@ -258,8 +259,8 @@ body {
 .equipeDOC {
   display: flex;
   justify-self: left;
-  align-items: left;
-  width: 470px;
+  align-items: center;
+  width: 650px;
   height: 100px;
   flex-wrap: wrap;
   gap: 1rem;
@@ -271,11 +272,13 @@ body {
 }
 
 .equipeDOC h4{
+  align-items: center;
   justify-self: center;
   font-size: 1.6rem;
 }
 
 .equipeDOC p{
+  align-items: center;
   justify-self: center;
   font-size: 1.4rem;
 }
