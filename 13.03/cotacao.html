@@ -26,7 +26,7 @@
     </nav>
   </header>
   <div class="cotar" style="position: a;">
-    <h4> INFORME A ORIGEM </h4>
+    <h4> PONTO DE PARTIDA </h4>
     <div class="formCota">
       <form action="" style="">
         <div class="" style="display: flex; flex-direction: row; align-items: center;">
@@ -43,27 +43,62 @@
           <div class="" style="margin: 10px;">
             <label for="" id="label">Formato</label>
             <select name="" id="" class="input">
-              <option value="">Caixa/Pacote</option>
-              <option value="">Rolo / Cilindro ou Esfera</option>
-              <option value="">Envelope</option>
+              <option value="" aria-placeholder="" style="color: cadetblue;">Selecione</option>
+              <option value="">A granel (sólidas, líquidas, gasosas)</option>
+              <option value="">Perecíveis</option>
+              <option value="">Secas</option>
+              <option value="">Frágeis</option>
+              <option value="">Perigosas</option>
+              <option value="">Vivas</option>
+              <option value="">Frigoríficas</option>
+              <option value="">Preciosa</option>
             </select>
           </div>
           <div class="">
             <label for="" id="label">Peso</label>
             <select class="input">
               <option value="" aria-placeholder="" style="color: cadetblue;">Selecione</option>
-              <option value="">Até 300g</option>
-              <option value="">Até 1Kg</option>
-              <option value="">Até 2Kg</option>
-              <option value="">Até 3Kg</option>
-              <option value="">Até 4Kg</option>
               <option value="">Até 5Kg</option>
-              <option value="">Até 6Kg</option>
-              <option value="">Até 7Kg</option>
-              <option value="">Até 8Kg</option>
-              <option value="">Até 9Kg</option>
               <option value="">Até 10Kg</option>
-              <option value="">Até 11Kg</option>
+              <option value="">Até 25Kg</option>
+              <option value="">Até 50Kg</option>
+              <option value="">Até 100Kg</option>
+              <option value="">Mais de 100kg</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="" style="display: flex; flex-direction: row; align-items: center;">
+          <div class="box-input-trhee" style="margin: 10px;">
+            <label for="" id="label">Altura</label>
+            <input type="" class="input" style="width: 100px;" placeholder="00">
+          </div>
+          <div class="box-input-trhee">
+            <label for="" id="label">Largura</label>
+            <input type="" class="input" style="width: 100px; " placeholder="00">
+          </div>
+          <div class="box-input-trhee">
+            <label for="" id="label">Comprimento</label>
+            <input type="" class="input" style="margin-left: 10px; width: 100px ;" placeholder="00">
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="destino">
+      <h4>INFORME O DESTINO</h4>
+      <label for="" id="label">CEP de Origem</label>
+      <input type="" placeholder="XXXXX-XXX" class="input"></input>
+
+      <button class="btCalcular" style="margin: 10px;">CALCULAR FRETE</button>
+    </div>
+  </div>
+</body>
+<footer class="bg-orange-600 text-white py-4">
+  <p>&copy; 2025 <span>DevLog </span> | Todos os direitos reservados</p>
+</footer>
+
+<!-- <option value="">Até 11Kg</option>
               <option value="">Até 12Kg</option>
               <option value="">Até 13Kg</option>
               <option value="">Até 14Kg</option>
@@ -82,41 +117,6 @@
               <option value="">Até 27Kg</option>
               <option value="">Até 28Kg</option>
               <option value="">Até 29Kg</option>
-              <option value="">Até 30Kg</option>
-            </select>
-          </div>
-        </div>
+              <option value="">Até 30Kg</option>-->
 
-        <div class="" style="display: flex; flex-direction: row; align-items: center;">
-          <div class="box-input-trhee" style="margin: 10px;">
-            <label for="" id="label">Altura</label>
-            <input type="" class="input" style="width: 100px;" placeholder="00">
-          </div>
-          <div class="box-input-trhee">
-            <label for="" id="label">Largura</label>
-            <input type="" class="input" style="width: 100px; " placeholder="00">
-          </div>
-          <div class="box-input-trhee">
-            <label for="" id="label">Comprimento</label>
-            <input type="" class="input" style="margin-left: 10px; width: 100px ;" placeholder="00">
-          </div>
-
-        </div>
-
-
-
-      </form>
-    </div>
-    <div class="destino">
-      <h4>INFORME O DESTINO</h4>
-      <label for="" id="label">CEP de Origem</label>
-      <input type="" placeholder="XXXXX-XXX" class="input"></input>
-
-      <button class="btCalcular" style="margin: 10px;">CALCULAR FRETE</button>
-    </div>
-  </div>
-</body>
-<footer class="bg-orange-600 text-white py-4">
-  <p>&copy; 2025 <span>DevLog </span> | Todos os direitos reservados</p>
-</footer>
 </html>
