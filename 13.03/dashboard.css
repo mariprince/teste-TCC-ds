@@ -87,8 +87,9 @@ nav{
   nav .logout {
     color: red;
   }
-  
+
   .container {
+    margin: 0 auto;
     max-width: 1200px;
     margin: 40px auto;
     padding: 30px;

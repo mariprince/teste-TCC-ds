@@ -17,7 +17,6 @@
 
     nav{
         display: flex;
-
         .nav-list{
             display: flex;
         }
@@ -129,16 +128,26 @@
     }
 
     .cotar{
-        padding: 20px;
-        justify-self: center;
+      margin-top: 80px;
+      background: #fff; /* fundo branco para o formulário */
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px 40px;
+      max-width: 1000px;
+      max-height: 1300px;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      justify-self: center;
 
         .formCota{
-            padding-top: 10px;
-            background-color: #f2f4f8;
-            text-align: start;
+          padding-top: 10px;
+          background-color: #f2f4f8;
+          text-align: start;
         }
         .destino{
-            padding: 10px;
+          padding: 10px;
         }
       }
       .btSalvar{
@@ -170,10 +179,7 @@
       .btLimpar:hover{
         background-color: #bb490c;
         transition: 0.2s;
-
       }
-
-
       .btCalcular{
         cursor: pointer;
         border-radius: 10px;
