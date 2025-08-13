@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DevLog - Empresa</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-  <body class="bg-amber-50 font-sans text-gray-800">
+  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="empresa.css">
     <header>
         <nav>
           <a class="logo">🚚 DevLog</a>
@@ -25,34 +29,162 @@
         </nav>
       </header>
 
-    <section class="text-center py-10">
-      <h2 class="text-3xl font-extrabold text-gray-900 mb-2">
-        Por que cadastrar sua empresa?
-      </h2>
-      <p class="text-lg text-gray-700">Confira os benefícios exclusivos para parceiros!</p>
-    </section>
-
-    <section class="emp-text">
-      <div class="">
-        <h3 class="text-xl font-semibold mb-4">Infraestrutura de Qualidade</h3>
-        <p class="text-gray-700">
-          Oferecemos a melhor infraestrutura para frete dos seus produtos.
-        </p>
-        <p class="mt-4 text-gray-600">
-          A DevLog não é apenas uma empresa de transporte, mas sim uma referência em eficiência, inovação e compromisso com a satisfação do cliente.
-        </p>
+    <!-- Beneficios -->
+  <section class="benefits">
+    <h2>Por que escolher a DevLog?</h2>
+    <p class="subheading">Tecnologia e confiança para o seu transporte.</p>
+    
+    <div class="benefits-container">
+      <div class="benefit-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Rastreamento</h3>
+        <p class="small">Monitoramento em tempo real</p>
+        <p>Acompanhe cada etapa da entrega com localização ao vivo, histórico de rotas e alertas automatizados.</p>
       </div>
-    </section>
-
-    <section class="emp-text">
-      <div class="">
-        <h3 class="text-xl font-semibold mb-4">📦 Rastreamento</h3>
-        <p class="text-gray-700">
-          Entrega segura com acompanhamento via WhatsApp do veículo, com registro de entrada e saída da carga em cada ponto — incluindo paradas ao longo do caminho.
-        </p>
+      
+      <div class="benefit-card">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Agilidade</h3>
+        <p class="small">Prazos garantidos</p>
+        <p>Entregas dentro do prazo com logística otimizada e frota própria preparada para diferentes demandas.</p>
       </div>
-    </section>
-    <a href="cadastros.html" class="bg-orange-500 rounded-2x1 p-4 text-center text-white font-bold flex justify-between items-center" style="border-radius: 1rem; justify-self:center; margin: 1%;">Cadastre-se</a>
+  
+      <div class="benefit-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Segurança</h3>
+        <p class="small">Transporte protegido</p>
+        <p>Seguro de carga, veículos monitorados e protocolos de prevenção para garantir a integridade dos produtos.</p>
+      </div>
+  
+      <div class="benefit-card">
+        <i class="fa-solid fa-headset"></i>
+        <h3>Suporte</h3>
+        <p class="small">Atendimento humano</p>
+        <p>Equipe disponível por chat, telefone e e-mail para tirar dúvidas e acompanhar sua entrega.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+ 
+  <section class="timeline-section">
+    <h2>Como Funciona</h2>
+    <p class="subtitle">Passo a passo do processo na plataforma</p>
+  
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-icon">1</div>
+        <div class="timeline-content">
+          <h3>Cadastro</h3>
+          <p>Motoristas e empresas realizam cadastro com dados pessoais, CNH/CNPJ e aceitam as políticas.</p>
+        </div>
+      </div>
+  
+      <div class="timeline-item">
+        <div class="timeline-icon">2</div>
+        <div class="timeline-content">
+          <h3>Solicitação de Frete</h3>
+          <p>Empresas registram tipo de carga, destino e prazo; o sistema encontra motoristas disponíveis.</p>
+        </div>
+      </div>
+  
+      <div class="timeline-item">
+        <div class="timeline-icon">3</div>
+        <div class="timeline-content">
+          <h3>Aceite</h3>
+          <p>Motoristas podem aceitar ou recusar; comunicação entre motorista e empresa é disponibilizada.</p>
+        </div>
+      </div>
+  
+      <div class="timeline-item">
+        <div class="timeline-icon">4</div>
+        <div class="timeline-content">
+          <h3>Acompanhamento & Notificações</h3>
+          <p>Painel com status, histórico e notificações para todos os envolvidos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="testimonials-section">
+    <h2>O que dizem nossos clientes</h2>
+  
+    <div class="carousel">
+      <div class="carousel-track">
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa1.jpg" alt="Maria Souza">
+          <h4>Maria Souza</h4>
+          <div class="stars">★★★★★</div>
+          <p>"A plataforma é incrível! Consegui encontrar motoristas confiáveis rapidamente e sem burocracia."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa2.jpg" alt="João Pereira">
+          <h4>João Pereira</h4>
+          <div class="stars">★★★★★</div>
+          <p>"Facilitou muito o meu trabalho como caminhoneiro. Agora consigo fechar fretes mais rápido."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa3.jpg" alt="Fernanda Lima">
+          <h4>Fernanda Lima</h4>
+          <div class="stars">★★★★☆</div>
+          <p>"O acompanhamento em tempo real fez toda a diferença para minha empresa."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa4.jpg" alt="Ricardo Mendes">
+          <h4>Ricardo Mendes</h4>
+          <div class="stars">★★★★★</div>
+          <p>"A segurança e transparência no processo me deixaram muito mais tranquilo."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa5.jpg" alt="Ana Beatriz">
+          <h4>Ana Beatriz</h4>
+          <div class="stars">★★★★☆</div>
+          <p>"O suporte ao cliente é excelente, sempre rápido e eficiente."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa1.jpg" alt="Maria Souza">
+          <h4>Maria Souza</h4>
+          <div class="stars">★★★★★</div>
+          <p>"A plataforma é incrível! Consegui encontrar motoristas confiáveis rapidamente e sem burocracia."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa2.jpg" alt="João Pereira">
+          <h4>João Pereira</h4>
+          <div class="stars">★★★★★</div>
+          <p>"Facilitou muito o meu trabalho como caminhoneiro. Agora consigo fechar fretes mais rápido."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa3.jpg" alt="Fernanda Lima">
+          <h4>Fernanda Lima</h4>
+          <div class="stars">★★★★☆</div>
+          <p>"O acompanhamento em tempo real fez toda a diferença para minha empresa."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa4.jpg" alt="Ricardo Mendes">
+          <h4>Ricardo Mendes</h4>
+          <div class="stars">★★★★★</div>
+          <p>"A segurança e transparência no processo me deixaram muito mais tranquilo."</p>
+        </div>
+  
+        <div class="testimonial">
+          <img src="imagens/pessoa5.jpg" alt="Ana Beatriz">
+          <h4>Ana Beatriz</h4>
+          <div class="stars">★★★★☆</div>
+          <p>"O suporte ao cliente é excelente, sempre rápido e eficiente."</p>
+        </div>
+      </div>
+    </div>
+  </section>  
 
     <section class="footter">
       <div class="box-conteiner">
