@@ -202,6 +202,24 @@
         background-color: #f2f4f8;
         padding: 2px 0px 3px;
     }
+
+  /* Estilos personalizados adicionais */
+  .input-focus:focus {
+   border-color: #4f46e5;
+   box-shadow: 0 0 0 1px #4f46e5;
+  }
+  .date-time-input {
+      min-width: 200px;
+  }
+  @media (max-width: 640px) {
+      .flex-col-mobile {
+          flex-direction: column;
+      }
+      .w-full-mobile {
+          width: 100%;
+      }
+  }
+
     footer {
       text-align: center;
       position: absolute;
