@@ -28,8 +28,7 @@ header {
 
 .logo {
   font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+
 }
 
 nav {
@@ -39,6 +38,7 @@ nav {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 8vh;
   font: bold;
+  font-weight: 700;
 }
 
 .nav-list {
@@ -47,7 +47,6 @@ nav {
 }
 
 .nav-list li {
-  letter-spacing: 3px;
   margin-left: 32px;
 }
 
