@@ -19,7 +19,13 @@ body {
     font-weight: 700;
     
   }
-  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding-left: 1rem;
+}
   
   nav a {
     margin-left: 2rem;

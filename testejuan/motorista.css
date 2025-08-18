@@ -65,6 +65,10 @@ nav ul li a:hover {
   color: #d1e0fb;
 }
 
+article{
+  margin-top: 2rem;
+}
+
 /* Conteúdo de exemplo para demonstrar scrolling */
 main {
   max-width: 1200px;
@@ -173,8 +177,13 @@ header.scrolled {
 
 .OQUEFAZ {
   text-align: start;
-  width: 2000px;
+  width: 200rem;
+  height: 100%;
   justify-items: center;
+  border-radius: 20px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
 }
 
 .OQUEFAZ p {
