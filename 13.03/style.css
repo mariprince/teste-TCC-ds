@@ -55,15 +55,21 @@ main {
   transform: translateY(-60px);
 }
 
+.card:hover {
+  transform: translateY(-5px);
+}
+
 .card {
   width: 50%;
   font-size: 20px;
   margin-right: 10px;
-  padding: 20px;
+  padding:  60px 20px;
   background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
   border-radius: 3rem;
 }
+
 /* New styles for card-body to centralize content */
 .card-body {
   display: flex;
@@ -103,11 +109,15 @@ main {
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
 .card-title {
-  
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
   align-items: center;
   color: #e06919;
 }
+
 .card img {
   align-self: center;
   width: 100px;

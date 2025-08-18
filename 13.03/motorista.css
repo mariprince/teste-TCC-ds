@@ -6,7 +6,7 @@
   }
   
   body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', sans-serif;
     padding-top: 80px;
     /* Espaço para o header fixo */
     background-color: #f2f4f8;
@@ -16,16 +16,17 @@
   
   /* Header estilizado */
   header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #d1560f 0%, #ca5e06 100%);
+    background-color: #ea5504;
     color: white;
-    padding: 15px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    
   }
   
   .header-container {
@@ -36,7 +37,15 @@
     justify-content: space-between;
     align-items: center;
   }
-  
+  nav {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 4vh;
+    font: bold;
+}
   .logo {
     font-size: 1.8rem;
     font-weight: bold;
@@ -44,7 +53,13 @@
     color: white;
     padding-left: 1rem;
   }
-  
+  nav a {
+    margin-left: 2rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
   nav ul {
     display: flex;
     list-style: none;
