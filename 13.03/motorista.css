@@ -1,0 +1,358 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 80px;
+    /* Espaço para o header fixo */
+    background-color: #f2f4f8;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header estilizado */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #d1560f 0%, #ca5e06 100%);
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding-left: 1rem;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-left: 30px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  nav ul li a:hover {
+    color: #d1e0fb;
+  }
+  
+  /* Conteúdo de exemplo para demonstrar scrolling */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  
+  /* Efeito de header reduzido ao scroll */
+  header.scrolled {
+    padding: 8px 0;
+    background: rgba(58, 123, 213, 0.95);
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .logo {
+      margin-bottom: 10px;
+    }
+  
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    nav ul li {
+      margin: 0 10px;
+    }
+  }
+  
+  #bg-hero-select {
+    background: linear-gradient(90deg,
+        #fafbe4 0%,
+        rgba(222, 227, 234, 0.609) 25%,
+        hsla(0, 0%, 85%, 0) 50%,
+        rgba(222, 227, 234, 0.609) 75%,
+        #fafbe4 100%);
+  
+  }
+  
+  .imgMotorista {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 25%;
+    margin-left: 2.5rem;
+  }
+  
+  #titu {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  
+  }
+  
+  .hero {
+    display: flex;
+    padding-bottom: 3rem;
+    justify-content: center;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .sobreMto {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    display: block;
+    unicode-bidi: isolate;
+    font-size: 20px;
+  
+  }
+  
+  .sobreEsq {
+    width: 500px;
+  }
+  
+  .aa {
+    margin-left: 2rem;
+    margin-top: 5rem;
+    width: 1000px;
+    height: 300px;
+  }
+  
+  .sobreCargo {
+    width: 700px;
+    margin-left: 3.5rem;
+    justify-content: center;
+    align-items: center;
+  
+    #textCargo {
+      margin: 1rem;
+      margin-left: 2.5rem;
+      font-size: 20px;
+    }
+  
+  }
+  
+  .OQUEFAZ {
+    text-align: start;
+    width: 2000px;
+    justify-items: center;
+  }
+  
+  .OQUEFAZ p {
+    margin-right: 15rem;
+  }
+  
+  #textOQUEFAZ {
+    font-size: 18px;
+    width: 60%;
+    margin-bottom: 1rem;
+  }
+  
+  .fazoqueART {
+    border: 100px solid;
+  }
+  
+  @media (min-width: 992px) {
+    .OQUEFAZ {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }
+  
+  li {
+    list-style-type: disc;
+  
+    strong {
+      font-size: 18px;
+    }
+  }
+  
+  .oqfazer-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .oqfazer{
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    justify-self: center; 
+  }
+  
+  .footter .box-conteiner {
+    display: flex;
+    width: 100%;
+    /* margin-left: -20px; */
+    background: #293649;
+    grid-template-rows: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 9rem;
+    /* Aumenta o espaço entre as caixas */
+    padding: 0 2rem;
+    /* Adiciona padding lateral 
+    border-radius: 1rem; /* Adiciona bordas arredondadas 
+    box-shadow: 0 4px 10px rgba(255, 251, 251, 0.1); /* Adiciona sombra para profundidade */
+  }
+  
+  .footter .box {
+    width: 100%;
+    padding: 1.5rem;
+    /* Adiciona padding interno */
+    transition: 0.3s;
+    /* Transição suave para hover */
+  }
+  
+  .footter .box:hover {
+    transform: translateY(-5px);
+    /* Efeito de elevação ao passar o mouse */
+  }
+  
+  .footter .box h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    /* Ajusta o tamanho da fonte */
+    margin-bottom: 1rem;
+    /* Adiciona espaço abaixo do TÍTULO */
+  }
+  
+  .footter .box h3 i {
+    color: #fcfcfc;
+    /* Mantém a cor do ícone */
+  }
+  
+  .footter .box .links {
+    display: block;
+    color: #f8f5f5;
+    /* Um tom mais escuro para as links */
+    font-size: 1.2rem;
+    /* Ajusta o tamanho da fonte */
+    padding: 0.5rem 0;
+    /* Ajusta o padding */
+    transition: color 0.3s;
+    /* Transição suave para hover */
+  }
+  
+  .footter .box .links:hover {
+    color: #e06919;
+    /* Muda a cor ao passar o mouse */
+  }
+  
+  .footter .box p {
+    line-height: 1.6;
+    /* Ajusta o espaçamento entre linhas */
+    color: #d1cece;
+    /* Um tom mais claro para o texto */
+    font-size: 1rem;
+    /* Ajusta o tamanho da fonte */
+    margin-bottom: 1rem;
+    /* Adiciona espaço abaixo do parágrafo */
+  }
+  
+  .footter .box .share a {
+    height: 3rem;
+    /* Ajusta a altura dos ícones de compartilhamento */
+    width: 3rem;
+    /* Ajusta a largura dos ícones de compartilhamento */
+    line-height: 3rem;
+    /* Centraliza o texto verticalmente */
+    color: #333;
+    /* Cor do ícone */
+    font-size: 1.5rem;
+    /* Ajusta o tamanho do ícone */
+    margin: 0 0.5rem;
+    /* Ajusta o espaço entre os ícones */
+    border-radius: 50%;
+    /* Torna os ícones circulares */
+    background: #eee;
+    /* Fundo dos ícones */
+    text-align: center;
+    transition: 0.3s;
+    /* Transição suave para hover */
+  }
+  
+  .footter .box .share a:hover {
+    background: #e06919;
+    /* Muda a cor de fundo ao passar o mouse */
+    color: #ffffff;
+    /* Muda a cor do ícone ao passar o mouse */
+  }
+  
+  .footter .box .email {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    color: #333;
+    /* Cor do texto do input */
+    background: #f0f0f0;
+    /* Fundo do input */
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    /* Ajusta o tamanho da fonte */
+    border: 1px solid #ccc;
+    /* Adiciona uma borda ao input */
+  }
+  
+  .footter .box .btn {
+    width: 100%;
+    padding: 1rem;
+    /* Adiciona padding ao botão */
+    background: #e06919;
+    /* Cor de fundo do botão */
+    color: #fff;
+    /* Cor do texto do botão */
+    border: none;
+    /* Remove a borda padrão */
+    border-radius: 0.5rem;
+    /* Bordas arredondadas */
+    font-size: 1rem;
+    /* Ajusta o tamanho da fonte */
+    cursor: pointer;
+    /* Muda o cursor para pointer */
+    transition: 0.3s;
+    /* Transição suave para hover */
+  }
+  
+  .footter .box .btn:hover {
+    background: #d05e17;
+    /* Muda a cor ao passar o mouse */
+  }
