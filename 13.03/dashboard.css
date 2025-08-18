@@ -16,7 +16,7 @@
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 80px;
+
   }
 
   @media (max-width: 400px) {
@@ -36,8 +36,8 @@
 
 .logo{
   font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+  color: #fff;
+  font-weight: bold;
 }
 nav{
   display: flex;
@@ -52,8 +52,7 @@ nav{
   display: flex;
 }
 .nav-list li{
-  letter-spacing: 3px;
-  margin-left: 32px;
+ margin-right: 2rem;
 }
 
 /*
@@ -71,17 +70,12 @@ nav{
     border-bottom: 1px solid #ddd;
   }
   */
-  .logo {
-    font-size: 24px;
-    color: #e97400;
-    font-weight: bold;
-  }
   
   nav a, .user {
     margin-left: 20px;
     text-decoration: none;
-    color: #555;
-    font-weight: 500;
+    color: #fff;
+    font-weight: 700;
   }
   
   nav .logout {

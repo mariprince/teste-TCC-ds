@@ -172,6 +172,7 @@ header {
   top: 0;
   width: 100vw;
   height: 80px;
+  font-weight: 700;
 }
 h2 {
   color: #333;
@@ -441,15 +442,13 @@ h3 {
 /*  MOTORISTAS PAG */
 .logo{
   font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
 }
 nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 8vh;
+  height: 10vh;
   font: bold;
 }
 .nav-list{
@@ -457,7 +456,6 @@ nav{
   display: flex;
 }
 .nav-list li{
-  letter-spacing: 3px;
   margin-left: 32px;
 }
 .mobile-menu {
