@@ -150,11 +150,7 @@ nav {
 .mobile-menu.active .line3 {
   transform: rotate(45deg) translate(-5px, -7px);
 }
-.destino label{
-}
-#calculos{
-  padding: 10px;
-}
+
 /*
 .frete-container {
   background: #fff;
@@ -294,6 +290,7 @@ label,
 input,
 select {
   display: flex;
+  border: 0px;
   background-color: #f2f4f8;
   padding: 8px 100px 3px;
 }
@@ -362,8 +359,4 @@ footer {
   height: 40px;
   background-color: #ea580c;
   color: #fff;
-}
-
-.horario_datas{
-  gap: 1.5rem;
 }
