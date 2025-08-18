@@ -153,7 +153,8 @@ nav {
 .destino label{
 }
 #calculos{
-  padding: 10px;
+  padding: 1rem;
+  justify-self: center;
 }
 /*
 .frete-container {
@@ -294,6 +295,15 @@ label,
 input,
 select {
   display: flex;
+
+  padding: 8px 100px 3px;
+}
+
+.gap-6
+label,
+input,
+select {
+  display: flex;
   background-color: #f2f4f8;
   padding: 8px 100px 3px;
 }
@@ -366,4 +376,7 @@ footer {
 
 .horario_datas{
   gap: 1.5rem;
+}
+.horario_datas label input{
+  background-color: #fff;
 }
