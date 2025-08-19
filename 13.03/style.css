@@ -55,9 +55,6 @@ main {
   transform: translateY(-60px);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
 
 .card {
   width: 50%;
@@ -443,6 +440,7 @@ h3 {
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 4px;
+  font-weight: 700;
 }
 nav{
   display: flex;
@@ -455,6 +453,7 @@ nav{
 .nav-list{
   list-style: none;
   display: flex;
+  font-weight: 700;
 }
 .nav-list li{
   letter-spacing: 3px;

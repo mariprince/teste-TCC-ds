@@ -53,6 +53,11 @@
     color: white;
     padding-left: 1rem;
   }
+  .nav-list{
+    list-style: none;
+    display: flex;
+    font-weight: 700;
+  }
   nav a {
     margin-left: 2rem;
     color: white;
