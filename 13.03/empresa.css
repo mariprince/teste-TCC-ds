@@ -1,7 +1,7 @@
 /* ====== GERAL ====== */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffffff;
     color: #000000;
     line-height: 1.5;
@@ -24,7 +24,7 @@ body {
     font-weight: bold;
     text-decoration: none;
     color: white;
-    padding-left: 1rem;
+
 }
   
   nav a {
@@ -488,10 +488,10 @@ body {
   .nav-list{
     list-style: none;
     display: flex;
+    margin-left: 18rem;
   }
   .nav-list li{
-    letter-spacing: 3px;
-    margin-left: 32px;
+    margin-left: 30px;
   }
   .mobile-menu {
     display: none;
