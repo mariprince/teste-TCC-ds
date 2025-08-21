@@ -149,14 +149,15 @@ nav {
 .mobile-menu.active .line3 {
   transform: rotate(45deg) translate(-5px, -7px);
 }
-.destino label{
-}
-#calculos{
+
+.destino label {}
+
+#calculos {
   padding: 1rem;
   justify-self: center;
 }
 
-.cargaPerigosa{
+.cargaPerigosa {
   justify-items: center;
   font-weight: 700;
 }
@@ -164,7 +165,7 @@ nav {
 #popup {
   justify-content: center;
   justify-items: center;
-  display: none;
+  display: f;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -175,21 +176,33 @@ nav {
   padding: 20px;
   border: 1px solid black;
   border-radius: 2rem;
-  z-index: 100; /* Para garantir que o pop-up fique sobre outros elementos */
+  z-index: 100;
+  /* Para garantir que o pop-up fique sobre outros elementos */
 }
+
 #popup.show {
   display: block;
 }
 
-#popup input{
+#popup input {
   background-color: #f2f4f8;
   border-bottom: 1px solid;
   size: 10px;
   outline: none;
-  
-  label{}
 
 }
+.labelCargas {
+  padding: 1px 10px 1px;
+  padding-top: 5px;
+}
+
+.divChecks {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+
 /*
 .frete-container {
   background: #fff;
@@ -333,8 +346,7 @@ select {
   padding: 8px 100px 3px;
 }
 
-.gap-6
-label,
+.gap-6 label,
 input,
 select {
   display: flex;
@@ -408,9 +420,10 @@ footer {
   color: #fff;
 }
 
-.horario_datas{
+.horario_datas {
   gap: 1.5rem;
 }
-.horario_datas label input{
+
+.horario_datas label input {
   background-color: #fff;
 }
