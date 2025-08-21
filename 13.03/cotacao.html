@@ -116,22 +116,34 @@
         <div class="cargaPerigosa">
           <label for="">⚠️ Carga Perigosa ⚠️</label>
           <input type="checkbox" id="checkboxcargaPerigosa">
-
           <div id="popup">
+            <div style="display: flex; justify-content: space-around;">
             <H2 style="color: rgb(236, 85, 39);">⚠️ CARGA PERIGOSA ⚠️</H2>
+            <div class="content" style="justify-content: space-around;">
+            <button onclick="closePopup()" style="cursor: pointer; right: 20rem; position: relative;">X</button>
+          </div>
+          </div>
             <form action="">
-              <label for=""></label> 
-              <input type="text" id="cargas" class="cargas" placeholder="">
+              <div class="divChecks">
+                <input type="checkbox" id="cargas" class="cargas" placeholder="">
+                <label for="" id="labelCargas" class="labelCargas">Pictograma</label>  
+              </div>
+              <div class="divChecks">
+              <input type="checkbox" id="cargas" class="cargas" style="">
+              <label for="" id="labelCargas" class="labelCargas">Ficha de Dados de Segurança</label>  
+            </div>
+            <div class="divChecks">
+              <input type="checkbox" id="cargas" class="cargas" placeholder="">
+              <label for="" id="labelCargas" class="labelCargas">Identificação - N° de risco e N° ONU</label>  
+            </div>
             </form>
-            <button onclick="closePopup()" style="position: absolute;
-            bottom: 0; text-align: center;">Fechar</button>
           </div>
         </div>
-      </div>
-      <div class="text-center mb-8" style="padding-top: 1rem;">
-        <button class="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition"
-          onclick="openPopup()">CALCULAR
-          FRETE</button>
+        <div class="text-center mb-8" style="padding-top: 1rem;">
+          <button class="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition"
+            onclick="openPopup()">CALCULAR
+            FRETE</button>
+        </div>  
       </div>
     </form>
   </main>
