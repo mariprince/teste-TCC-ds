@@ -223,174 +223,191 @@
 </body>
 </html>
 -->
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carrossel de Serviços</title>
-  <!-- Fonte Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #333;
+      background-color: #fff;
     }
 
-    .section {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .section h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 1100px;
+    .container {
+      max-width: 1200px;
       margin: auto;
+      padding: 60px 20px;
+    }
+
+    .subtitulo {
+      color: #e44b2d;
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 14px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .subtitulo::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: #e44b2d;
+      margin-top: 8px;
+    }
+
+    .titulo {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 10px 0 40px;
+    }
+
+    .carrossel-wrapper {
+      position: relative;
       overflow: hidden;
     }
 
-    .carousel {
+    .carrossel {
       display: flex;
-      transition: transform 0.4s ease-in-out;
+      transition: transform 0.5s ease-in-out;
     }
 
     .card {
-      flex: 0 0 25%; /* 4 cards por vez */
-      box-sizing: border-box;
+      flex: 0 0 300px;
+      border: 2px solid #000;
+      border-radius: 15px;
       padding: 20px;
-    }
-
-    .card-content {
+      margin: 0 10px;
       background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      height: 100%;
+      min-height: 180px;
     }
 
     .card h3 {
-      color: #e53935;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       margin-bottom: 10px;
+      line-height: 1.4;
     }
 
-    .card p {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    /* Botões */
-    .btn {
+    .navegacao {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 28px;
       background: #fff;
-      border: 2px solid #e53935;
+      border: none;
       cursor: pointer;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s;
-      z-index: 10;
+      z-index: 1;
+      padding: 10px;
+      color: #000;
     }
 
-    .btn:hover {
-      background: #e53935;
-      color: #fff;
+    .navegacao.prev {
+      left: -20px;
     }
 
-    .btn svg {
-      width: 20px;
-      height: 20px;
-      stroke: currentColor;
-      stroke-width: 2.5;
-      fill: none;
+    .navegacao.next {
+      right: -20px;
     }
 
-    .btn.prev { left: 10px; }
-    .btn.next { right: 10px; }
+    @media (max-width: 768px) {
+      .titulo {
+        font-size: 28px;
+      }
 
-    @media (max-width: 900px) {
-      .card { flex: 0 0 50%; } /* 2 por vez */
-    }
+      .card {
+        flex: 0 0 85%;
+      }
 
-    @media (max-width: 600px) {
-      .card { flex: 0 0 100%; } /* 1 por vez */
+      .navegacao.prev {
+        left: 0;
+      }
+
+      .navegacao.next {
+        right: 0;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="subtitulo">SERVIÇOS DE TRANSPORTE</div>
+    <div class="titulo">PENSADOS PARA <br> ATENDER SUA EMPRESA</div>
 
-  <section class="section">
-    <h2>SERVIÇOS DE TRANSPORTE</h2>
-    <p>PENSADOS PARA ATENDER SUA EMPRESA</p>
+    <div class="carrossel-wrapper">
+      <button class="navegacao prev">&#10094;</button>
 
-    <div class="carousel-container">
-      <button class="btn prev" onclick="moveCarousel(-1)">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
+      <div class="carrossel" id="carrossel">
+        <div class="card"><h3>🚗 Inspeção do Veículo:</h3>Realizar verificações diárias de segurança para garantir que o veículo esteja em boas condições, incluindo checagem de pneus, freios, luzes, óleo e combustível.</div>
 
-      <div class="carousel" id="carousel">
-        <!-- Card 1 -->
-        <div class="card"><div class="card-content"><h3>TRANSPORTE RODOVIÁRIO</h3><p>Movimentação eficiente de mercadorias nos principais corredores logísticos do Sul e Sudeste.</p></div></div>
-        <!-- Card 2 -->
-        <div class="card"><div class="card-content"><h3>FRETE DEDICADO</h3><p>Veículos exclusivos para sua operação, com rotas planejadas conforme suas necessidades.</p></div></div>
-        <!-- Card 3 -->
-        <div class="card"><div class="card-content"><h3>SOLUÇÕES PERSONALIZADAS</h3><p>Atendemos demandas urgentes, embalagens especiais e operações sob medida.</p></div></div>
-        <!-- Card 4 -->
-        <div class="card"><div class="card-content"><h3>CARGAS PERIGOSAS</h3><p>Equipe certificada para transporte seguro de produtos químicos e inflamáveis.</p></div></div>
-        <!-- Card 5 -->
-        <div class="card"><div class="card-content"><h3>ARMAZENAGEM</h3><p>Espaços seguros para estocagem temporária de cargas com total rastreabilidade.</p></div></div>
-        <!-- Card 6 -->
-        <div class="card"><div class="card-content"><h3>ENTREGAS EXPRESSAS</h3><p>Serviço ágil para demandas imediatas e prazos reduzidos.</p></div></div>
-        <!-- Card 7 -->
-        <div class="card"><div class="card-content"><h3>COLETA PROGRAMADA</h3><p>Retiradas em horários combinados, garantindo previsibilidade e organização.</p></div></div>
-        <!-- Card 8 -->
-        <div class="card"><div class="card-content"><h3>GESTÃO LOGÍSTICA</h3><p>Planejamento estratégico para otimização de rotas e redução de custos.</p></div></div>
-        <!-- Card 9 -->
-        <div class="card"><div class="card-content"><h3>RASTREAMENTO ONLINE</h3><p>Acompanhe sua carga em tempo real com nosso sistema integrado.</p></div></div>
-        <!-- Card 10 -->
-        <div class="card"><div class="card-content"><h3>SUPORTE 24/7</h3><p>Equipe de atendimento sempre disponível para apoiar sua operação.</p></div></div>
+        <div class="card"><h3>🗺️ Planejamento de Rotas:</h3>Determinar a rota mais eficiente e segura, considerando tráfego, clima e horários de entrega ou coleta.</div>
+
+        <div class="card"><h3>🛡️ Condução Segura:</h3>Operar o veículo de forma responsável, obedecendo às leis de trânsito e utilizando direção defensiva.</div>
+
+        <div class="card"><h3>📦 Carga e Descarga:</h3>Garantir que as mercadorias sejam carregadas e entregues com segurança, sem danos.</div>
+
+        <div class="card"><h3>📝 Manutenção de Registros:</h3>Manter registros de viagens, entregas, manutenções do veículo e incidentes.</div>
+
+        <div class="card"><h3>🤝 Atendimento ao Cliente:</h3>Interagir com clientes de forma cortês, garantindo um serviço de qualidade.</div>
+
+        <div class="card"><h3>⏱️ Gerenciamento de Tempo:</h3>Cumprir horários de entrega e adaptar-se a imprevistos.</div>
+
+        <div class="card"><h3>📊 Relatórios de Viagem:</h3>Preencher relatórios detalhados sobre cada jornada.</div>
+
+        <div class="card"><h3>📡 Comunicação:</h3>Manter contato com a central ou gerência para atualizar o andamento das entregas.</div>
+
+        <div class="card"><h3>✅ Adesão às Políticas da Empresa:</h3>Seguir regras de segurança, padrões de serviço e protocolos de emergência.</div>
       </div>
 
-      <button class="btn next" onclick="moveCarousel(1)">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+      <button class="navegacao next">&#10095;</button>
     </div>
-  </section>
+  </div>
 
   <script>
-    let currentIndex = 0;
-    function moveCarousel(step) {
-      const carousel = document.getElementById('carousel');
-      const cardWidth = carousel.querySelector('.card').offsetWidth;
-      const totalCards = carousel.children.length;
-      const visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+    const carrossel = document.getElementById('carrossel');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
 
-      currentIndex += step;
-      if (currentIndex < 0) currentIndex = 0;
-      if (currentIndex > totalCards - visibleCards) currentIndex = totalCards - visibleCards;
+    let scrollPosition = 0;
+    const cardWidth = 320;
+    const totalCards = carrossel.children.length;
 
-      carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
+    // Navegação manual
+    prev.addEventListener('click', () => {
+      scrollPosition -= cardWidth;
+      if (scrollPosition < 0) {
+        scrollPosition = (totalCards - 1) * cardWidth;
+      }
+      carrossel.style.transform = `translateX(-${scrollPosition}px)`;
+    });
+
+    next.addEventListener('click', () => {
+      scrollPosition += cardWidth;
+      if (scrollPosition >= totalCards * cardWidth) {
+        scrollPosition = 0;
+      }
+      carrossel.style.transform = `translateX(-${scrollPosition}px)`;
+    });
+
+    // Rolar automaticamente a cada 4 segundos
+    setInterval(() => {
+      scrollPosition += cardWidth;
+      if (scrollPosition >= totalCards * cardWidth) {
+        scrollPosition = 0;
+      }
+      carrossel.style.transform = `translateX(-${scrollPosition}px)`;
+    }, 4000);
   </script>
-
 </body>
 </html>
+
