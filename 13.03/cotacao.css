@@ -162,18 +162,33 @@ nav {
 }
 
 #popup {
+  justify-content: center;
+  justify-items: center;
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 500px;
+  height: 250px;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #f2f4f8;
   padding: 20px;
   border: 1px solid black;
+  border-radius: 2rem;
   z-index: 100; /* Para garantir que o pop-up fique sobre outros elementos */
 }
 #popup.show {
   display: block;
+}
+
+#popup input{
+  background-color: #f2f4f8;
+  border-bottom: 1px solid;
+  size: 10px;
+  outline: none;
+  
+  label{}
+
 }
 /*
 .frete-container {
