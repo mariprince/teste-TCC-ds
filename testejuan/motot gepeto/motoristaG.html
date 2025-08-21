@@ -1,0 +1,396 @@
+<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços de Transporte</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .subtitulo {
+      color: #e74c3c;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0 0 30px;
+    }
+
+    /* === CARROSSEL === */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .card {
+      flex: 0 0 25%; /* 4 cards */
+      box-sizing: border-box;
+      padding: 15px;
+    }
+
+    .card-content {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .card-content h2 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #e74c3c;
+      margin-bottom: 12px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* Botões */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: #e74c3c;
+      border: 2px solid #e74c3c;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .carousel-btn:hover {
+      background: #e74c3c;
+      color: #fff;
+    }
+
+    .prev { left: -10px; }
+    .next { right: -10px; }
+
+    /* Caminhão */
+    .imagem-caminhao {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .imagem-caminhao img {
+      max-width: 450px;
+      width: 100%;
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+      .card { flex: 0 0 50%; } /* 2 cards */
+    }
+    @media (max-width: 600px) {
+      .card { flex: 0 0 100%; } /* 1 card */
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <p class="subtitulo">SERVIÇOS DE TRANSPORTE</p>
+  <h1>PENSADOS PARA ATENDER SUA EMPRESA</h1>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="card">
+        <div class="card-content">
+          <h2>TRANSPORTE RODOVIÁRIO DE CARGAS</h2>
+          <p>
+            Movimentação eficiente de mercadorias nos principais corredores logísticos do Sul e Sudeste, 
+            com cumprimento rigoroso de prazos e segurança garantida.  
+            Especialidade em cargas secas e produtos perigosos com todas as certificações necessárias.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2>FRETE DEDICADO</h2>
+          <p>
+            Veículos exclusivos para sua operação, com rotas planejadas conforme suas necessidades específicas 
+            nas rotas RS⇆SP, RS⇆PR, RS⇆RJ e RS⇆MG, eliminando compartilhamentos e garantindo maior segurança 
+            e pontualidade nas entregas.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2>SOLUÇÕES PERSONALIZADAS</h2>
+          <p>
+            Adaptação a demandas urgentes, com flexibilidade em horários de coleta/entrega, 
+            customização de embalagens ou manuseio, e soluções sob medida para cada operação, 
+            priorizando a segurança e integridade da sua carga.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2>TRANSPORTE DE CARGAS PERIGOSAS</h2>
+          <p>
+            Equipe especializada e certificada para o transporte de produtos químicos e inflamáveis, 
+            seguindo todas as normas e regulamentações do IBAMA e FEPAM, garantindo segurança total 
+            para este tipo específico de carga.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões 
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+
+  <div class="imagem-caminhao">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Daf_truck.png/640px-Daf_truck.png" alt="Caminhão">
+  </div>
+</section>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const cards = Array.from(track.children);
+  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
+  let index = 0;
+
+  const cardsPerView = () => {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 4;
+  };
+
+  function updateCarousel() {
+    const move = index * (100 / cardsPerView());
+    track.style.transform = `translateX(-${move}%)`;
+  }
+
+  nextButton.addEventListener('click', () => {
+    if (index < cards.length - cardsPerView()) {
+      index++;
+      updateCarousel();
+    }
+  });
+
+  prevButton.addEventListener('click', () => {
+    if (index > 0) {
+      index--;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener('resize', updateCarousel);
+</script>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrossel de Serviços</title>
+  <!-- Fonte Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    .section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1100px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .card {
+      flex: 0 0 25%; /* 4 cards por vez */
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .card-content {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+    }
+
+    .card h3 {
+      color: #e53935;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Botões */
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      border: 2px solid #e53935;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    .btn:hover {
+      background: #e53935;
+      color: #fff;
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .btn.prev { left: 10px; }
+    .btn.next { right: 10px; }
+
+    @media (max-width: 900px) {
+      .card { flex: 0 0 50%; } /* 2 por vez */
+    }
+
+    @media (max-width: 600px) {
+      .card { flex: 0 0 100%; } /* 1 por vez */
+    }
+  </style>
+</head>
+<body>
+
+  <section class="section">
+    <h2>SERVIÇOS DE TRANSPORTE</h2>
+    <p>PENSADOS PARA ATENDER SUA EMPRESA</p>
+
+    <div class="carousel-container">
+      <button class="btn prev" onclick="moveCarousel(-1)">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="carousel" id="carousel">
+        <!-- Card 1 -->
+        <div class="card"><div class="card-content"><h3>TRANSPORTE RODOVIÁRIO</h3><p>Movimentação eficiente de mercadorias nos principais corredores logísticos do Sul e Sudeste.</p></div></div>
+        <!-- Card 2 -->
+        <div class="card"><div class="card-content"><h3>FRETE DEDICADO</h3><p>Veículos exclusivos para sua operação, com rotas planejadas conforme suas necessidades.</p></div></div>
+        <!-- Card 3 -->
+        <div class="card"><div class="card-content"><h3>SOLUÇÕES PERSONALIZADAS</h3><p>Atendemos demandas urgentes, embalagens especiais e operações sob medida.</p></div></div>
+        <!-- Card 4 -->
+        <div class="card"><div class="card-content"><h3>CARGAS PERIGOSAS</h3><p>Equipe certificada para transporte seguro de produtos químicos e inflamáveis.</p></div></div>
+        <!-- Card 5 -->
+        <div class="card"><div class="card-content"><h3>ARMAZENAGEM</h3><p>Espaços seguros para estocagem temporária de cargas com total rastreabilidade.</p></div></div>
+        <!-- Card 6 -->
+        <div class="card"><div class="card-content"><h3>ENTREGAS EXPRESSAS</h3><p>Serviço ágil para demandas imediatas e prazos reduzidos.</p></div></div>
+        <!-- Card 7 -->
+        <div class="card"><div class="card-content"><h3>COLETA PROGRAMADA</h3><p>Retiradas em horários combinados, garantindo previsibilidade e organização.</p></div></div>
+        <!-- Card 8 -->
+        <div class="card"><div class="card-content"><h3>GESTÃO LOGÍSTICA</h3><p>Planejamento estratégico para otimização de rotas e redução de custos.</p></div></div>
+        <!-- Card 9 -->
+        <div class="card"><div class="card-content"><h3>RASTREAMENTO ONLINE</h3><p>Acompanhe sua carga em tempo real com nosso sistema integrado.</p></div></div>
+        <!-- Card 10 -->
+        <div class="card"><div class="card-content"><h3>SUPORTE 24/7</h3><p>Equipe de atendimento sempre disponível para apoiar sua operação.</p></div></div>
+      </div>
+
+      <button class="btn next" onclick="moveCarousel(1)">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <script>
+    let currentIndex = 0;
+    function moveCarousel(step) {
+      const carousel = document.getElementById('carousel');
+      const cardWidth = carousel.querySelector('.card').offsetWidth;
+      const totalCards = carousel.children.length;
+      const visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+
+      currentIndex += step;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > totalCards - visibleCards) currentIndex = totalCards - visibleCards;
+
+      carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+  </script>
+
+</body>
+</html>
