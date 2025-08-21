@@ -155,6 +155,26 @@ nav {
   padding: 1rem;
   justify-self: center;
 }
+
+.cargaPerigosa{
+  justify-items: center;
+  font-weight: 700;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 100; /* Para garantir que o pop-up fique sobre outros elementos */
+}
+#popup.show {
+  display: block;
+}
 /*
 .frete-container {
   background: #fff;

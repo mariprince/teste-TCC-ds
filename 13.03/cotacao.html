@@ -73,13 +73,13 @@
         <div class="flex gap-4 items-center" style="justify-content: center;">
           <div>
             <label class="block font-medium mb-1">Formato</label>
-            <select class="w-full border px-3 py-2 rounded-md">
+            <select class="w-full border px-3 py-2 rounded-md" id="tipos">
               <option value="">Selecione</option>
               <option value="">A granel</option>
               <option value="">Perecíveis</option>
               <option value="">Secas</option>
               <option value="">Frágeis</option>
-              <option value="">Perigosas</option>
+              <option value="perigosa" id="perigosa">Perigosas</option>
               <option value="">Vivas</option>
               <option value="">Frigoríficas</option>
               <option value="">Preciosa</option>
@@ -113,9 +113,23 @@
             <input type="text" class="w-24 border px-3 py-2 rounded-md" placeholder="00">
           </div>
         </div>
+        <div class="cargaPerigosa">
+          <label for="">⚠️ Carga Perigosa ⚠️</label>
+          <input type="checkbox" id="checkboxcargaPerigosa">
+
+          <div id="popup">
+            <H2>CARGA PERIGOSA</H2>
+            <form action="">
+              <label for=""></label>
+              <input type="text">
+            </form>
+            <button onclick="closePopup()">Fechar</button>
+          </div>
+        </div>
       </div>
       <div class="text-center mb-8" style="padding-top: 1rem;">
-        <button class="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition">CALCULAR
+        <button class="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition"
+          onclick="openPopup()">CALCULAR
           FRETE</button>
       </div>
     </form>
@@ -126,5 +140,21 @@
     <p>&copy; 2025 <span>DevLog</span> | Todos os direitos reservados</p>
   </footer>
 </body>
+<script>
+  function openPopup(
+  ) {
+    const checkboxcargaPerigosa = document.getElementById("checkboxcargaPerigosa");
+    const selectcargaPerigosa = document.getElementById("tipos");
+
+    if (checkboxcargaPerigosa.checked && selectcargaPerigosa.value === "perigosa") {
+      document.getElementById("popup").classList.add("show");
+    }
+
+  }
+  function closePopup() {
+    document.getElementById("popup").classList.remove("show");
+  }
+
+</script>
 
 </html>
