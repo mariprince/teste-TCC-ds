@@ -228,17 +228,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carrossel de Serviços</title>
+  <title>Carrossel Ajustado Responsivo</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      padding: 0;
+      margin: 0;
     }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
       background-color: #fff;
     }
 
@@ -275,101 +275,176 @@
     .carrossel-wrapper {
       position: relative;
       overflow: hidden;
+      padding: 0 60px; /* espaço para botões */
+    }
+
+    .carrossel-container {
+      overflow: hidden;
     }
 
     .carrossel {
       display: flex;
       transition: transform 0.5s ease-in-out;
+      user-select: none;
     }
 
     .card {
-      flex: 0 0 300px;
+      flex: 0 0 calc(25% - 20px);
+      margin: 0 10px;
+      height: 250px;
       border: 2px solid #000;
       border-radius: 15px;
       padding: 20px;
-      margin: 0 10px;
       background: #fff;
-      min-height: 180px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: stretch; /* importante pra alinhamento do texto */
+      justify-content: flex-start;
+      box-sizing: border-box;
+      position: relative;
     }
 
+    /* Títulos alinhados à esquerda e linha fixa alinhada */
     .card h3 {
+      width: 100%;
+      text-align: left; /* Alinha título à esquerda */
       font-size: 16px;
       font-weight: 700;
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: #e44b2d;
+      margin-bottom: 15px; /* espaço para linha */
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    .card h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #e44b2d;
+      margin-top: 8px;
+      margin-left: 0; /* linha alinhada à esquerda */
+    }
+
+    /* Textos dos cards alinhados à esquerda, iniciando todos no mesmo ponto */
+    .card p {
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left;
       line-height: 1.4;
+      padding-left: 0;
+      text-indent: 0;
+      word-wrap: break-word;
     }
 
     .navegacao {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 28px;
+      font-size: 30px;
       background: #fff;
-      border: none;
+      border: 2px solid #000;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
       cursor: pointer;
-      z-index: 1;
-      padding: 10px;
-      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      user-select: none;
     }
 
     .navegacao.prev {
-      left: -20px;
+      left: 0;
     }
 
     .navegacao.next {
-      right: -20px;
+      right: 0;
     }
 
-    @media (max-width: 768px) {
-      .titulo {
-        font-size: 28px;
-      }
-
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
       .card {
-        flex: 0 0 85%;
-      }
-
-      .navegacao.prev {
-        left: 0;
-      }
-
-      .navegacao.next {
-        right: 0;
+        flex: 0 0 calc(50% - 20px);
       }
     }
+
+    @media (max-width: 600px) {
+      .carrossel-wrapper {
+        padding: 0 40px;
+      }
+      .card {
+        flex: 0 0 100%;
+        margin: 0 0 20px 0;
+        height: auto;
+      }
+      .navegacao.prev {
+        left: 10px;
+      }
+      .navegacao.next {
+        right: 10px;
+      }
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <div class="subtitulo">SERVIÇOS DE TRANSPORTE</div>
-    <div class="titulo">PENSADOS PARA <br> ATENDER SUA EMPRESA</div>
+    <div class="titulo">O QUE FAZ <br> UM MOTORISTA?</div>
 
     <div class="carrossel-wrapper">
-      <button class="navegacao prev">&#10094;</button>
+      <button class="navegacao prev" aria-label="Anterior">&#10094;</button>
 
-      <div class="carrossel" id="carrossel">
-        <div class="card"><h3>🚗 Inspeção do Veículo:</h3>Realizar verificações diárias de segurança para garantir que o veículo esteja em boas condições, incluindo checagem de pneus, freios, luzes, óleo e combustível.</div>
-
-        <div class="card"><h3>🗺️ Planejamento de Rotas:</h3>Determinar a rota mais eficiente e segura, considerando tráfego, clima e horários de entrega ou coleta.</div>
-
-        <div class="card"><h3>🛡️ Condução Segura:</h3>Operar o veículo de forma responsável, obedecendo às leis de trânsito e utilizando direção defensiva.</div>
-
-        <div class="card"><h3>📦 Carga e Descarga:</h3>Garantir que as mercadorias sejam carregadas e entregues com segurança, sem danos.</div>
-
-        <div class="card"><h3>📝 Manutenção de Registros:</h3>Manter registros de viagens, entregas, manutenções do veículo e incidentes.</div>
-
-        <div class="card"><h3>🤝 Atendimento ao Cliente:</h3>Interagir com clientes de forma cortês, garantindo um serviço de qualidade.</div>
-
-        <div class="card"><h3>⏱️ Gerenciamento de Tempo:</h3>Cumprir horários de entrega e adaptar-se a imprevistos.</div>
-
-        <div class="card"><h3>📊 Relatórios de Viagem:</h3>Preencher relatórios detalhados sobre cada jornada.</div>
-
-        <div class="card"><h3>📡 Comunicação:</h3>Manter contato com a central ou gerência para atualizar o andamento das entregas.</div>
-
-        <div class="card"><h3>✅ Adesão às Políticas da Empresa:</h3>Seguir regras de segurança, padrões de serviço e protocolos de emergência.</div>
+      <div class="carrossel-container">
+        <div class="carrossel" id="carrossel">
+          <div class="card">
+            <h3>Inspeção do Veículo</h3>
+            <p>Verificações diárias como pneus, freios, luzes e óleo.</p>
+          </div>
+          <div class="card">
+            <h3>Planejamento de Rotas</h3>
+            <p>Escolha da rota mais eficiente, considerando tráfego e clima.</p>
+          </div>
+          <div class="card">
+            <h3>Condução em Segurança</h3>
+            <p>Condução responsável, obedecendo às leis e prevenindo riscos.</p>
+          </div>
+          <div class="card">
+            <h3>Carga e Descarregamento</h3>
+            <p>Transporte e entrega seguros, protegendo as mercadorias.</p>
+          </div>
+          <div class="card">
+            <h3>Manutenção de Registros</h3>
+            <p>Controle de viagens, entregas, manutenção e incidentes.</p>
+          </div>
+          <div class="card">
+            <h3>Atendimento ao Cliente</h3>
+            <p>Contato direto, com cortesia e foco na experiência.</p>
+          </div>
+          <div class="card">
+            <h3>Gerenciamento de Tempo</h3>
+            <p>Pontualidade nas entregas e eficiência nas rotas.</p>
+          </div>
+          <div class="card">
+            <h3>Relatórios de Viagem</h3>
+            <p>Detalhamento de cada jornada e ocorrências.</p>
+          </div>
+          <div class="card">
+            <h3>Comunicação Mútua</h3>
+            <p>Contato constante com a central e atualização de status.</p>
+          </div>
+          <div class="card">
+            <h3>Reconhecimento das Políticas</h3>
+            <p>Seguir protocolos internos e padrões de segurança.</p>
+          </div>
+        </div>
       </div>
 
-      <button class="navegacao next">&#10095;</button>
+      <button class="navegacao next" aria-label="Próximo">&#10095;</button>
     </div>
   </div>
 
@@ -378,36 +453,61 @@
     const prev = document.querySelector('.prev');
     const next = document.querySelector('.next');
 
-    let scrollPosition = 0;
-    const cardWidth = 320;
+    const card = carrossel.querySelector('.card');
+    const style = getComputedStyle(card);
+    const marginRight = parseInt(style.marginRight);
+    const marginLeft = parseInt(style.marginLeft);
+    const cardWidth = card.offsetWidth + marginLeft + marginRight;
+
     const totalCards = carrossel.children.length;
 
-    // Navegação manual
-    prev.addEventListener('click', () => {
-      scrollPosition -= cardWidth;
-      if (scrollPosition < 0) {
-        scrollPosition = (totalCards - 1) * cardWidth;
+    // Clona os primeiros e últimos 4 cards para efeito infinito
+    const cloneCards = () => {
+      const cards = [...carrossel.children];
+      for (let i = 0; i < 4; i++) {
+        carrossel.appendChild(cards[i].cloneNode(true));
+        carrossel.insertBefore(cards[totalCards - 1 - i].cloneNode(true), carrossel.firstChild);
       }
-      carrossel.style.transform = `translateX(-${scrollPosition}px)`;
-    });
+    };
+
+    cloneCards();
+
+    let currentIndex = 4; // começa após clones do início
+    carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    const updatePosition = () => {
+      carrossel.style.transition = 'transform 0.5s ease-in-out';
+      carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    };
+
+    const resetPosition = () => {
+      if (currentIndex >= totalCards + 4) {
+        carrossel.style.transition = 'none';
+        currentIndex = 4;
+        carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      } else if (currentIndex < 4) {
+        carrossel.style.transition = 'none';
+        currentIndex = totalCards + 3;
+        carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      }
+    };
 
     next.addEventListener('click', () => {
-      scrollPosition += cardWidth;
-      if (scrollPosition >= totalCards * cardWidth) {
-        scrollPosition = 0;
-      }
-      carrossel.style.transform = `translateX(-${scrollPosition}px)`;
+      currentIndex++;
+      updatePosition();
     });
 
-    // Rolar automaticamente a cada 4 segundos
+    prev.addEventListener('click', () => {
+      currentIndex--;
+      updatePosition();
+    });
+
+    carrossel.addEventListener('transitionend', resetPosition);
+
     setInterval(() => {
-      scrollPosition += cardWidth;
-      if (scrollPosition >= totalCards * cardWidth) {
-        scrollPosition = 0;
-      }
-      carrossel.style.transform = `translateX(-${scrollPosition}px)`;
+      currentIndex++;
+      updatePosition();
     }, 4000);
   </script>
 </body>
 </html>
-
