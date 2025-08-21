@@ -18,9 +18,20 @@
           <!-- ...existing code... -->
           <form id="formCadastroMotorista" action="/cadastro" method="POST">
             <button class="voltar" onclick="javascript:history.back()">🠔</button>
+            <input type="nomeComp" id="nomeComp" name="nomeComp" placeholder="Nome Completo" />
+            <input type="text" id="cpf" maxlength="14" name="cpf" placeholder="CPF" oninput="mascaraCPF(this)" />
+            <input type="text" maxlength="15" id="numCtt" name="numCtt" placeholder="Número Contato"
+              oninput="mascaraTelefone(this)" />
+            <input type="text" maxlength="11" id="CNH" name="CNH" placeholder="CNH-E"
+              oninput="mascaraNumerica(this, 11)" />
+            <input type="text" maxlength="11" id="renavan" name="renavan" placeholder="RENAVAN"
+              oninput="mascaraNumerica(this, 11)" />
             <input type="email" id="email" name="email" placeholder=" Seu E-mail" required />
-            <input type="text" id="cpf" name="cpf" placeholder="CPF" required />
-            <input type="password" id="password" name="password" placeholder="Crie sua Senha" required />
+            <div class="senha-container">
+              <input type="password" id="senha" placeholder="Digite sua senha">
+              <button type="button" class="toggle-senha" onclick="toggleSenha(this)">👁️</button>
+            </div>
+
             <label for="formFile" class="form-label">
               <h3>Currículo</h3>
             </label>
