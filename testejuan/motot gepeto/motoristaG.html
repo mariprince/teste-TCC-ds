@@ -223,174 +223,291 @@
 </body>
 </html>
 -->
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrossel de Serviços</title>
-  <!-- Fonte Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrossel Ajustado Responsivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
+    * {
+      box-sizing: border-box;
       padding: 0;
-      background: #fff;
-      color: #333;
+      margin: 0;
     }
 
-    .section {
-      text-align: center;
-      padding: 40px 20px;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
     }
 
-    .section h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 1100px;
+    .container {
+      max-width: 1200px;
       margin: auto;
+      padding: 60px 20px;
+    }
+
+    .subtitulo {
+      color: #e44b2d;
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 14px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .subtitulo::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: #e44b2d;
+      margin-top: 8px;
+    }
+
+    .titulo {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 10px 0 40px;
+    }
+
+    .carrossel-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 0 60px; /* espaço para botões */
+    }
+
+    .carrossel-container {
       overflow: hidden;
     }
 
-    .carousel {
+    .carrossel {
       display: flex;
-      transition: transform 0.4s ease-in-out;
+      transition: transform 0.5s ease-in-out;
+      user-select: none;
     }
 
     .card {
-      flex: 0 0 25%; /* 4 cards por vez */
-      box-sizing: border-box;
+      flex: 0 0 calc(25% - 20px);
+      margin: 0 10px;
+      height: 250px;
+      border: 2px solid #000;
+      border-radius: 15px;
       padding: 20px;
-    }
-
-    .card-content {
       background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
+
       display: flex;
       flex-direction: column;
+      align-items: stretch; /* importante pra alinhamento do texto */
       justify-content: flex-start;
-      height: 100%;
+      box-sizing: border-box;
+      position: relative;
     }
 
+    /* Títulos alinhados à esquerda e linha fixa alinhada */
     .card h3 {
-      color: #e53935;
-      font-size: 18px;
+      width: 100%;
+      text-align: left; /* Alinha título à esquerda */
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: #e44b2d;
+      margin-bottom: 15px; /* espaço para linha */
+      padding-bottom: 10px;
+      position: relative;
     }
 
+    .card h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #e44b2d;
+      margin-top: 8px;
+      margin-left: 0; /* linha alinhada à esquerda */
+    }
+
+    /* Textos dos cards alinhados à esquerda, iniciando todos no mesmo ponto */
     .card p {
-      font-size: 14px;
-      line-height: 1.5;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left;
+      line-height: 1.4;
+      padding-left: 0;
+      text-indent: 0;
+      word-wrap: break-word;
     }
 
-    /* Botões */
-    .btn {
+    .navegacao {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 30px;
       background: #fff;
-      border: 2px solid #e53935;
-      cursor: pointer;
+      border: 2px solid #000;
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.3s;
-      z-index: 10;
+      z-index: 2;
+      user-select: none;
     }
 
-    .btn:hover {
-      background: #e53935;
-      color: #fff;
+    .navegacao.prev {
+      left: 0;
     }
 
-    .btn svg {
-      width: 20px;
-      height: 20px;
-      stroke: currentColor;
-      stroke-width: 2.5;
-      fill: none;
+    .navegacao.next {
+      right: 0;
     }
 
-    .btn.prev { left: 10px; }
-    .btn.next { right: 10px; }
-
-    @media (max-width: 900px) {
-      .card { flex: 0 0 50%; } /* 2 por vez */
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
+      .card {
+        flex: 0 0 calc(50% - 20px);
+      }
     }
 
     @media (max-width: 600px) {
-      .card { flex: 0 0 100%; } /* 1 por vez */
+      .carrossel-wrapper {
+        padding: 0 40px;
+      }
+      .card {
+        flex: 0 0 100%;
+        margin: 0 0 20px 0;
+        height: auto;
+      }
+      .navegacao.prev {
+        left: 10px;
+      }
+      .navegacao.next {
+        right: 10px;
+      }
     }
+
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="subtitulo">SERVIÇOS DE TRANSPORTE</div>
+    <div class="titulo">O QUE FAZ <br> UM MOTORISTA?</div>
 
-  <section class="section">
-    <h2>SERVIÇOS DE TRANSPORTE</h2>
-    <p>PENSADOS PARA ATENDER SUA EMPRESA</p>
+    <div class="carrossel-wrapper">
+      <button class="navegacao prev" aria-label="Anterior">&#10094;</button>
 
-    <div class="carousel-container">
-      <button class="btn prev" onclick="moveCarousel(-1)">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-
-      <div class="carousel" id="carousel">
-        <!-- Card 1 -->
-        <div class="card"><div class="card-content"><h3>TRANSPORTE RODOVIÁRIO</h3><p>Movimentação eficiente de mercadorias nos principais corredores logísticos do Sul e Sudeste.</p></div></div>
-        <!-- Card 2 -->
-        <div class="card"><div class="card-content"><h3>FRETE DEDICADO</h3><p>Veículos exclusivos para sua operação, com rotas planejadas conforme suas necessidades.</p></div></div>
-        <!-- Card 3 -->
-        <div class="card"><div class="card-content"><h3>SOLUÇÕES PERSONALIZADAS</h3><p>Atendemos demandas urgentes, embalagens especiais e operações sob medida.</p></div></div>
-        <!-- Card 4 -->
-        <div class="card"><div class="card-content"><h3>CARGAS PERIGOSAS</h3><p>Equipe certificada para transporte seguro de produtos químicos e inflamáveis.</p></div></div>
-        <!-- Card 5 -->
-        <div class="card"><div class="card-content"><h3>ARMAZENAGEM</h3><p>Espaços seguros para estocagem temporária de cargas com total rastreabilidade.</p></div></div>
-        <!-- Card 6 -->
-        <div class="card"><div class="card-content"><h3>ENTREGAS EXPRESSAS</h3><p>Serviço ágil para demandas imediatas e prazos reduzidos.</p></div></div>
-        <!-- Card 7 -->
-        <div class="card"><div class="card-content"><h3>COLETA PROGRAMADA</h3><p>Retiradas em horários combinados, garantindo previsibilidade e organização.</p></div></div>
-        <!-- Card 8 -->
-        <div class="card"><div class="card-content"><h3>GESTÃO LOGÍSTICA</h3><p>Planejamento estratégico para otimização de rotas e redução de custos.</p></div></div>
-        <!-- Card 9 -->
-        <div class="card"><div class="card-content"><h3>RASTREAMENTO ONLINE</h3><p>Acompanhe sua carga em tempo real com nosso sistema integrado.</p></div></div>
-        <!-- Card 10 -->
-        <div class="card"><div class="card-content"><h3>SUPORTE 24/7</h3><p>Equipe de atendimento sempre disponível para apoiar sua operação.</p></div></div>
+      <div class="carrossel-container">
+        <div class="carrossel" id="carrossel">
+          <div class="card">
+            <h3>Inspeção do Veículo</h3>
+            <p>Verificações diárias como pneus, freios, luzes e óleo.</p>
+          </div>
+          <div class="card">
+            <h3>Planejamento de Rotas</h3>
+            <p>Escolha da rota mais eficiente, considerando tráfego e clima.</p>
+          </div>
+          <div class="card">
+            <h3>Condução em Segurança</h3>
+            <p>Condução responsável, obedecendo às leis e prevenindo riscos.</p>
+          </div>
+          <div class="card">
+            <h3>Carga e Descarregamento</h3>
+            <p>Transporte e entrega seguros, protegendo as mercadorias.</p>
+          </div>
+          <div class="card">
+            <h3>Manutenção de Registros</h3>
+            <p>Controle de viagens, entregas, manutenção e incidentes.</p>
+          </div>
+          <div class="card">
+            <h3>Atendimento ao Cliente</h3>
+            <p>Contato direto, com cortesia e foco na experiência.</p>
+          </div>
+          <div class="card">
+            <h3>Gerenciamento de Tempo</h3>
+            <p>Pontualidade nas entregas e eficiência nas rotas.</p>
+          </div>
+          <div class="card">
+            <h3>Relatórios de Viagem</h3>
+            <p>Detalhamento de cada jornada e ocorrências.</p>
+          </div>
+          <div class="card">
+            <h3>Comunicação Mútua</h3>
+            <p>Contato constante com a central e atualização de status.</p>
+          </div>
+          <div class="card">
+            <h3>Reconhecimento das Políticas</h3>
+            <p>Seguir protocolos internos e padrões de segurança.</p>
+          </div>
+        </div>
       </div>
 
-      <button class="btn next" onclick="moveCarousel(1)">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+      <button class="navegacao next" aria-label="Próximo">&#10095;</button>
     </div>
-  </section>
+  </div>
 
   <script>
-    let currentIndex = 0;
-    function moveCarousel(step) {
-      const carousel = document.getElementById('carousel');
-      const cardWidth = carousel.querySelector('.card').offsetWidth;
-      const totalCards = carousel.children.length;
-      const visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+    const carrossel = document.getElementById('carrossel');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
 
-      currentIndex += step;
-      if (currentIndex < 0) currentIndex = 0;
-      if (currentIndex > totalCards - visibleCards) currentIndex = totalCards - visibleCards;
+    const card = carrossel.querySelector('.card');
+    const style = getComputedStyle(card);
+    const marginRight = parseInt(style.marginRight);
+    const marginLeft = parseInt(style.marginLeft);
+    const cardWidth = card.offsetWidth + marginLeft + marginRight;
 
-      carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
+    const totalCards = carrossel.children.length;
+
+    // Clona os primeiros e últimos 4 cards para efeito infinito
+    const cloneCards = () => {
+      const cards = [...carrossel.children];
+      for (let i = 0; i < 4; i++) {
+        carrossel.appendChild(cards[i].cloneNode(true));
+        carrossel.insertBefore(cards[totalCards - 1 - i].cloneNode(true), carrossel.firstChild);
+      }
+    };
+
+    cloneCards();
+
+    let currentIndex = 4; // começa após clones do início
+    carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    const updatePosition = () => {
+      carrossel.style.transition = 'transform 0.5s ease-in-out';
+      carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    };
+
+    const resetPosition = () => {
+      if (currentIndex >= totalCards + 4) {
+        carrossel.style.transition = 'none';
+        currentIndex = 4;
+        carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      } else if (currentIndex < 4) {
+        carrossel.style.transition = 'none';
+        currentIndex = totalCards + 3;
+        carrossel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      }
+    };
+
+    next.addEventListener('click', () => {
+      currentIndex++;
+      updatePosition();
+    });
+
+    prev.addEventListener('click', () => {
+      currentIndex--;
+      updatePosition();
+    });
+
+    carrossel.addEventListener('transitionend', resetPosition);
+
+    setInterval(() => {
+      currentIndex++;
+      updatePosition();
+    }, 4000);
   </script>
-
 </body>
 </html>
