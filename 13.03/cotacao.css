@@ -165,12 +165,12 @@ nav {
 #popup {
   justify-content: center;
   justify-items: center;
-  display: f;
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 500px;
-  height: 250px;
+  width: 400px;
+  height: 200px;
   transform: translate(-50%, -50%);
   background-color: #f2f4f8;
   padding: 20px;

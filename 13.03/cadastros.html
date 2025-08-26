@@ -18,9 +18,20 @@
           <!-- ...existing code... -->
           <form id="formCadastroMotorista" action="/cadastro" method="POST">
             <button class="voltar" onclick="javascript:history.back()">🠔</button>
+            <input type="nomeComp" id="nomeComp" name="nomeComp" placeholder="Nome Completo" />
+            <input type="text" id="cpf" maxlength="14" name="cpf" placeholder="CPF" oninput="mascaraCPF(this)" />
+            <input type="text" maxlength="15" id="numCtt" name="numCtt" placeholder="Número Contato"
+              oninput="mascaraTelefone(this)" />
+            <input type="text" maxlength="11" id="CNH" name="CNH" placeholder="CNH-E"
+              oninput="mascaraNumerica(this, 11)" />
+            <input type="text" maxlength="11" id="renavan" name="renavan" placeholder="RENAVAN"
+              oninput="mascaraNumerica(this, 11)" />
             <input type="email" id="email" name="email" placeholder=" Seu E-mail" required />
-            <input type="text" id="cpf" name="cpf" placeholder="CPF" required />
-            <input type="password" id="password" name="password" placeholder="Crie sua Senha" required />
+            <div class="senha-container">
+              <input type="password" id="senha" placeholder="Digite sua senha">
+              <button type="button" class="toggle-senha" onclick="toggleSenha(this)">👁️</button>
+            </div>
+
             <label for="formFile" class="form-label">
               <h3>Currículo</h3>
             </label>
@@ -33,6 +44,7 @@
           </a>
         </div>
         <div class="cadastroMotorista">
+<<<<<<< HEAD
           <h2>Quer ser <br />um dos nossos motoristas?</h2> </br> <br/> 
           <!--
           <p>
@@ -40,6 +52,13 @@
             doloribus eius dolor, dolorum corrupti id ducimus,
           </p> -->
           <button class="motoristaButton">Quero ser motorista!</button>
+=======
+          <h2>Quer ser <br />um motorista?</h2>
+          <p>
+            Nossos motoristas encontram caminhos para maior eficiência de realização de frete, venha você também!          
+          </p>
+          <button class="motoristaButton">Quero Ser Motorista</button>
+>>>>>>> 88d3f8fda2aaa885cbda124bea7c341e085dc792
         </div>
       </div>
       <div class="direita">
@@ -59,8 +78,13 @@
           </form>
         </div>
         <div class="cadastroEmpresa">
+<<<<<<< HEAD
           <h2>Quer adicionar sua<br />empresa e ser nosso parceiro?</h2> </br> <br/> 
         <!--<p>
+=======
+          <h2>Quer ser<br />uma Empresa Parceira?</h2>
+          <p>
+>>>>>>> 88d3f8fda2aaa885cbda124bea7c341e085dc792
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum ex
             recusandae, nemo illo vero enim aliquid.
           </p> -->
