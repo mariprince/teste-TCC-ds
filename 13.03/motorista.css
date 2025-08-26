@@ -240,6 +240,164 @@
     align-items: center;
     justify-self: center; 
   }
+
+        * {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+        }
+    
+        body {
+          font-family: 'Montserrat', sans-serif;
+          background-color: #fff;
+        }
+    
+        .container {
+          max-width: 1200px;
+          margin: auto;
+          padding: 60px 20px;
+        }
+    
+        .subtitulo {
+          color: #e44b2d;
+          font-weight: 600;
+          letter-spacing: 2px;
+          font-size: 14px;
+          position: relative;
+          padding-bottom: 10px;
+        }
+    
+        .subtitulo::after {
+          content: '';
+          display: block;
+          width: 60px;
+          height: 2px;
+          background: #e44b2d;
+          margin-top: 8px;
+        }
+    
+        .titulo {
+          font-size: 36px;
+          font-weight: 900;
+          margin: 10px 0 40px;
+        }
+    
+        .carrossel-wrapper {
+          position: relative;
+          overflow: hidden;
+          padding: 0 60px; /* espaço para botões */
+        }
+    
+        .carrossel-container {
+          overflow: hidden;
+        }
+    
+        .carrossel {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+          user-select: none;
+        }
+    
+        .card {
+          flex: 0 0 calc(25% - 20px);
+          margin: 0 10px;
+          height: 250px;
+          border: 2px solid #000;
+          border-radius: 15px;
+          padding: 20px;
+          background: #fff;
+    
+          display: flex;
+          flex-direction: column;
+          align-items: stretch; /* importante pra alinhamento do texto */
+          justify-content: flex-start;
+          box-sizing: border-box;
+          position: relative;
+        }
+    
+        /* Títulos alinhados à esquerda e linha fixa alinhada */
+        .card h3 {
+          width: 100%;
+          text-align: left; /* Alinha título à esquerda */
+          font-size: 16px;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: #e44b2d;
+          margin-bottom: 15px; /* espaço para linha */
+          padding-bottom: 10px;
+          position: relative;
+        }
+    
+        .card h3::after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 2px;
+          background: #e44b2d;
+          margin-top: 8px;
+          margin-left: 0; /* linha alinhada à esquerda */
+        }
+    
+        /* Textos dos cards alinhados à esquerda, iniciando todos no mesmo ponto */
+        .card p {
+          margin-top: 0;
+          margin-bottom: 0;
+          text-align: left;
+          line-height: 1.4;
+          padding-left: 0;
+          text-indent: 0;
+          word-wrap: break-word;
+        }
+    
+        .navegacao {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 30px;
+          background: #fff;
+          border: 2px solid #000;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+          user-select: none;
+        }
+    
+        .navegacao.prev {
+          left: 0;
+        }
+    
+        .navegacao.next {
+          right: 0;
+        }
+    
+        /* RESPONSIVIDADE */
+        @media (max-width: 1024px) {
+          .card {
+            flex: 0 0 calc(50% - 20px);
+          }
+        }
+    
+        @media (max-width: 600px) {
+          .carrossel-wrapper {
+            padding: 0 40px;
+          }
+          .card {
+            flex: 0 0 100%;
+            margin: 0 0 20px 0;
+            height: auto;
+          }
+          .navegacao.prev {
+            left: 10px;
+          }
+          .navegacao.next {
+            right: 10px;
+          }
+        }
   
   .footter .box-conteiner {
     display: flex;
