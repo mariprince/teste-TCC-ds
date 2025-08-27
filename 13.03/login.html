@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="scriptLogin.js" defer></script>
     <title>Login</title>
 </head>
+
 <body>
     <section class="containerPai">
         <div class="cardBI loginActive">
@@ -21,63 +23,46 @@
                         </button>
                     </form>
                     <a href="cadastros.html">
-                        Não tem conta? Cadastre-se aqui
+                        Não tem conta? Cadastre-se aqui!
                     </a>
                     <a href="">
-                        Esqueceu a Senha? Recupere aqui
+                        Esqueceu a Senha? Recupere aqui!
                     </a>
                 </div>
                 <div class="loginMotorista">
-                    <h2>Quer ser <br />um Motorista? </h2> </br>
-                    <!--
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quidem incidunt nihil est quam impedit dolor. Fugiat
-                         tenetur nobis minus ratione numquam repellat dolores enim, sed expedita maiores sequi odio.
-                    </p> -->
-                    <h2>Já tem conta <br />como motorista?</h2>                    
-                    <p>
-                        Nossos motoristas encontram caminhos para maior eficiência de realização de frete, venha você também!
-                    </p>
-                    <button class="motoristaButton">Quero Ser Motorista</button>
+                    <h2>Já tem conta <br />como motorista?</h2>
+                    <button class="motoristaButton">Login Motorista</button>
                 </div>
             </div>
             <div class="direita">
-            <div class="empresaForm">
-                <h2>Login Empresa</h2>
-                <form class="formEmpresa">
-            <input placeholder="Email Empresa"   type="email_empresa" id="email_empresa" class="w-full border border-gray-300 rounded-md p-2"
-              required />
-            <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ"
-              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required
-              oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
-                     <input type="password" placeholder="Sua Senha">
-            <br />
-     
-            <button type="submit" class="btn btn-outline-warning custom-btn">
-              Login
-            </button>
-                </form>
+                <div class="empresaForm">
+                    <h2>Login Empresa</h2>
+                    <form class="formEmpresa">
+                        <input placeholder="Email Empresa" type="email_empresa" id="email_empresa"
+                            class="w-full border border-gray-300 rounded-md p-2" required />
+                        <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                            required oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                        <input type="password" placeholder="Sua Senha">
+                        <br />
+
+                        <button type="submit" class="btn btn-outline-warning custom-btn">
+                            Login
+                        </button>
+                    </form>
+                </div>
+                <div class="loginEmpresa">
+                    <h2>Para quem <br />já é empresa parceira!</h2> </br>
+                    <button type="submit" class="empresaButton">Login Empresa</button>
+                </div>
+                <a href="cadastros.html">
+                    Não cadastrou sua Empresa? Cadastre-se aqui!
+                </a>
+                <a href="">
+                    Esqueceu a Senha? Recupere aqui!
+                </a>
             </div>
-            <div class="loginEmpresa">
-                <h2>Para quem <br />já é nosso parceiro</h2> </br> <br/> 
-                <!--
-=======
-                <h2>Já é<br />uma Empresa Parceira?</h2>
->>>>>>> 88d3f8fda2aaa885cbda124bea7c341e085dc792
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet consectetur repellat, deserunt natus cupiditate eius nesciunt odit fuga
-                     ullam neque assumenda exercitationem laboriosam officiis, magni veritatis animi ducimus est eveniet?
-                </p> -->
-                <button type="submit" class="empresaButton">Login Empresa</button>
-            </div>
-            <a href="cadastros.html">
-                        Não cadastrou sua Empresa? Cadastre-se aqui
-                    </a>
-            <a href="">
-                        Esqueceu a Senha? Recupere aqui
-                    </a>
         </div>
-    </div>
     </section>
 </body>
+
 </html>

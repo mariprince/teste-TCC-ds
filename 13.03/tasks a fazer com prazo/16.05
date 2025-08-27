@@ -1,13 +1,9 @@
 PÁGINAS INICIAIS 
 
-PÁGINA EMPRESA 
-- melhorar layout -> protótipo - Miguel
-- refazer os textos - Miguel
-
 PÁGINA MOTORISTA 
 - alinhar layout - Miguel => Juan
 - arrumar botão de cadastro - Juan
-- refazer textos motorista - Miguel
+- refazer textos motorista 
 
 TODOS 
 
@@ -17,27 +13,6 @@ NAVBAR - Marina
 - uniformizar 
 
 EA580c
-crl de testezinho,
-
-
-footer
-navbar - 
-responsividade
-foto aparecer no canto superior direito após realizar o login (motorista)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -45,8 +20,8 @@ foto aparecer no canto superior direito após realizar o login (motorista)
 
 
 *GERAL*
--BACKGROUND BRANCO/GELO(MENOS INDEX) - feito
--FONTES DA MESMA FAMILIA - feito
+-BACKGROUND BRANCO/GELO(MENOS INDEX) 
+-FONTES DA MESMA FAMILIA
 -UNIFORMIZAR NAVBAR
 
 *INDEX* - Mariane, Clara e Miguel
@@ -55,17 +30,19 @@ foto aparecer no canto superior direito após realizar o login (motorista)
 -CENTRALIZAR NOMES
 
 *MOTORISTA* - Juan
+-BACKGROUND BRANCO/GELO(MENOS INDEX) 
+
+*EMPRESA* - FEITO
 -BACKGROUND BRANCO/GELO(MENOS INDEX)
 
-*EMPRESA*
--BACKGROUND BRANCO/GELO(MENOS INDEX)
-
-*CADASTRO/LOGIN*
+*CADASTRO/LOGIN* 
 -ARRUMAR TEXTO - Clara e Mariane
--inputs cadastros motorista - Juan
+-inputs cadastros motorista - Juan - FEITO
+-Adicionar link/caminho do login -> dashboard
 
-*COTAÇÃO* - Marina
+*COTAÇÃO* - Marina, Juan
 -CONFIGURAR TUDO
 
 *DASHBOARD* - Marina
--FUNCIONALIZAR E CENTRALIZAR
+-FUNCIONALIZAR 
+-CENTRALIZAR
