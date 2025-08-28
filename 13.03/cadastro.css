@@ -168,7 +168,7 @@ button{
   opacity: 1;
 }
 
-.cardBI.loginActive .formEmpresa{
+.cardBI.loginActive .empresaForm{
   opacity: 0;
   pointer-events: none;
 }
