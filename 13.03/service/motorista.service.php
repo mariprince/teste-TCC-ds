@@ -11,7 +11,7 @@
         }
 
         public function inserir()
-        {
+    }
             $query = "INSERT INTO motorista (nome_motorista, cpf, telefone, cnh, renavan, curriculo, email_motorista, senha) 
                       VALUES (?, ?, ?, ?)";
             $stmt = $this->conexao->prepare($query);
@@ -23,11 +23,10 @@
             $stmt->bindValue(6, $this->motorista->__get('curriculo'));
             $stmt->bindValue(7, $this->motorista->__get('email_motorista'));
             $stmt->bindValue(8, $this->motorista->__get('senha'));
-            $stmt->execute();
-        }
+        
 
         public function recuperar()
-        {
+{
             $query = 'SELECT id_motorista, nome_motorista, cpf, telefone, cnh, renavan, curriculo, email_motorista, senha FROM motorista';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
@@ -38,10 +37,6 @@
         {
             $query = 'SELECT id_motorista, nome_motorista, cpf, telefone, cnh, renavan, curriculo, email_empresa, senha 
                       FROM motorista WHERE id_motorista = ?';
-            $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1, $ide);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
         public function excluir()
@@ -49,11 +44,11 @@
             $query = 'DELETE FROM motorista WHERE id_motorista = ?';
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $this->empresa->__get('id_motorista'));
-            $stmt->execute();
         }
 
         public function alterar()
         {
+
             $query = "UPDATE motorista 
                       SET nome_motorista = ?, cpf = ?, telefone = ?, cnh = ?, renavan = ?, email_motorista = ?, senha = ? 
                       WHERE id_motorista = ?";
@@ -66,7 +61,6 @@
             $stmt->bindValue(6, $this->motorista->__get('senha'));
             $stmt->bindValue(7, $this->motorista->__get('cnpj'));
             $stmt->bindValue(8, $this->motorista->__get('id_motorista'));
-            $stmt->execute();
         }
     }
 ?>
