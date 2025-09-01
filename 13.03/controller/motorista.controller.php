@@ -1,6 +1,6 @@
 <?php 
- require_once "model/empresa.model.php";
- require_once "service/empresa.service.php";
+ require_once "model/motorista.model.php";
+ require_once "service/motorista.service.php";
  require_once "conexao/conexao.php";
  
  @$acaoe = isset($_GET['acaoe']) ? $_GET['acaoe'] : $acaoe;
@@ -8,11 +8,15 @@
 
  // Inserir Empresa
  if($acaoe == 'inserir') {
-    $empresa = new Empresa();
-    $empresa->__set('nome_empresa', $_POST['nome_empresa']);
-    $empresa->__set('email_empresa', $_POST['email_empresa']);
-    $empresa->__set('senha', $_POST['senha']);
-    $empresa->__set('cnpj', $_POST['cnpj']);
+    $motorista = new Motorista();
+    $motorista->__set('nome_motorista', $_POST['nome_motorista']);
+    $motorista->__set('cpf', $_POST['cpf']);
+    $motorista->__set('telefone', $_POST['telefone']);
+    $motorista->__set('cnh', $_POST['cnh']);
+    $motorista->__set('renavan', $_POST['renavan']);
+    $motorista->__set('curriculo', $_POST['curriculo']);
+    $motorista->__set('email_motorista', $_POST['email_motorista']);
+    $motorista->__set('senha', $_POST['senha']);
 
     $conexao = new Conexao();
     $empresaService = new EmpresaService($empresa, $conexao);
@@ -21,45 +25,49 @@
 
  // Recuperar todas as empresas
  if($acaoe == 'recuperar') {
-    $empresa = new Empresa();
+    $empresa = new Motorista();
     $conexao = new Conexao();
 
-    $empresaService = new EmpresaService($empresa, $conexao);
-    $empresa = $empresaService->recuperar();
+    $motoristaService = new EmpresaService($motorista, $conexao);
+    $motorista = $motoristaService->recuperar();
  }
 
  // Recuperar uma empresa específica
- if($acaoe == 'recuperarEmpresa') {
-    $empresa = new Empresa();
+ if($acaoe == 'recuperarMotorista') {
+    $motorista = new Motorista();
     $conexao = new Conexao();
    
-    $empresaService = new EmpresaService($empresa, $conexao);
-    $empresa = $empresaService->recuperarEmpresa($ide);
+    $motoristaService = new MotoristaService($motorista, $conexao);
+    $motorista = $motoristaService->recuperarMotorista($ide);
  }
 
  // Excluir empresa
  if($acaoe == 'excluir') {
-    $empresa = new Empresa();
+    $motorista = new Motorista();
     $conexao = new Conexao();
 
-    $empresa->__set('id_empresa', $_POST['id_empresa']);
+    $motorista->__set('id_motorista', $_POST['id_motorista']);
 
-    $empresaService = new EmpresaService($empresa, $conexao);
-    $empresaService->excluir();
+    $motoristaService = new MotoristaService($motorista, $conexao);
+    $motoristaService->excluir();
  }
 
  // Alterar empresa
  if($acaoe == 'alterar') {
-    $empresa = new Empresa();
-    $empresa->__set('nome_empresa', $_POST['nome_empresa']);
-    $empresa->__set('email_empresa', $_POST['email_empresa']);
-    $empresa->__set('senha', $_POST['senha']);
-    $empresa->__set('cnpj', $_POST['cnpj']);
-    $empresa->__set('id_empresa', $_POST['id_empresa']);
+    $motorista = new Motorista();
+    $motorista->__set('nome_motorista', $_POST['nome_motorista']);
+    $motorista->__set('cpf', $_POST['cpf']);
+    $motorista->__set('telefone', $_POST['telefone']);
+    $motorista->__set('cnh', $_POST['cnh']);
+    $motorista->__set('renavan', $_POST['renavan']);
+    $motorista->__set('curriculo', $_POST['curriculo']);
+    $motorista->__set('email_motorista', $_POST['email_motorista']);
+    $motorista->__set('senha', $_POST['senha']);
+    $motorista->__set('id_motorista', $_POST['id_motorista']);
     
     $conexao = new Conexao();
-    $empresaService = new EmpresaService($empresa, $conexao);
-    $empresaService->alterar();
-    header('location:index.php?link=empresas');
+    $motoristaService = new MotoristaService($motorista, $conexao);
+    $motoristaService->alterar();
+    header('location:index.php?link=motoristas');
  }
 ?>

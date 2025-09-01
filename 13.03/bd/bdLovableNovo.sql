@@ -18,7 +18,7 @@ CREATE TABLE Motorista (
     telefone VARCHAR(15) NOT NULL,
     cnh VARCHAR(20) NOT NULL,
     renavan VARCHAR(20),
-    email VARCHAR(120) UNIQUE NOT NULL,
+    email_motorista VARCHAR(120) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     curriculo VARCHAR(255) NOT NULL,
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
