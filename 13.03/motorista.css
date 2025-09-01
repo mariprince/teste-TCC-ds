@@ -121,7 +121,73 @@
       margin: 0 10px;
     }
   }
-  
+  /**/
+  /* Container Principal */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 10%;
+  }
+
+  .text-box {
+    flex: 1 1 450px;
+  }
+
+  .text-box h2 {
+    font-size: 38px;
+    color: #222;
+    margin-bottom: 20px;
+  }
+
+  .text-box p {
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  /* Card da imagem */
+  .image-card {
+    flex: 1 1 350px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .image-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  .image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsividade */
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      padding: 40px 20px;
+    }
+
+    .text-box h2 {
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .text-box p {
+      text-align: left;
+      font-size: 16px;
+    }
+  }
+/**/
+
   #bg-hero-select {
     background: linear-gradient(90deg,
         #fafbe4 0%,
@@ -129,15 +195,6 @@
         hsla(0, 0%, 85%, 0) 50%,
         rgba(222, 227, 234, 0.609) 75%,
         #fafbe4 100%);
-  
-  }
-  
-  .imgMotorista {
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 25%;
-    margin-left: 2.5rem;
   }
   
   #titu {
@@ -153,24 +210,6 @@
     justify-content: center;
   }
   
-  .row {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .sobreMto {
-    margin-bottom: 1rem;
-    margin-top: 0;
-    display: block;
-    unicode-bidi: isolate;
-    font-size: 20px;
-  
-  }
-  
-  .sobreEsq {
-    width: 500px;
-  }
-  
   .aa {
     margin-left: 2rem;
     margin-top: 5rem;
@@ -178,18 +217,60 @@
     height: 300px;
   }
   
-  .sobreCargo {
-    width: 700px;
-    margin-left: 3.5rem;
-    justify-content: center;
-    align-items: center;
   
-    #textCargo {
-      margin: 1rem;
-      margin-left: 2.5rem;
-      font-size: 20px;
+  
+  .sobre-cargo-img {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4') center/cover no-repeat;
+    color: white;
+    padding: 80px 10%;
+    text-align: left;
+  }
+  
+  .sobre-cargo-img .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+  
+  .sobre-cargo-img .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .sobre-cargo-img h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #ff7043;
+    text-transform: uppercase;
+  }
+  
+  .sobre-cargo-img p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 900px) {
+    .sobre-cargo-img {
+      padding: 50px 20px;
+      text-align: center;
     }
   
+    .sobre-cargo-img h2 {
+      font-size: 26px;
+    }
+  
+    .sobre-cargo-img p {
+      font-size: 16px;
+      text-align: left;
+    }
   }
   
   .OQUEFAZ {
