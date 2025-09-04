@@ -28,7 +28,7 @@
               oninput="mascaraNumerica(this, 11)" />
             <input type="email" id="email" name="email" placeholder=" Seu E-mail" required />
             <div class="senha-container">
-              <input type="password" id="senha" placeholder="Digite sua senha">
+              <input type="password" id="password" placeholder="Digite sua senha">
               <button type="button" class="toggle-senha" onclick="toggleSenha(this)">👁️</button>
             </div>
 
@@ -56,11 +56,10 @@
           <h2>Cadastrar Empresa</h2>
           <form class="formEmpresa">
             <button class="voltar" onclick="javascript:history.back()">🠔</button>
-            <input type="text" placeholder="Nome Empresa">
-            <input type="email" placeholder="Email Empresa">
+            <input type="text" class="nome_empresa" id="nome_empresa" placeholder="Nome Empresa">
+            <input type="email" class="email_empresa" id="email_empresa" placeholder="Email Empresa">
             <input type="senha" placeholder="Crie sua Senha">
-            <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required
-              oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+            <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="18" oninput="formatarCNPJ(this)" />
             <br />
             <button type="submit" class="btn btn-outline-warning custom-btn">
               Cadastrar
