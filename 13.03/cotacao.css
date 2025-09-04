@@ -150,8 +150,6 @@ nav {
   transform: rotate(45deg) translate(-5px, -7px);
 }
 
-.destino label {}
-
 #calculos {
   padding: 1rem;
   justify-self: center;
