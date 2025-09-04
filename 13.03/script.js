@@ -133,12 +133,12 @@ if (formEmpresa) {
     // Pega os campos do formulário
     const nome_empresa = formEmpresa.querySelector('input[placeholder="Nome Empresa"]').value;
     // O campo de email correto é o que tem id="email_empresa"
-    const email_empresa = formEmpresa.querySelector('#email_empresa').value;
+    const email_empresa = formEmpresa.querySelector('email_empresa').value;
     // O campo de senha (corrigindo o type para password se necessário)
     let senha_empresa = '';
     const senhaInput = formEmpresa.querySelector('input[type="senha"], input[type="password"]');
     if (senhaInput) senha_empresa = senhaInput.value;
-    const cnpj = formEmpresa.querySelector('#cnpj').value;
+    const cnpj = formEmpresa.querySelector('cnpj').value;
 
     try {
       const response = await fetch('/cadastro-empresa', {
