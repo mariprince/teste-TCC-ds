@@ -321,6 +321,75 @@ h3 {
   color: #ea580c;           /* Cor dos detalhes */
 }
 
+.sobre-nozes {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 1500px;
+  height: auto;
+  background-color: rgb(255 251 235);
+  color: #111;
+  font-family: Arial, sans-serif;
+  gap: 1rem;
+}
+
+.sobre-nozes-header h1 {
+  font-size: 3.4rem;
+  background-color: rgb(255 251 235);
+  font-weight: bold;
+  line-height: 1;
+  padding-left: 45px;
+}
+
+.sobre-nozes-header p {
+  padding-left: 45px;
+  text-align: justify;
+  max-width: 1000px;
+  margin-top: 1rem;
+  color: #222;
+  font-size: 1.4rem;
+}
+
+.sobre-nozes-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.box-info h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e06919;
+  margin-bottom: 0.5rem;
+  transform: translateY(-5px);
+
+}
+
+.box-info p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.sobre-nozes-info :hover{
+  color: #293649
+}
+
+@media (max-width: 900px) {
+  .sobre-nos {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sobre-nos-info {
+    max-width: 100%;
+  }
+}
+
+
 .footter .box-conteiner {
   display: flex;
   width: 100%; 
