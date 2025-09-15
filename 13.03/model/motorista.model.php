@@ -12,7 +12,6 @@
         private $curriculo;
         private $data_cadastro
         
-
         public function __set($atributo, $valor)
         {
             $this->$atributo = $valor;

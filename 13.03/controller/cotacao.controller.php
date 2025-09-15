@@ -22,9 +22,6 @@
     $cotacao->__set('largura', $_POST['largura']);
     $cotacao->__set('comprimento', $_POST['comprimento']);
 
-
-
-
     $conexao = new Conexao();
     $cotacaoService = new cotacaoService($cotacao, $conexao);
     $cotacaoService->inserir();
