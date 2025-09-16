@@ -6,12 +6,12 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
   // Inicializar variáveis para o formulário de motorista
-  $nome_completo = $cpf = $numCtt = $cnh = $renavan = $email_motorista = $curriculo = $id_motorista = '';
+  $nomeMotorista = $cpf = $numCtt = $cnh = $renavan = $emailMotorista = $curriculo = $idMotorista = '';
   $acaoFormMotorista = 'inserir';
   $labelBotaoMotorista = 'Cadastrar';
   if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir']) && $_GET['tipo'] === 'motorista') {
     $metodo = $_GET['metodo'];
-    $id_motorista = $_GET['id'] ?? '';
+    $idMotorista = $_GET['id'] ?? '';
   }
   // Verificar se vai alterar/excluir motorista
   if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir']) && $_GET['tipo'] === 'motorista') {
@@ -110,17 +110,17 @@ if (!empty($empresa) && is_object($empresa[0])) {
           <?=  $acaoFormMotorista ?>  
           <!-- Corrigido o caminho para a pasta controller -->
           <form id="formCadastroMotorista" action="motorista.controller.php?acao=<?=  $acaoFormMotorista ?>" method="POST" onsubmit="return true;">
-            <input type="hidden" name="id_motorista" value="<?= $id_motorista ?>">
+            <input type="hidden" name="id_motorista" value="<?= $idMotorista ?>">
 
             <!-- Corrigido para não submeter o form -->
             <button type="button" class="voltar" onclick="javascript:history.back()">🠔</button>
 
-            <input type="text" id="nome_completo" name="nome_completo" value="<?= htmlspecialchars($nome_completo) ?>" placeholder="Nome Completo" required />
+            <input type="text" id="nome_completo" name="nome_completo" value="<?= htmlspecialchars($nome) ?>" placeholder="Nome Completo" required />
             <input type="text" id="cpf" maxlength="14" name="cpf" value="<?= htmlspecialchars($cpf) ?>" placeholder="CPF" oninput="mascaraCPF(this)" required />
             <input type="text" maxlength="15" id="numCtt" name="numCtt" value="<?= htmlspecialchars($numCtt) ?>" placeholder="Número Contato" oninput="mascaraTelefone(this)" />
             <input type="text" maxlength="11" id="CNH" name="cnh" value="<?= htmlspecialchars($cnh) ?>" placeholder="CNH-E" oninput="mascaraNumerica(this, 11)" required />
             <input type="text" maxlength="11" id="renavan" name="renavan" value="<?= htmlspecialchars($renavan) ?>" placeholder="RENAVAN" oninput="mascaraNumerica(this, 11)" />
-            <input type="email" id="email_motorista" name="email_motorista" value="<?= htmlspecialchars($email_motorista) ?>" placeholder="Seu E-mail" required />
+            <input type="email" id="email_motorista" name="email_motorista" value="<?= htmlspecialchars($email) ?>" placeholder="Seu E-mail" required />
 
             <div class="senha-container">
               <input type="password" id="senha" name="senha" placeholder="Digite sua senha" <?= $acaoFormMotorista === 'inserir' ? 'required' : '' ?>>

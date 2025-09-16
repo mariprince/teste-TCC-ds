@@ -3,8 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$acaoe = 'recuperar';
-require '../controller/motorista.controller.php';
+$acao = 'recuperar';
+require '../motorista.controller.php';
 ?>
 
 <!DOCTYPE html>

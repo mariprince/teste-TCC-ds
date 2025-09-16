@@ -40,6 +40,10 @@ if ($acao === 'inserir') {
         } else {
             $motorista->__set('curriculo', '');
         }
+
+    $conexao = new Conexao();
+    $motoristaService = new MotoristaService($motorista, $conexao);
+    $motoristaService->inserir();
 }
 
 // Recuperar todos os motoristas
@@ -73,7 +77,7 @@ if($acao == 'excluir') {
 
 // Alterar
 if ($acao === 'alterar') {
-    if (!empty($_POST['id_motorista'])) {
+   // if (!empty($_POST['id_motorista'])) {
         $motorista = new Motorista();
         $motorista->__set('id_motorista', $_POST['id_motorista']);
         $motorista->__set('nome_completo', $_POST['nome_completo']);
@@ -112,12 +116,11 @@ if ($acao === 'alterar') {
         } else {
             echo "Erro ao atualizar motorista.";
         }
-    }
+   
     $conexao = new Conexao();
     $motoristaService = new MotoristaService($motorista, $conexao);
     $motoristaService->alterar();
 }
-
 // Login do motorista
 if ($acao === 'loginMotorista') {
     $email = $_POST['email'] ?? '';
