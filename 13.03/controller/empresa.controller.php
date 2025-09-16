@@ -60,6 +60,6 @@
     $conexao = new Conexao();
     $empresaService = new EmpresaService($empresa, $conexao);
     $empresaService->alterar();
-    header('location:index.php?link=empresas');
+   // header('location:index.php?link=empresas');
  }
 ?>

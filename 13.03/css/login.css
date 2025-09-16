@@ -1,252 +1,288 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 @font-face {
   font-family: "ChironHeiHK";
   src: url("assets/ChironHeiHK\-VariableFont_wght.ttf");
   font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: "ChironHeiHK";
   src: url("assets/ChironHeiHK\-Italic-VariableFont_wght.ttf");
   font-weight: 400;
   font-style: normal;
 }
-body{
-   background-color: white;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+body {
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-h2{
+
+h2 {
   font-size: 30px;
   margin-bottom: 35px;
   text-align: center;
- 
+
 }
+
 .navbar {
   display: flex;
-  justify-content: space-between; /* Logo à esquerda, menu à direita */
+  justify-content: space-between;
+  /* Logo à esquerda, menu à direita */
   align-items: center;
   padding: 10px 20px;
   background-color: #1a3a70;
 }
+
 .logo img {
-  height: 50px;   /* ajusta a altura da logo */
-  width: auto;    /* mantém a proporção */
+  height: 50px;
+  /* ajusta a altura da logo */
+  width: auto;
+  /* mantém a proporção */
 }
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-button{
+
+button {
   margin-top: 12px;
   font-weight: 600;
 }
-input, button{
-    padding: 12px 20px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    font-size: 16px;
+
+input,
+button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
 }
-button{
+
+button {
   margin-top: 8px;
 }
- p{
-    margin-top: 32px;
-    width: 400px;
-    text-align: center;
-  }
-.containerPai{
-    width: 100%;
-    height: 100vh;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-.cardBI{
-    width: 80%;
-    height: 95vh;
-    background-color: #ec7e42;
-    border-radius: 32px;
-    padding: 32px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-.esquerda, .direita{  
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-  .formMotorista, .loginMotorista, .empresaForm, .loginEmpresa{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .formEmpresa{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 400px;
+
+p {
+  margin-top: 32px;
+  width: 400px;
+  text-align: center;
 }
 
-.loginMotorista, .loginEmpresa {
+.containerPai {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBI {
+  width: 80%;
+  height: 95vh;
+  background-color: #ec7e42;
+  border-radius: 32px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.esquerda,
+.direita {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.formMotorista,
+.loginMotorista,
+.empresaForm,
+.loginEmpresa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formEmpresa {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.loginMotorista,
+.loginEmpresa {
   position: absolute;
 
-  button{
+  button {
     background-color: #ec7e42;
     color: white;
-    
+
   }
 }
 
 .voltar {
-    background-color: #fff;
-    border-radius: 100%;
-    color: #e06919;
-    margin-right: 80%;
-    font-size: 20px;
-    width: 50px;
-  }
-  
-.formcontrol {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
-.butao {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    border: 2px solid #ffffff; /* Cor da borda do botão */
-    border-radius: 5px;
-    background-color: #3498db; /* Cor de fundo do botão */
-    color: #ffffff; /* Cor do texto do botão */
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-.butao:hover {
-    background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efeito de luz ao redor do botão */
-  }
-.show {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all .2s;
-  }
-  /*Background Móvel */
+  background-color: #fff;
+  border-radius: 100%;
+  color: #e06919;
+  margin-right: 80%;
+  font-size: 20px;
+  width: 50px;
+}
 
-  .cardBI::after{
-    width: 100%;
-    height: 100%;
-    content: "";
-    background-image: url("/imagens/fundobranco.jpg");
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-  }
+.formcontrol {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.butao {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  /* Cor da borda do botão */
+  border-radius: 5px;
+  background-color: #3498db;
+  /* Cor de fundo do botão */
+  color: #ffffff;
+  /* Cor do texto do botão */
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.butao:hover {
+  background-color: #2980b9;
+  /* Cor de fundo do botão ao passar o mouse */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Efeito de luz ao redor do botão */
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all .2s;
+}
+
+/*Background Móvel */
+
+.cardBI::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-image: url("/imagens/fundobranco.jpg");
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
 
 /*Motorista ACTIVE */
-.cardBI.loginActive .loginMotorista{
+.cardBI.loginActive .loginMotorista {
   opacity: 0;
   pointer-events: none;
 }
-.cardBI.loginActive .loginEmpresa{
+
+.cardBI.loginActive .loginEmpresa {
   transform: translateX(0);
-  transition: all .3s .3s;
-  opacity: 1   ;
-}
-.cardBI.loginActive .formMotorista{
   transition: all .3s .3s;
   opacity: 1;
 }
 
-.cardBI.loginActive .empresaForm{
+.cardBI.loginActive .formMotorista {
+  transition: all .3s .3s;
+  opacity: 1;
+}
+
+.cardBI.loginActive .empresaForm {
   opacity: 0;
   pointer-events: none;
 }
 
-.cardBI.loginActive:after{
+.cardBI.loginActive:after {
   transform: translateX(50%);
 }
 
 /*Empresa ACTIVE */
 
-.cardBI.cadastroActive .loginEmpresa{
+.cardBI.cadastroActive .loginEmpresa {
   opacity: 0;
   pointer-events: none;
 }
-.cardBI.cadastroActive .loginMotorista{
-  transform: translateX(0);
-  transition: all .3s .3s;
-  opacity: 1   ;
-}
 
-.cardBI.cadastroActive .formEmpresa{
+.cardBI.cadastroActive .loginMotorista {
+  transform: translateX(0);
   transition: all .3s .3s;
   opacity: 1;
 }
-.cardBI.cadastroActive .formMotorista{
+
+.cardBI.cadastroActive .formEmpresa {
+  transition: all .3s .3s;
+  opacity: 1;
+}
+
+.cardBI.cadastroActive .formMotorista {
   opacity: 0;
   pointer-events: none;
 }
 
-.cardBI.cadastroActive::after{
+.cardBI.cadastroActive::after {
   transform: translateX(-50%);
 }
 
 /*TRANSITIONS */
-.cardBI::after{
+.cardBI::after {
   transition: all .4s;
 }
 
-.loginEmpresa{
+.loginEmpresa {
   transition: all .3s 0;
   transform: translateX(200%);
   opacity: 0;
 }
 
-.formMotorista{
+.formMotorista {
   opacity: 0;
   transition: all .3s 0;
 
 }
 
-.loginMotorista{
+.loginMotorista {
   transition: all .3s 0;
   transform: translateX(-200%);
   opacity: 0;
 }
 
-.formEmpresa{
+.formEmpresa {
   opacity: 0;
   transition: all .3s 0;
 
 }
-a{
+
+a {
   text-decoration: none;
   color: whitesmoke;
-  padding: 10px;  
+  padding: 10px;
 }
-
-
- 
