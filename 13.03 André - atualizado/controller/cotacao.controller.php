@@ -1,14 +1,15 @@
 <?php 
- require_once "model/cotacao.model.php";
- require_once "service/cotacao.service.php";
- require_once "conexao/conexao.php";
+require_once(__DIR__ . '/../model/cotacao.model.php');
+require_once(__DIR__ . '/../service/cotacao.service.php');
+require_once(__DIR__ . '/../conexao/conexao.php');
  
- @$acaoe = isset($_GET['acaoe']) ? $_GET['acaoe'] : $acaoe;
- @$ide   = isset($_GET['ide']) ? $_GET['ide'] : $ide;
+ @$acaoc = isset($_GET['acaoc']) ? $_GET['acaoc'] : $acaoc;
+ @$idc   = isset($_GET['idc']) ? $_GET['idc'] : $idc;
 
  // Inserir cotacao
- if($acaoe == 'inserir') {
+ if($acaoc == 'inserir') {
     $cotacao = new Cotacao();
+    $cotacao->__set('id_cotacao', $_POST['id_cotacao']);
     $cotacao->__set('data_saida', $_POST['data_saida']);
     $cotacao->__set('cep_origem', $_POST['cep_origem']);
     $cotacao->__set('endereco_origem', $_POST['endereco_origem']);
@@ -28,7 +29,7 @@
  }
 
  // Recuperar todas as cotacaos
- if($acaoe == 'recuperar') {
+ if($acaoc == 'recuperar') {
     $cotacao = new Cotacao();
     $conexao = new Conexao();
 
@@ -37,16 +38,16 @@
  }
 
  // Recuperar uma cotacao específica
- if($acaoe == 'recuperarcotacao') {
+ if($acaoc == 'recuperarcotacao') {
     $cotacao = new Cotacao();
     $conexao = new Conexao();
    
     $cotacaoService = new cotacaoService($cotacao, $conexao);
-    $cotacao = $cotacaoService->recuperarcotacao($ide);
+    $cotacao = $cotacaoService->recuperarcotacao($idc);
  }
 
  // Excluir cotacao
- if($acaoe == 'excluir') {
+ if($acaoc == 'excluir') {
     $cotacao = new Cotacao();
     $conexao = new Conexao();
 
@@ -57,7 +58,7 @@
  }
 
  // Alterar cotacao
- if($acaoe == 'alterar') {
+ if($acaoc == 'alterar') {
     $cotacao = new Cotacao();
     $cotacao->__set('data_saida', $_POST['data_saida']);
     $cotacao->__set('cep_origem', $_POST['cep_origem']);
