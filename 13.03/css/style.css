@@ -11,7 +11,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: Helvetica;
-
   align-items: center;
   justify-content: center;
 }
@@ -27,14 +26,8 @@ main {
   padding: 20px;
 }
 
-/* INDEX PAG 
-.container{
-  background-size: cover;
-  width: 1400px;
-  height: 45000px;
-}*/
 .banner {
-  margin-top: 3650px;
+  margin-top: 1680px;
   width: 100%;
   height: 750px;
 }
@@ -46,195 +39,6 @@ main {
   border-radius: 10px;
   border-bottom: solid 20px #e06919;
 }
-
-.benefits {
-  text-align: left;
-  padding: 60px 20px;
-  background-color: #fff;
-}
-
-.benefits .subheading {
-  color: #3d3d3d;
-  text-align: left;
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
-}
-
-.benefits-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-right: 10px;
-  padding:  20px 20px;
-}
-
-.benefit-card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  width: 250px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  text-align: left;
-  cursor: default;
-}
-
-.benefit-card:hover {
-  transform: translateY(-5px);
-}
-
-.benefit-card i {
-  font-size: 1.8rem;
-  color: #ea5504;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
-}
-
-.benefit-card:hover i {
-  transform: scale(1.2) rotate(5deg);
-}
-
-.benefit-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #000000;
-}
-
-.benefit-card .small {
-  color: #888;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
-  text-align: justify;
-}
-
-.benefit-card p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.4;
-  text-align: center;
-}
-
-/*
-
-.cartoes {
-  margin-top: 100px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  transform: translateY(-60px);
-}
-.card {
-  width: 50%;
-  font-size: 20px;
-  margin-right: 10px;
-  padding:  20px 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  border-radius: 3rem;
-}
-
-/* New styles for card-body to centralize content 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.card-body a{
-  color: #e06919; 
-  border-radius: 1rem; 
-  justify-self:center; 
-  margin: 1%;
-}
-
-/* Make sure image inside card-body is centered and sized nicely 
-.card-body img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.card2 {
-  width: 50%;
-  font-size: 20px;
-  margin-right: 10px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-.card3 {
-  width: 50%;
-  font-size: 20px;
-  margin-right: 10px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  align-items: center;
-  color: #e06919;
-}
-
-.card img {
-  align-self: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.card2 img {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.card3 img {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-@media (max-width: 400px) {
-  .cartoes {
-    grid-template-columns: repeat(2, 1fr);
-    display: contents;
-  }
-  .card {
-    margin: 20px;
-  }
-  .card2 {
-    margin: 20px;
-  }
-  .card3 {
-    margin: 20px;
-  }
-  h1 {
-    font-size: 35px;
-  }
-  nav {
-    grid-template-columns: repeat(2, 1fr);
-    size: 10px;
-  }
-  header {
-    width: 50vw;
-    padding: 0%;
-  }
-}
-*/
 
 header {
   background-color: #ea580c;
@@ -308,88 +112,6 @@ body {
   margin-top: 1rem;
   color: #222;
   font-size: 1.4rem;
-}
-
-.equipeDS {
-  display: flex;
-  width: 650px;
-  height: 100px;
-  gap: 2rem;
-  margin-top: 0rem;
-  background: #ea580c;
-  color: #fafbe4;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.equipeDS h4{
-  justify-self: center;
-  font-size: 1.6rem;
-}
-
-.equipeDS p{
-  justify-self: center;
-  font-size: 1.4rem;
-}
-
-.equipeDS :hover{
-  transform: translateY(-5px);
-  color: #293649
-}
-
-.equipeDS img {
-  width: 100px;
-  height:  100px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.equipeDOC {
-  display: flex;
-  width: 650px;
-  height: 100px;
-  flex-wrap: wrap;
-  gap: 4.5rem;
-  margin-top: 2rem;
-  background: #ea580c;
-  color: #fafbe4;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-/* justify-self: right;
-  align-items: right;
-  justify-self: right;
-  align-items: center;
-  */
-
-.equipeDOC h4{
-  align-items: center;
-  justify-self: center;
-  font-size: 1.6rem;
-}
-
-.equipeDOC p{
-  align-items: center;
-  justify-self: center;
-  font-size: 1.4rem;
-}
-
-.equipeDOC :hover{
-  transform: translateY(-5px);
-  color: #293649
-}
-
-/* add transição quando descer na página nas equipes*/
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .sobre-nos-header h1 {
-    font-size: 2rem;
-  }
-  .sobre-nos-equipe {
-    flex-direction: column;
-  }
 }
   
 h3 {
@@ -790,7 +512,7 @@ nav{
 }
 
 .benefits-container {
-  margin-top: 2200px;
+  margin-top: 300px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1132,3 +854,119 @@ nav{
     max-width: 100%;
   }
 }
+
+/*
+SE FOR USAR O CARD ANTIGO
+.cartoes {
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transform: translateY(-60px);
+}
+.card {
+  width: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  padding:  20px 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  border-radius: 3rem;
+}
+
+/* New styles for card-body to centralize content 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card-body a{
+  color: #e06919; 
+  border-radius: 1rem; 
+  justify-self:center; 
+  margin: 1%;
+}
+
+/* Make sure image inside card-body is centered and sized nicely 
+.card-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.card2 {
+  width: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.card3 {
+  width: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  align-items: center;
+  color: #e06919;
+}
+
+.card img {
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.card2 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.card3 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 400px) {
+  .cartoes {
+    grid-template-columns: repeat(2, 1fr);
+    display: contents;
+  }
+  .card {
+    margin: 20px;
+  }
+  .card2 {
+    margin: 20px;
+  }
+  .card3 {
+    margin: 20px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  nav {
+    grid-template-columns: repeat(2, 1fr);
+    size: 10px;
+  }
+  header {
+    width: 50vw;
+    padding: 0%;
+  }
+}
+*/
