@@ -12,12 +12,13 @@
 
         public function inserir()
         {
-            $query = "INSERT INTO cotacao (data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento) 
+            $query = "INSERT INTO cotacao (id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento) 
                       VALUES (?, ?, ?, ?)";
             $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1, $this->cotacao->__get('data_saida'));
-            $stmt->bindValue(2, $this->cotacao->__get('cep_origem'));
-            $stmt->bindValue(3, $this->cotacao->__get('endereco_origem'));
+            $stmt->bindValue(1, $this->cotacao->__get('id_cotacao'));
+            $stmt->bindValue(2, $this->cotacao->__get('data_saida'));
+            $stmt->bindValue(3, $this->cotacao->__get('cep_origem'));
+            $stmt->bindValue(4, $this->cotacao->__get('endereco_origem'));
             $stmt->bindValue(5, $this->cotacao->__get('estimativa_entrega'));
             $stmt->bindValue(6, $this->cotacao->__get('cep_destino'));
             $stmt->bindValue(7, $this->cotacao->__get('valor'));

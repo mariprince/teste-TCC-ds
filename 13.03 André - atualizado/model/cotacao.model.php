@@ -1,7 +1,7 @@
 <?php 
     class Cotacao 
     {
-        
+        private $id_cotacao;
         private $data_saida; 
         private $estimativa_entrega;
         private $cep_origem; 
