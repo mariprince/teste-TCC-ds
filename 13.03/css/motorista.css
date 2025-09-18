@@ -9,7 +9,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-top: 80px;
   /* Espaço para o header fixo */
-  background-color: #f2f4f8;
+  background-color: #fff;
   color: #333;
   line-height: 1.6;
 }
@@ -135,18 +135,13 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  padding: 60px 10%;
+  padding: 60px 60px;
 }
 
 .text-box {
   flex: 1 1 450px;
 }
 
-.text-box h2 {
-  font-size: 38px;
-  color: #222;
-  margin-bottom: 20px;
-}
 
 .text-box p {
   font-size: 18px;
@@ -162,6 +157,8 @@ header.scrolled {
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  top: 48px;
 }
 
 .image-card:hover {
@@ -226,10 +223,15 @@ header.scrolled {
 
 .sobre-cargo-img {
   position: relative;
-  background: url('imagens/') center/cover no-repeat;
-  color: white;
+  height: 60vh; 
   padding: 80px 10%;
-  text-align: left;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: url('../imagens/imagemfundo.jpg') center/cover no-repeat;
 }
 
 .sobre-cargo-img .overlay {
@@ -238,7 +240,8 @@ header.scrolled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../imagens/DeWatermark.ai_1757080281703.jpeg');
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
 }
 
 .sobre-cargo-img .container {
@@ -251,15 +254,16 @@ header.scrolled {
 .sobre-cargo-img h2 {
   font-size: 34px;
   margin-bottom: 20px;
-  color: #ff7043;
+  color: #e44b2d;
   text-transform: uppercase;
 }
 
 .sobre-cargo-img p {
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: 15px;
-  color: #000;
+  color: #fff;
+  text-align: justify;
 }
 
 /* Responsividade */
@@ -276,41 +280,6 @@ header.scrolled {
   .sobre-cargo-img p {
     font-size: 16px;
     text-align: left;
-  }
-}
-
-.OQUEFAZ {
-  text-align: start;
-  width: 2000px;
-  justify-items: center;
-}
-
-.OQUEFAZ p {
-  margin-right: 15rem;
-}
-
-#textOQUEFAZ {
-  font-size: 18px;
-  width: 60%;
-  margin-bottom: 1rem;
-}
-
-.fazoqueART {
-  border: 100px solid;
-}
-
-@media (min-width: 992px) {
-  .OQUEFAZ {
-    flex: 0 0 auto;
-    width: 58.33333333%;
-  }
-}
-
-li {
-  list-style-type: disc;
-
-  strong {
-    font-size: 18px;
   }
 }
 
@@ -345,45 +314,10 @@ li {
   margin-right: auto;
 }
 
-/* Fundo com imagem bonita */
-.sobre-cargo-img {
-  position: relative;
-  background: url() center/cover no-repeat;
-  color: white;
-  padding: 100px 10%;
-  text-align: left;
-}
-
-
-.oqfazer-div {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.oqfazer {
-  width: 500px;
-  justify-content: center;
-  align-items: center;
-  justify-self: center;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #fff;
-}
-
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 60px 60px;
 }
 
 .subtitulo {
@@ -414,7 +348,6 @@ body {
   position: relative;
   overflow: hidden;
   padding: 0 60px;
-  /* espaço para botões */
 }
 
 .carrossel-container {
