@@ -10,6 +10,7 @@ body {
 body {
   overflow-x: hidden;
   background-size: 100%;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -114,18 +115,33 @@ nav {
 }
 
 .banner {
-  margin-top: 1480px;
+  margin-top: 1502px;
   width: 100%;
-  height: 750px;
+  height: auto; /* Alteração: altura automática 
+  overflow: hidden;*/
 }
 
 .banner img {
   width: 100%;
-  height: 900px;
+  height: 900px;  /*Alteração: altura controlada */
+  object-fit: cover; /* Alteração: imagem sempre cobre o espaço sem distorcer */
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   border-bottom: solid 20px #e06919;
 }
+
+/*
+.banner {
+  width: 100%;
+  height: auto; 
+  object-fit: cover;
+}
+
+.banner img {
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border-bottom: solid 20px #e06919;
+} */
 
 header {
   background-color: #ea580c;
@@ -174,40 +190,6 @@ body {
   width: 500px;
 }
 
-.sobre-nos {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10rem;
-  width: 100%;
-  padding: 2rem;
-  background-color: rgb(255 251 235);
-  color: #111;
-  font-family: Arial, sans-serif;
-}
-
-.sobre-nos-header h1 {
-  font-size: 3.4rem;
-  background-color: rgb(255 251 235);
-  font-weight: bold;
-  line-height: 1;
-  padding-left: 45px;
-}
-
-.sobre-nos-header p {
-  padding-left: 45px;
-  text-align: justify;
-  max-width: 1000px;
-  margin-top: 1rem;
-  color: #222;
-  font-size: 1.4rem;
-}
-
-h3 {
-  color: #ea580c;
-  /* Cor dos detalhes */
-}
-
 .box-info p {
   font-size: 1.1rem;
   color: #333;
@@ -230,7 +212,7 @@ h3 {
   .sobre-nos-info {
     max-width: 100%;
   }
-}
+} 
 
 .sobre-nozes {
   display: flex;
@@ -239,9 +221,9 @@ h3 {
   justify-content: space-between;
   width: 1500px;
   height: 5000px;
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom: 80px;
-  background-color: rgb(255 251 235);
+  background-color: #FFFFFF;
   color: #111;
   font-family: Arial, sans-serif;
   gap: 1rem;
@@ -249,7 +231,7 @@ h3 {
 
 .sobre-nozes-header h1 {
   font-size: 3.4rem;
-  background-color: rgb(255 251 235);
+  background-color: #FFFFFF;
   font-weight: bold;
   line-height: 1;
   padding-left: 45px;
