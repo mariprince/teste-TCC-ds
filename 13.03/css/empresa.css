@@ -40,26 +40,38 @@ nav a:hover {
   color: #ffd8a9;
 }
 
-.titulo-esquerda,
-.titulo-centro {
-  font-size: 2rem;
+.titulo-esquerda1 {
+  font-size: 2.05rem;
   font-weight: 900;
   text-transform: uppercase;
   margin: 20px 0 30px;
   letter-spacing: 1px;
   color: #293649;
-  /* mesmo tom usado nos cards */
+  position: relative;
+  display: inline-block;
+  padding-left: 16rem;
+}
+
+.titulo-esquerda,
+.titulo-centro {
+  font-size: 2.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 20px 0 30px;
+  letter-spacing: 1px;
+  color: #293649;
   position: relative;
   display: inline-block;
 }
 
 .titulo-esquerda::after,
+.titulo-esquerda1::after,
 .titulo-centro::after {
   content: '';
   display: block;
   width: 60px;
   height: 3px;
-  background: #ea5504;
+  background: #293649;
   margin-top: 8px;
 }
 
@@ -74,19 +86,8 @@ nav a:hover {
 /* ====== BENEFÍCIOS ====== */
 .benefits {
   text-align: left;
-  padding: 60px 20px;
+  padding: 60px 60px;
   background-color: #fff;
-}
-
-.benefits .subheading {
-  color: #3d3d3d;
-  text-align: left;
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
 }
 
 .benefits-container {
@@ -234,7 +235,7 @@ nav a:hover {
   right: 0;
   width: 30px;
   height: 2px;
-  background-color: #000000;
+  background-color: #ea580c;
   border-radius: 1px;
   z-index: 1;
 }
@@ -246,7 +247,7 @@ nav a:hover {
   left: 0;
   width: 30px;
   height: 2px;
-  background-color: #000000;
+  background-color: #ea580c;
   border-radius: 1px;
   z-index: 1;
 }
