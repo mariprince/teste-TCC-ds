@@ -14,26 +14,24 @@ if (session_status() === PHP_SESSION_NONE) {
     $idMotorista = $_GET['id'] ?? '';
   }
   // Verificar se vai alterar/excluir motorista
-  if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir']) && $_GET['tipo'] === 'motorista') {
+  if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir'])) {
     $metodo = $_GET['metodo'];
     $acao = 'recuperarMotorista';
     $id = $_GET['id'] ?? '';
     require 'controller/motorista.controller.php'; // $empresa carregado
-if (!empty($motorista) && is_object($motorista[0])) {
-        $motorista = $motorista[0];
-        $nome = $motorista->nome_completo ?? '';
-        $senha = $motorista->senha ??'';
-        $cpf = $motorista->cpf ??'';
-        $numCtt = $motorista->$numCtt ??'';
-        $cnh = $motorista->cnh ??'';
-        $renavan = $motorista->renavan ??'';
-        $email = $motorista->email_motorista ?? '';
-        $curriculo = $motorista->curriculo ?? '';
-        $id = $motorista->id_motorista ??'' ;
-        $acaoFormMotorista = $metodo;
-        $labelBotaoMotorista = ucfirst($metodo);
-        
-    }
+if (!empty($motorista) && is_object($motorista)) {
+  $nome = $motorista->nome_completo ?? '';
+  $senha = $motorista->senha ?? '';
+  $cpf = $motorista->cpf ?? '';
+  $numCtt = $motorista->numCtt ?? '';
+  $cnh = $motorista->cnh ?? '';
+  $renavan = $motorista->renavan ?? '';
+  $email = $motorista->email_motorista ?? '';
+  $curriculo = $motorista->curriculo ?? '';
+  $id = $motorista->id_motorista ?? '';
+  $acaoFormMotorista = $metodo;
+  $labelBotaoMotorista = ucfirst($metodo);
+}
     // aqui você buscaria o motorista no banco e popularia as variáveis
   }
 
@@ -109,7 +107,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
           <h2><?= $acaoFormMotorista === 'inserir' ? 'Cadastrar Motorista' : $labelBotaoMotorista . ' Motorista' ?></h2>
           <?=  $acaoFormMotorista ?>  
           <!-- Corrigido o caminho para a pasta controller -->
-          <form id="formCadastroMotorista" action="motorista.controller.php?acao=<?=  $acaoFormMotorista ?>" method="POST" onsubmit="return true;">
+          <form id="formCadastroMotorista" action="motorista.controller.php?acao=<?=  $acaoFormMotorista ?>" method="POST" onsubmit="return true;" enctype="multipart/form-data">>
             <input type="hidden" name="id_motorista" value="<?= $idMotorista ?>">
 
             <!-- Corrigido para não submeter o form -->

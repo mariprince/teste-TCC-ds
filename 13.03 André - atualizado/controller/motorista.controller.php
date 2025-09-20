@@ -13,7 +13,7 @@ require_once(__DIR__ . '/../conexao/conexao.php');
 
 // Inserção
 if ($acao === 'inserir') {
-        
+        $conexao = new Conexao();
         $motorista = new Motorista();
         $motorista->__set('nome_completo', $_POST['nome_completo']);
         $motorista->__set('cpf', $_POST['cpf']);
@@ -21,18 +21,12 @@ if ($acao === 'inserir') {
         $motorista->__set('cnh', $_POST['cnh']);
         $motorista->__set('renavan', $_POST['renavan']);
         $motorista->__set('email_motorista', $_POST['email_motorista']);
-        $motorista->__set('curriculo', $_POST['curriculo']);
         $motorista->__set('senha', password_hash($_POST['senha'], PASSWORD_DEFAULT));
 
         // Upload do currículo
         if (!empty($_FILES['curriculo']['name'])) {
             $curriculo = $_FILES['curriculo']['name'];
             $tmp = $_FILES['curriculo']['tmp_name'];
-
-            // Cria diretório se não existir
-            if (!is_dir('curriculos')) {
-                mkdir('curriculos', 0777, true);
-            }
 
             // Move o arquivo
             move_uploaded_file($tmp, "curriculos/$curriculo");
@@ -52,7 +46,7 @@ if($acao == 'recuperar') {
     $conexao = new Conexao();
 
     $motoristaService = new MotoristaService($motorista, $conexao);
-    $omtorista = $motoristaService->recuperar();
+    $motorista = $motoristaService->recuperar();
  }
 
 // Recuperar motorista único
@@ -61,7 +55,7 @@ if($acao == 'recuperarMotorista') {
     $conexao = new Conexao();
    
     $motoristaService = new MotoristaService($motorista, $conexao);
-    $motorista = $motoristaService->recuperarEmpresa($id);
+    $motorista = $motoristaService->recuperarMotorista($id);
  }
 
 // Excluir
@@ -92,7 +86,8 @@ if ($acao === 'alterar') {
             $motorista->__set('senha', password_hash($_POST['senha'], PASSWORD_DEFAULT));
         } else {
             // Recupera a senha atual do banco
-            $motoristaService = criarMotoristaService();
+            $conexao = new Conexao();
+            $motoristaService = new MotoristaService($motorista, $conexao);
             $motoristaAtual = $motoristaService->recuperarMotorista($_POST['id_motorista']);
             $motorista->__set('senha', $motoristaAtual->senha);
         }
@@ -104,14 +99,16 @@ if ($acao === 'alterar') {
             $motorista->__set('curriculo', $curriculo);
         } else {
             // Mantém o currículo atual
-            $motoristaService = criarMotoristaService();
+            $conexao = new Conexao();
+            $motoristaService = new MotoristaService($motorista, $conexao);
             $motoristaAtual = $motoristaService->recuperarMotorista($_POST['id_motorista']);
             $motorista->__set('curriculo', $motoristaAtual->curriculo);
         }
 
-        $motoristaService = criarMotoristaService($motorista);
+        $conexao = new Conexao();
+        $motoristaService = new MotoristaService($motorista, $conexao);
         if ($motoristaService->alterar()) {
-            header('location:index.php?link=motoristas&msg=updated');
+            header('location:areaRestritaMoto.php?link=motoristas&msg=updated');
             exit;
         } else {
             echo "Erro ao atualizar motorista.";

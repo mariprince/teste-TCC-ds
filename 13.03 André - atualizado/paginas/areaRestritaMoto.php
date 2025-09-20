@@ -14,7 +14,7 @@ require '../motorista.controller.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN</title>
-    <link rel="shortcut icon" type="imagex/png" href="/imagens/logo.ico">
+    <link rel="shortcut icon" type="imagex/png" href="../imagens/logo.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/areaRestrita.css">
 </head>
@@ -71,7 +71,7 @@ require '../motorista.controller.php';
                                     <td><?= htmlspecialchars($moto->email_motorista) ?>
                                     <td>
                                         <?php if ($moto->curriculo): ?>
-                                            <img src="../imagens/<?= htmlspecialchars($moto->curriculo) ?>" width="40" alt="Foto">
+                                            <img src="../curriculos/<?= htmlspecialchars($moto->curriculo) ?>" width="40" alt="Foto">
                                         <?php else: ?>
                                             Sem Foto
                                         <?php endif; ?>

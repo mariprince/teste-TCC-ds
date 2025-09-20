@@ -10,7 +10,7 @@
         private $email;
         private $senha;
         private $curriculo;
-        private $data_cadastro
+        private $data_cadastro;
         
         public function __set($atributo, $valor)
         {
