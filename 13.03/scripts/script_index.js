@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   /**/
   window.addEventListener('scroll', checkScroll);
-  // Verifica logo no carregamento caso já esteja visível
+  // Verifica logo no carregamento caso já esteja visível 
   checkScroll();
 });
 
