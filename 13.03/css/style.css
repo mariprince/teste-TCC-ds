@@ -132,23 +132,46 @@ nav {
 
 .banner-text {
   position: absolute;
-  top: 800px; /* Distância do topo do banner; ajuste conforme necessário */
+  top: 550px; /* Distância do topo do banner; ajuste conforme necessário */
   left: 20px; /* Alinhado à esquerda; ajuste a distância da borda */
-  background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
+  background: rgba(109, 106, 106, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
-  font-size: 14px; /* Tamanho pequeno */
+  font-size: 16px; /* Tamanho pequeno */
   font-weight: bold;
-  max-width: 300px; /* Limita a largura para não invadir o centro */
+  max-width: 500px; /* Limita a largura para não invadir o centro */
   opacity: 0;
   transform: translateX(-50px); /* Inicialmente deslocado para a esquerda */
   transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
 }
+
 .banner-text.active {
   opacity: 1;
   transform: translateX(0); /* Move para a posição final (alinhado à esquerda) */
 }
+
+.banner-textD {
+  position: absolute;
+  top: 635px; /* Distância do topo do banner; ajuste conforme necessário */
+  right: 20px; /* Alinhado à direita; ajuste a distância da borda */
+  background: rgba(109, 106, 106, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px; /* Tamanho pequeno */
+  font-weight: bold;
+  max-width: 450px; /* Limita a largura para não invadir o centro */
+  opacity: 0;
+  transform: translateX(50px); /* Inicialmente deslocado para a esquerda */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
+}
+
+.banner-textD.active {
+  opacity: 1;
+  transform: translateX(0); /* Move para a posição final (alinhado à esquerda) */
+}
+
 /* Responsivo: Ajusta para telas menores */
 @media (max-width: 768px) {
   .banner-text {
@@ -373,18 +396,6 @@ body {
   transform: translateX(0);
 }
 
-/*
-.sobre-nozes-info {
-  opacity: 0;
-  transform: translateX(-200px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.sobre-nozes-info.active {
-  opacity: 1;
-  transform: translateX(0);
-} */
-
 .titulo-esquerda {
   font-size: 1.5rem;
   font-weight: 900;
@@ -568,7 +579,6 @@ body {
 
 /* ====== RESPONSIVO EMPRESA====== */
 @media (max-width: 768px) {
-
   .benefits-container,
   .steps {
     flex-direction: column;
