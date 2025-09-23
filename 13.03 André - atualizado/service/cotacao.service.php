@@ -12,8 +12,9 @@
 
         public function inserir()
         {
-            $query = "INSERT INTO cotacao (id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento) 
-                      VALUES (?, ?, ?, ?)";
+            $query = "INSERT INTO cotacao (id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino,
+            valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento, id_empresa) 
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $this->cotacao->__get('id_cotacao'));
             $stmt->bindValue(2, $this->cotacao->__get('data_saida'));
@@ -28,23 +29,25 @@
             $stmt->bindValue(11, $this->cotacao->__get('altura'));
             $stmt->bindValue(12, $this->cotacao->__get('largura'));
             $stmt->bindValue(13, $this->cotacao->__get('comprimento'));
+            $stmt->bindValue(14, $this->cotacao->__get('id_empresa'));
             $stmt->execute();
         }
 
         public function recuperar()
         {
-            $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento FROM cotacao';
+            $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino ,
+             tipo_carga, peso, altura, largura, comprimento FROM cotacao';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
-        public function recuperarcotacao($ide)
+        public function recuperarCotacao($idc)
         {
             $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento FROM cotacao
-                      FROM cotacao WHERE id_cotacao = ?';
+                      WHERE id_cotacao = ?';
             $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1, $ide);
+            $stmt->bindValue(1, $idc);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
         }

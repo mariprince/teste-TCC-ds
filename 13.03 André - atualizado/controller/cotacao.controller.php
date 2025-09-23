@@ -22,9 +22,10 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $cotacao->__set('altura', $_POST['altura']);
     $cotacao->__set('largura', $_POST['largura']);
     $cotacao->__set('comprimento', $_POST['comprimento']);
+    $cotacao->__set('id_empresa', 1);
 
     $conexao = new Conexao();
-    $cotacaoService = new cotacaoService($cotacao, $conexao);
+    $cotacaoService = new CotacaoService($cotacao, $conexao);
     $cotacaoService->inserir();
  }
 
@@ -33,17 +34,19 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $cotacao = new Cotacao();
     $conexao = new Conexao();
 
-    $cotacaoService = new cotacaoService($cotacao, $conexao);
+    $cotacaoService = new CotacaoService($cotacao, $conexao);
     $cotacao = $cotacaoService->recuperar();
  }
 
  // Recuperar uma cotacao específica
- if($acaoc == 'recuperarcotacao') {
+ if($acaoc == 'recuperarCotacao') {
     $cotacao = new Cotacao();
     $conexao = new Conexao();
    
-    $cotacaoService = new cotacaoService($cotacao, $conexao);
-    $cotacao = $cotacaoService->recuperarcotacao($idc);
+    $cotacaoService = new CotacaoService($cotacao, $conexao);
+    $cotacao = $cotacaoService->recuperarCotacao($idc);
+
+
  }
 
  // Excluir cotacao
@@ -53,7 +56,7 @@ require_once(__DIR__ . '/../conexao/conexao.php');
 
     $cotacao->__set('id_cotacao', $_POST['id_cotacao']);
 
-    $cotacaoService = new cotacaoService($cotacao, $conexao);
+    $cotacaoService = new CotacaoService($cotacao, $conexao);
     $cotacaoService->excluir();
  }
 
@@ -75,8 +78,8 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $cotacao->__set('id_cotacao', $_POST['id_cotacao']);
     
     $conexao = new Conexao();
-    $cotacaoService = new cotacaoService($cotacao, $conexao);
+    $cotacaoService = new CotacaoService($cotacao, $conexao);
     $cotacaoService->alterar();
-    header('location:index.php?link=cotacaos');
+    // header('location:index.php?link=cotacaos');
  }
 ?>
