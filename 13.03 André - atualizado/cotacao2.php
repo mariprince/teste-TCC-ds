@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     
     require 'cotacao.controller.php';
-     // if(!empty($cotacao) && is_object($cotacao)) {
+      if(!empty($cotacao) && is_object($cotacao)) {
         $dataSaida = $cotacao->data_saida ?? '';
         $estimativaEntrega = $cotacao -> estimativa_entrega ?? '';
         $cepOrigem = $cotacao -> cep_origem ?? '';
@@ -30,8 +30,9 @@ if (session_status() === PHP_SESSION_NONE) {
         $altura = $cotacao -> altura ?? '';
         $largura = $cotacao -> largura ?? '';
         $comprimento = $cotacao -> comprimento ?? '';
-        echo $dataSaida;
-      //}
+        $acaoFormCotacao = $metodo;
+        $labelBotaoCotacao = ucfirst($metodo);
+      }
      
   }
   

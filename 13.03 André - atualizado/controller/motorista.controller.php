@@ -108,7 +108,7 @@ if ($acao === 'alterar') {
         $conexao = new Conexao();
         $motoristaService = new MotoristaService($motorista, $conexao);
         if ($motoristaService->alterar()) {
-            header('location:areaRestritaMoto.php?link=motoristas&msg=updated');
+            header('location:../paginas/areaRestritaMoto.php?link=motoristas&msg=updated');
             exit;
         } else {
             echo "Erro ao atualizar motorista.";

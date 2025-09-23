@@ -60,9 +60,9 @@ require '../empresa.controller.php';
                                     <td><?= htmlspecialchars($emp->cnpj) ?></td>
                                     <td><?= htmlspecialchars($emp->email_empresa) ?></td>
                                     <td>
-                                        <a href="cadastros2.php?metodo=alterar&tipo=empresa&id=<?= $emp->id_empresa ?>"
+                                        <a href="../cadastros2.php?metodo=alterar&tipo=empresa&id=<?= $emp->id_empresa ?>"
                                             class="btn btn-sm btn-warning">Editar</a>
-                                        <a href="cadastros2.php?metodo=excluir&tipo=empresa&id=<?= $emp->id_empresa ?>"
+                                        <a href="../cadastros2.php?metodo=excluir&tipo=empresa&id=<?= $emp->id_empresa ?>"
                                             class="btn btn-sm btn-danger">Excluir</a>
                                     </td>
                                 </tr>

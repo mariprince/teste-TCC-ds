@@ -80,6 +80,6 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $conexao = new Conexao();
     $cotacaoService = new CotacaoService($cotacao, $conexao);
     $cotacaoService->alterar();
-    // header('location:index.php?link=cotacaos');
+     header('location:../paginas/areaRestritaCota.php?link=cotacao&msg=updated');
  }
 ?>

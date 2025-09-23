@@ -81,9 +81,9 @@ require '../cotacao.controller.php';
                                     <td><?= htmlspecialchars($cota->largura) ?>
                                     <td><?= htmlspecialchars($cota->comprimento) ?>
                                     <td>
-                                        <a href="../cotacao2.php?metodo=alterar&tipo=cotacao&idc=<?= $cota->id_cotacao ?>"
+                                        <a href="../cotacao2.php?metodo=alterar&tipo=cotacao&id=<?= $cota->id_cotacao ?>"
                                             class="btn btn-sm btn-warning">Editar</a>
-                                        <a href="../cotacao2.php?metodo=excluir&tipo=cotacao&idc=<?= $cota->id_cotacao ?>"
+                                        <a href="../cotacao2.php?metodo=excluir&tipo=cotacao&id=<?= $cota->id_cotacao ?>"
                                             class="btn btn-sm btn-danger">Excluir</a>
                                     </td>
                                 </tr>

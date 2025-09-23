@@ -77,9 +77,9 @@ require '../motorista.controller.php';
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="cadastros2.php?metodo=alterar&tipo=motorista&id=<?= $moto->id_motorista ?>"
+                                        <a href="../cadastros2.php?metodo=alterar&tipo=motorista&id=<?= $moto->id_motorista ?>"
                                             class="btn btn-sm btn-warning">Editar</a>
-                                        <a href="cadastros2.php?metodo=excluir&tipo=motorista&id=<?= $moto->id_motorista ?>"
+                                        <a href="../cadastros2.php?metodo=excluir&tipo=motorista&id=<?= $moto->id_motorista ?>"
                                             class="btn btn-sm btn-danger">Excluir</a>
                                     </td>
                                 </tr>
