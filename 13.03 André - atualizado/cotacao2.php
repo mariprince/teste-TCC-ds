@@ -10,13 +10,16 @@ if (session_status() === PHP_SESSION_NONE) {
     $metodo = $_GET['metodo'];
     $idCotacao = $_GET['id'] ?? '';
   }
+
+  require_once 'controller/cotacao.controller.php';
   if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir'])) {
     $metodo = $_GET['metodo'];
-    $acaoc = 'recuperarCotacao';
     $idc = $_GET['id'] ?? '';
+    $acaoc = 'recuperarCotacao';
+    require 'controller/cotacao.controller.php';
 
     
-    require 'cotacao.controller.php';
+
       if(!empty($cotacao) && is_object($cotacao)) {
         $dataSaida = $cotacao->data_saida ?? '';
         $estimativaEntrega = $cotacao -> estimativa_entrega ?? '';
@@ -30,6 +33,7 @@ if (session_status() === PHP_SESSION_NONE) {
         $altura = $cotacao -> altura ?? '';
         $largura = $cotacao -> largura ?? '';
         $comprimento = $cotacao -> comprimento ?? '';
+        $id = $cotacao->id_cotacao ?? '';
         $acaoFormCotacao = $metodo;
         $labelBotaoCotacao = ucfirst($metodo);
       }
@@ -42,7 +46,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -122,7 +126,7 @@ if (session_status() === PHP_SESSION_NONE) {
               <option value="A granel">A granel</option>
               <option value="Perecíveis">Perecíveis</option>
               <option value="Secas">Secas</option>
-              <option value="Frágeis"></option>
+              <option value="Frágeis">Frágeis</option>
               <option value="perigosa" id="perigosa">Perigosas</option>
               <option value="Vivas">Vivas</option>
               <option value="Frigoríficas">Frigoríficas</option>
