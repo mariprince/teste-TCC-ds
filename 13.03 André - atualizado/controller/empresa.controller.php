@@ -47,6 +47,7 @@
 
     $empresaService = new EmpresaService($empresa, $conexao);
     $empresaService->excluir();
+    header('location:../paginas/areaRestritaE.php?link=cotacao&msg=delete');
  }
 
  // Alterar empresa
@@ -61,6 +62,6 @@
     $conexao = new Conexao();
     $empresaService = new EmpresaService($empresa, $conexao);
     $empresaService->alterar();
-   // header('location:index.php?link=empresas');
+    header('location:../paginas/areaRestritaE.php?link=cotacao&msg=updated');
  }
 ?>

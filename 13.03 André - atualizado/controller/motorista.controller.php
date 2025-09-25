@@ -67,6 +67,7 @@ if($acao == 'excluir') {
 
     $motoristaService = new MotoristaService($motorista, $conexao);
     $motoristaService->excluir();
+    header('location:../paginas/areaRestritaMoto.php?link=cotacao&msg=delete');
  }
 
 // Alterar

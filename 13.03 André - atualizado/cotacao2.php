@@ -18,9 +18,9 @@ if (session_status() === PHP_SESSION_NONE) {
     $acaoc = 'recuperarCotacao';
     require 'controller/cotacao.controller.php';
 
-    
+   
 
-      if(!empty($cotacao) && is_object($cotacao)) {
+      if(!empty($cotacao)) {
         $dataSaida = $cotacao->data_saida ?? '';
         $estimativaEntrega = $cotacao -> estimativa_entrega ?? '';
         $cepOrigem = $cotacao -> cep_origem ?? '';
@@ -36,6 +36,8 @@ if (session_status() === PHP_SESSION_NONE) {
         $id = $cotacao->id_cotacao ?? '';
         $acaoFormCotacao = $metodo;
         $labelBotaoCotacao = ucfirst($metodo);
+        print_r($cotacao);
+
       }
      
   }
@@ -84,7 +86,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div>
           <label for="data_hora_saida" class="font-medium" style="font-weight: 600;">Data e Hora de Saída</label>
           <input type="datetime-local" id="data_saida" name="data_saida"
-            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm  mt-2 focus:outline-none" required value="<?= htmlspecialchars($dataSaida) ?>">
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm  mt-2 focus:outline-none" value="<?= htmlspecialchars($dataSaida) ?>">
         </div>
         <div class="">
           <label for="estimativa_entrega" class="font-medium" style="font-weight: 600;">Estimativa de
@@ -103,7 +105,7 @@ if (session_status() === PHP_SESSION_NONE) {
             class="w-full border px-3 py-2 rounded-md mt-2">
           <label class="font-medium mt-2 block">Endereço de Origem</label>
           <input type="text" name="endereco_origem" placeholder="Rua, número, cidade, estado"
-            class="w-full border px-3 py-2 rounded-md mt-2">
+            class="w-full border px-3 py-2 rounded-md mt-2" value="<?= htmlspecialchars($enderecoOrigem ) ?>">
         </div>
         <div>
           <label class="font-medium">CEP - Destino</label>
@@ -121,8 +123,8 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="flex gap-4 items-center" style="justify-content: center;">
           <div>
             <label class="block font-medium mb-1">Formato</label>
-            <select class="w-full border px-3 py-2 rounded-md" name="tipo_carga" id="tipo_carga" value="<?= htmlspecialchars($tipoCargo) ?>">
-              <option value="<?= htmlspecialchars($tipoCargo) ?>">Selecione</option>
+            <select class="w-full border px-3 py-2 rounded-md" name="tipo_carga" id="tipo_carga">
+              <option value="<?= htmlspecialchars($tipoCargo) ?>"><?= htmlspecialchars($tipoCargo) ?></option>
               <option value="A granel">A granel</option>
               <option value="Perecíveis">Perecíveis</option>
               <option value="Secas">Secas</option>
@@ -135,8 +137,8 @@ if (session_status() === PHP_SESSION_NONE) {
           </div>
           <div>
             <label class="block font-medium mb-1">Peso</label>
-            <select class="w-full border px-3 py-2 rounded-md" name="peso" id="peso" value="<?= htmlspecialchars($peso) ?>">
-              <option value="<?= htmlspecialchars($peso) ?>">Selecione</option>
+            <select class="w-full border px-3 py-2 rounded-md" name="peso" id="peso" >
+              <option value="<?= htmlspecialchars($peso) ?>"><?= htmlspecialchars($peso) ?></option>
               <option value="5">Até 5Kg</option>
               <option value="10">Até 10Kg</option>
               <option value="25">Até 25Kg</option>

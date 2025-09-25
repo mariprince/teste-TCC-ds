@@ -49,7 +49,7 @@
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $idc);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_OBJ);
+            return $stmt->fetch(PDO::FETCH_OBJ);
         }
 
         public function excluir()
