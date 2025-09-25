@@ -5,16 +5,33 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
   // Inicializar variáveis para o formulário de motorista
-  $nomeComp = $cpf = $numCtt = $cnh = $renavan = $emailMotorista = $curriculo = $idMotorista = '';
+  $nomeMotorista = $cpf = $numCtt = $cnh = $renavan = $emailMotorista = $curriculo = $idMotorista = '';
   $acaoFormMotorista = 'inserir';
   $labelBotaoMotorista = 'Cadastrar';
-
-  // Verificar se vai alterar/excluir motorista
   if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir']) && $_GET['tipo'] === 'motorista') {
     $metodo = $_GET['metodo'];
     $idMotorista = $_GET['id'] ?? '';
+  }
+  // Verificar se vai alterar/excluir motorista
+  if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir'])) {
+    $metodo = $_GET['metodo'];
+    $acao = 'recuperarMotorista';
+    $id = $_GET['id'] ?? '';
+    require 'controller/motorista.controller.php'; // $empresa carregado
+if (!empty($motorista) && is_object($motorista)) {
+  $nome = $motorista->nome_completo ?? '';
+  $senha = $motorista->senha ?? '';
+  $cpf = $motorista->cpf ?? '';
+  $numCtt = $motorista->numCtt ?? '';
+  $cnh = $motorista->cnh ?? '';
+  $renavan = $motorista->renavan ?? '';
+  $email = $motorista->email_motorista ?? '';
+  $curriculo = $motorista->curriculo ?? '';
+  $id = $motorista->id_motorista ?? '';
+  $acaoFormMotorista = $metodo;
+  $labelBotaoMotorista = ucfirst($metodo);
+}
     // aqui você buscaria o motorista no banco e popularia as variáveis
   }
 
@@ -29,13 +46,12 @@ if (session_status() === PHP_SESSION_NONE) {
     $idEmpresa = $_GET['id'] ?? '';
     // aqui você buscaria a empresa no banco e popularia as variáveis
   }
-
-
 $cardAtivo = 'loginActive'; // padrão = motorista
 
 if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
     $cardAtivo = 'cadastroActive'; // empresa
 }
+  require_once 'controller/motorista.controller.php';
   require_once 'controller/empresa.controller.php';
 
 $nome = $email = $senha = $cnpj = $id = '';
@@ -46,7 +62,6 @@ $labelBotao = 'Inserir';
 if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir'])) {
     $metodo = $_GET['metodo'];
     $ide = $_GET['id'] ?? '';
-
     // Seta a ação para buscar usuário específico
     $acaoe = 'recuperarEmpresa';
     require 'controller/empresa.controller.php'; // $empresa carregado
@@ -74,8 +89,8 @@ if (!empty($empresa) && is_object($empresa[0])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastros</title>
-  <link rel="stylesheet" href="cadastro.css" />
- <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/cadastro.css" />
+ <script src="../scripts/script.js" defer></script>
 </head>
 
 <body>
@@ -89,21 +104,21 @@ if (!empty($empresa) && is_object($empresa[0])) {
       <!-- FORM MOTORISTA -->
       <div class="esquerda">
         <div class="formMotorista">
-          <h2><?= $acaoFormMotorista === 'inserir' ? 'Cadastre-se' : $labelBotaoMotorista . ' Motorista' ?></h2>
-
+          <h2><?= $acaoFormMotorista === 'inserir' ? 'Cadastrar Motorista' : $labelBotaoMotorista . ' Motorista' ?></h2>
+          <?=  $acaoFormMotorista ?>  
           <!-- Corrigido o caminho para a pasta controller -->
-          <form id="formCadastroMotorista" action="empresa.controller.php?acaoe=inserir" method="POST" enctype="multipart/form-data">
+          <form id="formCadastroMotorista" action="motorista.controller.php?acao=<?=  $acaoFormMotorista ?>" method="POST" onsubmit="return true;" enctype="multipart/form-data">>
             <input type="hidden" name="id_motorista" value="<?= $idMotorista ?>">
 
             <!-- Corrigido para não submeter o form -->
             <button type="button" class="voltar" onclick="javascript:history.back()">🠔</button>
 
-            <input type="text" id="nomeComp" name="nome_completo" value="<?= htmlspecialchars($nomeComp) ?>" placeholder="Nome Completo" required />
+            <input type="text" id="nome_completo" name="nome_completo" value="<?= htmlspecialchars($nome) ?>" placeholder="Nome Completo" required />
             <input type="text" id="cpf" maxlength="14" name="cpf" value="<?= htmlspecialchars($cpf) ?>" placeholder="CPF" oninput="mascaraCPF(this)" required />
-            <input type="text" maxlength="15" id="numCtt" name="telefone" value="<?= htmlspecialchars($numCtt) ?>" placeholder="Número Contato" oninput="mascaraTelefone(this)" />
+            <input type="text" maxlength="15" id="numCtt" name="numCtt" value="<?= htmlspecialchars($numCtt) ?>" placeholder="Número Contato" oninput="mascaraTelefone(this)" />
             <input type="text" maxlength="11" id="CNH" name="cnh" value="<?= htmlspecialchars($cnh) ?>" placeholder="CNH-E" oninput="mascaraNumerica(this, 11)" required />
             <input type="text" maxlength="11" id="renavan" name="renavan" value="<?= htmlspecialchars($renavan) ?>" placeholder="RENAVAN" oninput="mascaraNumerica(this, 11)" />
-            <input type="email" id="email" name="email" value="<?= htmlspecialchars($emailMotorista) ?>" placeholder="Seu E-mail" required />
+            <input type="email" id="email_motorista" name="email_motorista" value="<?= htmlspecialchars($email) ?>" placeholder="Seu E-mail" required />
 
             <div class="senha-container">
               <input type="password" id="senha" name="senha" placeholder="Digite sua senha" <?= $acaoFormMotorista === 'inserir' ? 'required' : '' ?>>
@@ -138,7 +153,6 @@ if (!empty($empresa) && is_object($empresa[0])) {
       <div class="direita">
         <div class="empresaForm">
           <h2><?= $acaoFormEmpresa === 'inserir' ? 'Cadastrar Empresa' : $labelBotaoEmpresa . ' Empresa' ?></h2>
-<?=  $acaoFormEmpresa ?>
           <!-- Corrigido o caminho para a pasta controller -->
           <form class="formEmpresa" action="empresa.controller.php?acaoe=<?=  $acaoFormEmpresa ?>" method="POST" onsubmit="return true;">
             <input type="hidden" name="id_empresa" value="<?= $idEmpresa ?>">

@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $acaoe = 'recuperar';
-require 'controller/empresa.controller.php';
+require '../empresa.controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ require 'controller/empresa.controller.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN Empresa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="areaRestritaE.css">
+    <link rel="stylesheet" href="../css/areaRestritaE.css">
 </head>
 
 <body>
@@ -60,9 +60,9 @@ require 'controller/empresa.controller.php';
                                     <td><?= htmlspecialchars($emp->cnpj) ?></td>
                                     <td><?= htmlspecialchars($emp->email_empresa) ?></td>
                                     <td>
-                                        <a href="cadastros2.php?metodo=alterar&tipo=empresa&id=<?= $emp->id_empresa ?>"
+                                        <a href="../cadastros2.php?metodo=alterar&tipo=empresa&id=<?= $emp->id_empresa ?>"
                                             class="btn btn-sm btn-warning">Editar</a>
-                                        <a href="cadastros2.php?metodo=excluir&tipo=empresa&id=<?= $emp->id_empresa ?>"
+                                        <a href="../cadastros2.php?metodo=excluir&tipo=empresa&id=<?= $emp->id_empresa ?>"
                                             class="btn btn-sm btn-danger">Excluir</a>
                                     </td>
                                 </tr>

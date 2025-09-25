@@ -146,6 +146,23 @@ nav {
   transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
 }
 
+.banner-text h1{
+  font-size: 3.4rem;
+  font-weight: bold;
+  line-height: 1;
+  padding-left: 45px;
+}
+
+.banner-text h1::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 5px;
+  background: #e44b2d;
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+
 .banner-text.active {
   opacity: 1;
   transform: translateX(0); /* Move para a posição final (alinhado à esquerda) */
@@ -236,10 +253,6 @@ body {
   line-height: 1.5;
   text-align: justify;
   margin-bottom: 8px;
-}
-
-.sobre-nozes-info :hover {
-  color: #e06919
 }
 
 @media (max-width: 900px) {
@@ -396,12 +409,15 @@ body {
   transform: translateX(0);
 }
 
+.sobre-nozes-info :hover {
+  color: #e06919
+}
+
 .titulo-esquerda {
   font-size: 1.5rem;
   font-weight: 900;
   font-family: Arial, sans-serif;
   text-transform: uppercase;
-
   letter-spacing: 1px;
   color: #293649;
   /* mesmo tom usado nos cards */
@@ -633,6 +649,7 @@ SE FOR USAR O CARD ANTIGO
   display: flex;
   transform: translateY(-60px);
 }
+  
 .card {
   width: 50%;
   font-size: 20px;
@@ -675,6 +692,7 @@ SE FOR USAR O CARD ANTIGO
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
 .card3 {
   width: 50%;
   font-size: 20px;
@@ -699,12 +717,14 @@ SE FOR USAR O CARD ANTIGO
   border-radius: 10px;
   object-fit: cover;
 }
+
 .card2 img {
   width: 100px;
   height: 100px;
   border-radius: 10px;
   object-fit: cover;
 }
+
 .card3 img {
   width: 100px;
   height: 100px;

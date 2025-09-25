@@ -1,7 +1,8 @@
 <?php 
- require_once "model/empresa.model.php";
- require_once "service/empresa.service.php";
- require_once "conexao/conexao.php";
+ require_once(__DIR__ . '/../model/empresa.model.php');
+ require_once(__DIR__ . '/../service/empresa.service.php');
+ require_once(__DIR__ . '/../conexao/conexao.php');
+
  
  @$acaoe = isset($_GET['acaoe']) ? $_GET['acaoe'] : $acaoe;
  @$ide   = isset($_GET['ide']) ? $_GET['ide'] : $ide;
@@ -46,6 +47,7 @@
 
     $empresaService = new EmpresaService($empresa, $conexao);
     $empresaService->excluir();
+    header('location:../paginas/areaRestritaE.php?link=cotacao&msg=delete');
  }
 
  // Alterar empresa
@@ -60,6 +62,6 @@
     $conexao = new Conexao();
     $empresaService = new EmpresaService($empresa, $conexao);
     $empresaService->alterar();
-   // header('location:index.php?link=empresas');
+    header('location:../paginas/areaRestritaE.php?link=cotacao&msg=updated');
  }
 ?>

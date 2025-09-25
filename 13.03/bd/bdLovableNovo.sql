@@ -15,7 +15,7 @@ CREATE TABLE Motorista (
     id_motorista INT AUTO_INCREMENT PRIMARY KEY,
     nome_completo VARCHAR(150) NOT NULL,
     cpf CHAR(14) UNIQUE NOT NULL,
-    telefone VARCHAR(15) NOT NULL,
+    numCtt VARCHAR(15) NOT NULL,
     cnh VARCHAR(20) NOT NULL,
     renavan VARCHAR(20),
     email_motorista VARCHAR(120) UNIQUE NOT NULL,
