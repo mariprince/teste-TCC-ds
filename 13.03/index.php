@@ -1,3 +1,10 @@
+<?php
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,6 +35,7 @@
         <li><a href="../paginas/motorista.html">Motorista</a></li>
         <li><a href="../paginas/empresa.html">Empresa</a></li>
         <li><a href="../paginas/cadastros.html">Cadastrar</a></li>
+        <li><?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];  }else{echo '<a href="paginas/login.php?tipo=empresa">Entrar</a>';}?></li>
       </ul>
     </nav>
 

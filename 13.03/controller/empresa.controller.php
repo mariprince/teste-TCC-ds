@@ -1,8 +1,11 @@
+
+
 <?php 
+session_start();
  require_once(__DIR__ . '/../model/empresa.model.php');
  require_once(__DIR__ . '/../service/empresa.service.php');
  require_once(__DIR__ . '/../conexao/conexao.php');
-
+ 
  
  @$acaoe = isset($_GET['acaoe']) ? $_GET['acaoe'] : $acaoe;
  @$ide   = isset($_GET['ide']) ? $_GET['ide'] : $ide;
@@ -64,4 +67,32 @@
     $empresaService->alterar();
     header('location:../paginas/areaRestritaE.php?link=cotacao&msg=updated');
  }
+ if($acaoe ==='recuperarLoginE'){
+   
+   $empresa = new Empresa();
+   $conexao = new Conexao();
+   
+   $email = $_POST['email_empresa'];
+   $senha = $_POST['senha'];
+
+   $empresaService = new EmpresaService($empresa,$conexao);
+   $empresa = $empresaService->recuperarLoginC($email,$senha);
+
+   foreach($empresa as $indice => $empresa){
+   }
+ 
+   if(!isset($empresa->email_empresa)){
+       echo '<script>alert("Empresa com email desconhecido")</script>
+       <meta http-equiv="refresh" content="0;url=index.php?link=9">';
+   }else{
+       $_SESSION['empresaLogado']=$empresa->nome_empresa;
+       $_SESSION['emailEmpresaLogado']=$empresa->email_empresa;
+       $_SESSION['idEmpresaLogado']=$empresa->id_empresa;
+    header('location:cotacao2.php');
+    exit;
+  
+   }
+  // echo $_SESSION['idEmpresaLogado'];
+}
+
 ?>

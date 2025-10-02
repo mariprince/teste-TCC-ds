@@ -1,8 +1,13 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
+ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
+if(!isset($_SESSION['idEmpresaLogado'])){
+  header('location:paginas/login.php?tipo=empresa');
+    exit;
+}
 
+  $id_Empresa = $_SESSION['idEmpresaLogado'];
   $dataSaida = $estimativaEntrega = $cepOrigem = $enderecoOrigem = $cepDestino = $enderecoDestino = $valor = $tipoCargo = $peso = $altura = $largura = $comprimento = $idCotacao = '';
   $acaoFormCotacao = 'inserir';
   $labelBotaoCotacao = 'CRIAR FRETE';
@@ -36,7 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
         $id = $cotacao->id_cotacao ?? '';
         $acaoFormCotacao = $metodo;
         $labelBotaoCotacao = ucfirst($metodo);
-        print_r($cotacao);
+       // print_r($cotacao);
 
       }
      
@@ -82,6 +87,7 @@ if (session_status() === PHP_SESSION_NONE) {
       <!-- Datas -->
       <h2 <?= $acaoFormCotacao === 'inserir' ? 'Cadastrar Cotacao' : $labelBotaoCotacao . ' Cotacao' ?>class="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Datas e Horários</h2>
       <input type="hidden" name="id_cotacao" value="<?= $idCotacao ?>">
+      <input type="hidden" name="id_empresa" value="<?= $_SESSION['idEmpresaLogado']; ?>">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
           <label for="data_hora_saida" class="font-medium" style="font-weight: 600;">Data e Hora de Saída</label>
@@ -205,10 +211,11 @@ if (session_status() === PHP_SESSION_NONE) {
   <footer class="bg-orange-600 text-white py-4 text-center" style="position: relative;">
     <p>&copy; 2025 <span>DevLog</span> | Todos os direitos reservados</p>
   </footer>
+  <?php  echo $_SESSION['idEmpresaLogado']; ?>
 </body>
 
 <script>
-  function openPopup(
+  /*function openPopup(
   ) {
     const checkboxcargaPerigosa = document.getElementById("checkboxcargaPerigosa");
     const selectcargaPerigosa = document.getElementById("tipos");
@@ -220,7 +227,7 @@ if (session_status() === PHP_SESSION_NONE) {
   }
   function closePopup() {
     document.getElementById("popup").classList.remove("show");
-  }
+  }*/
 
 </script>
 

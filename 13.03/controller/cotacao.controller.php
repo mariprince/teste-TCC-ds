@@ -1,8 +1,12 @@
 <?php 
+if (session_status() === PHP_SESSION_NONE) {
+   session_start();
+ }
+ 
 require_once(__DIR__ . '/../model/cotacao.model.php');
 require_once(__DIR__ . '/../service/cotacao.service.php');
 require_once(__DIR__ . '/../conexao/conexao.php');
- 
+
  @$acaoc = isset($_GET['acaoc']) ? $_GET['acaoc'] : $acaoc;
  @$idc   = isset($_GET['idc']) ? $_GET['idc'] : $idc;
 
@@ -22,7 +26,7 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $cotacao->__set('altura', $_POST['altura']);
     $cotacao->__set('largura', $_POST['largura']);
     $cotacao->__set('comprimento', $_POST['comprimento']);
-    $cotacao->__set('id_empresa', 1);
+    $cotacao->__set('id_empresa', $_POST['id_empresa']);
 
     $conexao = new Conexao();
     $cotacaoService = new CotacaoService($cotacao, $conexao);

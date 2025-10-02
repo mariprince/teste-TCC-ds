@@ -1,3 +1,11 @@
+<?php 
+$cardAtivo = 'loginActive'; // padrão = motorista
+
+if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
+    $cardAtivo = 'cadastroActive'; // empresa
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +20,7 @@
 
 <body>
     <section class="containerPai">
-        <div class="cardBI loginActive">
+        <div class="cardBI <?= $cardAtivo ?>">
             <div class="esquerda">
                 <div class="formMotorista">
                     <h2>Login Motorista</h2>
@@ -38,11 +46,11 @@
             <div class="direita">
                 <div class="empresaForm">
                     <h2>Login Empresa</h2>
-                    <form class="formEmpresa">
-                        <input placeholder="Email Empresa" type="email_empresa" id="email_empresa"
+                    <form class="formEmpresa" action="../empresa.controller.php?acaoe=recuperarLoginE" method="post">
+                        <input placeholder="Email Empresa" type="email" name="email_empresa" id="email_empresa"
                             class="w-full border border-gray-300 rounded-md p-2" required />
-                        <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="18" oninput="formatarCNPJ(this)"/>
-                        <input type="password" placeholder="Sua Senha">
+                      
+                            <input type="password" name="senha" placeholder="Sua Senha">
                         <br />
 
                         <button type="submit" class="btn btn-outline-warning custom-btn">
