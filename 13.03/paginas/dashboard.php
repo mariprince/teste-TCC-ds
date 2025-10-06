@@ -1,3 +1,11 @@
+<?php
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,6 +17,7 @@
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
   <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
   <header>
@@ -24,15 +33,15 @@
         <li><a href="/paginas/empresa.html">Empresa</a></li>
         <li><a href="/paginas/index.html">Início</a></li>
       <a href="/paginas/cotacao.html">Cotação</a>
-      <span class="user">👤 </span>
-      <a href="/paginas/login.html" class="logout">Sair</a>
+      <span class="user">👤<?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];}?> </span>
+      <a href="/paginas/login.php" class="logout">Sair</a>
     </nav>
   </header>
 
   <main class="container">
     <div class="dashboard-header">
       <h1>Dashboard</h1>
-      <p>Bem-vindo, $user! Gerencie seus fretes e acompanhe suas atividades.</p>
+      <p>Bem-vindo <?php echo $_SESSION['empresaLogado']; ?>, gerencie seus fretes e acompanhe suas atividades.</p>
     </div>
 
     <div class="stats-grid">
@@ -76,9 +85,36 @@
 
     <div class="fretes-section">
       <h2>Fretes Disponíveis</h2>
-      <div class="empty-state">
+      <div class="empty-state" style="display:grid; gap: 10px">
+        <div class="modal" tabindex="-1" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal header">
+                <div class="modal-header">
+                  <h5 class="modal-title">Frete</h5>
+                </div>
+                <div class="modal-body">
+                  <div style="display: flex; padding: 5px; justify-content: space-evenly;">
+                  <p>$cepOrigem</p>
+                  <p>$cepDestino</p>
+                  </div>
+                  <div style="display: flex; padding: 5px; justify-content: space-evenly; ">
+                  <p>$enderecoOrigem</p>
+                  <p>$enderecoDestino</p>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="">Detalhes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="warning-icon">⚠️</div>
         <p>Nenhum frete disponível</p>
+        <div class="criarBtn">
+        <a class="tab-btn active" href="../cotacao2.php"> Criar Frete </a>
+        </div>
       </div>
     </div>
   </main>

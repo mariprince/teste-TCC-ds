@@ -87,4 +87,5 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $cotacaoService->alterar();
      header('location:../paginas/areaRestritaCota.php?link=cotacao&msg=updated');
  }
+
 ?>

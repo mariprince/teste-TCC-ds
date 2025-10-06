@@ -88,7 +88,7 @@ session_start();
        $_SESSION['empresaLogado']=$empresa->nome_empresa;
        $_SESSION['emailEmpresaLogado']=$empresa->email_empresa;
        $_SESSION['idEmpresaLogado']=$empresa->id_empresa;
-    header('location:cotacao2.php');
+    header('location:paginas/dashboard.php');
     exit;
   
    }

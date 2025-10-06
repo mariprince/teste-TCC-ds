@@ -34,7 +34,7 @@
       <ul class="nav-list">
         <li><a href="../paginas/motorista.html">Motorista</a></li>
         <li><a href="../paginas/empresa.html">Empresa</a></li>
-        <li><a href="../paginas/cadastros.html">Cadastrar</a></li>
+        <li><a href="cadastros2.php">Cadastrar</a></li>
         <li><?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];  }else{echo '<a href="paginas/login.php?tipo=empresa">Entrar</a>';}?></li>
       </ul>
     </nav>
