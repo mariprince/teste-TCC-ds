@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="/scripts/scriptLogin.js" defer></script>
+    <title>Login</title>
+    <link rel="shortcut icon" type="imagex/png" href="/imagens/logo.ico">
+</head>
+
+<body>
+    <section class="containerPai">
+        <div class="cardBI loginActive">
+            <div class="esquerda">
+                <div class="formMotorista">
+                    <h2>Login Motorista</h2>
+                    <form>
+                        <input type="email" placeholder=" Seu E-mail">
+                        <input type="password" placeholder="Sua Senha">
+                        <button type="submit" class="btn btn-outline-warning custom-btn">
+                            Login
+                        </button>
+                    </form>
+                    <a href="/paginas/cadastros.html">
+                        Não tem conta? Cadastre-se aqui!
+                    </a>
+                    <a href="">
+                        Esqueceu a Senha? Recupere aqui!
+                    </a>
+                </div>
+                <div class="loginMotorista">
+                    <h2>Já tem conta <br />como motorista?</h2>
+                    <button class="motoristaButton">Login Motorista</button>
+                </div>
+            </div>
+            <div class="direita">
+                <div class="empresaForm">
+                    <h2>Login Empresa</h2>
+                    <form class="formEmpresa">
+                        <input placeholder="Email Empresa" type="email_empresa" id="email_empresa"
+                            class="w-full border border-gray-300 rounded-md p-2" required />
+                        <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="18" oninput="formatarCNPJ(this)"/>
+                        <input type="password" placeholder="Sua Senha">
+                        <br />
+
+                        <button type="submit" class="btn btn-outline-warning custom-btn">
+                            Login
+                        </button>
+                    </form>
+                </div>
+                <div class="loginEmpresa">
+                    <h2>Para quem <br />já é empresa parceira!</h2> </br>
+                    <button type="submit" class="empresaButton">Login Empresa</button>
+                </div>
+                <a href="/paginas/cadastros.html">
+                    Não cadastrou sua Empresa? Cadastre-se aqui!
+                </a>
+                <a href="">
+                    Esqueceu a Senha? Recupere aqui!
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

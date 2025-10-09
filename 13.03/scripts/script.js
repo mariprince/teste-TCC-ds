@@ -1,33 +1,3 @@
-document.querySelector('.custom-btn').addEventListener('click', function() {    event.preventDefault();
-    const emailM = document.getElementById('email').value;
-    const senha = document.getElementById('password')
-    const cpf = document.getElementById('cpf').value;
-    const numCtt = document.getElementById('numCtt').value;
-    const CNH = document.getElementById('CNH').value;
-    const renavan = document.getElementById('renavan').value;
-    const curriculo = document.getElementById('formFile').value;
-    if (curriculo.length > 0) {
-        console.log('Currículos selecionados:');
-        for (let i = 0; i < curriculo.length; i++) {
-            console.log(curriculo[i].name);
-        }
-    } else {
-        console.log('Nenhum currículo selecionado.');
-    }
-
-    // Aqui você pode adicionar a lógica para enviar os dados para o backend
-    console.log(`Motorista cadastrado: ${emailM}, ${senha}, ${numCtt}, ${CNH}, ${renavan}, ${cpf}, ${curriculo}`);
-    document.getElementById('formCadastroMotorista').reset();
-});
-const myObserver = new IntersectionObserver( (entries) => {
-    entries.forEach( (entry) => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show')
-        }else{
-            entry.target.classList.remove('show')
-        }
-    })
-})
 
 function mascaraTelefone(input) {
   let value = input.value.replace(/\D/g, '');
@@ -112,68 +82,6 @@ empresaButton.onclick = () => {
     card.classList.add("cadastroActive")
 }
 
-// NOVO: Envio do formulário de cadastro de motorista como JSON para o backend
-const formCadastroMotorista = document.getElementById('formCadastroMotorista');
-if (formCadastroMotorista) {
-  formCadastroMotorista.addEventListener('submit', async function(event) {
-    event.preventDefault();
-    const email = document.getElementById('email').value;
-    const cpf = document.getElementById('cpf').value;
-    const password = document.getElementById('password').value;
-    // O campo de currículo não será enviado por enquanto, pois o backend não espera arquivo
-
-    try {
-      const response = await fetch('/cadastro-motorista', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, cpf, password })
-      });
-      if (response.ok) {
-        window.location.href = '/login.html';
-      } else {
-        window.location.href = '/error.html';
-      }
-    } catch (error) {
-      console.error('Erro no cadastro:', error);
-      window.location.href = '/error.html';
-    }
-  });
-}
 
 // NOVO: Envio do formulário de cadastro de empresa como JSON para o backend
-const formEmpresa = document.querySelector('.formEmpresa');
-if (formEmpresa) {
-  formEmpresa.addEventListener('submit', async function(event) {
-    event.preventDefault();
-    // Pega os campos do formulário
-    const nome_empresa = formEmpresa.querySelector('input[id=nome_empresa]').value;
-    // O campo de email correto é o que tem id="email_empresa"
-    const email_empresa = formEmpresa.querySelector('input[id=email_empresa]').value; 
-    // O campo de senha (corrigindo o type para password se necessário)
-    let senha_empresa = '';
-    const senhaInput = formEmpresa.querySelector('input[type="senha"], input[type="password"]');
-    if (senhaInput) senha_empresa = senhaInput.value;
-    const cnpj = formEmpresa.querySelector('input[id=cnpj]').value;
-
-    try {
-      const response = await fetch('cadastro.html', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome_empresa, email_empresa, senha, cnpj })
-      });
-      if (response.ok) {
-        window.location.href = '/login.html';
-      } else {
-        window.location.href = '/error.html';
-      }
-    } catch (error) {
-      console.error('Erro no cadastro de empresa:', error);
-      window.location.href = '/error.html';
-    }
-  });
-}
 

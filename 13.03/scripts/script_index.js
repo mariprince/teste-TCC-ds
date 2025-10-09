@@ -1,17 +1,63 @@
-// Slider
-const box = document.querySelector(".slides");
-const imagens = document.querySelectorAll(".slide"); // Seleciona todas as divs de slide
-let contador = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const bannerText = document.querySelector('.banner-text');
 
-// Função para mudar a imagem
-function slide() {
-    contador++;
-    if (contador > imagens.length - 1) {
-        contador = 0;
+  function checkScrollForBanner() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Ativa a animação quando o usuário desce pelo menos 50px (início do scroll)
+    if (scrollTop > 50 && !bannerText.classList.contains('active')) {
+      bannerText.classList.add('active');
+      // Remove o listener após ativar para performance (animação só uma vez)
+      window.removeEventListener('scroll', checkScrollForBanner);
     }
-    // Muda o botão de rádio correspondente
-    document.getElementById(`radio${contador + 1}`).checked = true;
-}
+  }
 
-// Troca de imagem a cada 2 segundos
-setInterval(slide, 5000);
+  // Verifica no carregamento inicial (caso o usuário já esteja rolando)
+  checkScrollForBanner();
+
+  // Adiciona o listener de scroll
+  window.addEventListener('scroll', checkScrollForBanner);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const bannerText = document.querySelector('.banner-textD');
+
+  function checkScrollForBanner() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Ativa a animação quando o usuário desce pelo menos 50px (início do scroll)
+    if (scrollTop > 50 && !bannerText.classList.contains('active')) {
+      bannerText.classList.add('active');
+      // Remove o listener após ativar para performance (animação só uma vez)
+      window.removeEventListener('scroll', checkScrollForBanner);
+    }
+  }
+
+  // Verifica no carregamento inicial (caso o usuário já esteja rolando)
+  checkScrollForBanner();
+
+  // Adiciona o listener de scroll
+  window.addEventListener('scroll', checkScrollForBanner);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sobreNozes = document.querySelector('.sobre-nozes');
+
+  function checkScroll() {
+    const rect = sobreNozes.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Quando a parte superior da seção estiver visível na tela (ajuste o valor conforme desejar)
+    if (rect.top <= windowHeight * 0.75) {
+      sobreNozes.classList.add('active');
+      // Se quiser que a animação ocorra só uma vez, remova o event listener
+      window.removeEventListener('scroll', checkScroll);
+    }
+  }
+  /**/
+  window.addEventListener('scroll', checkScroll);
+  // Verifica logo no carregamento caso já esteja visível 
+  checkScroll();
+});
+
+

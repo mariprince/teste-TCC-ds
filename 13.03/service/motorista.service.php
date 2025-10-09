@@ -13,15 +13,15 @@
         public function inserir()
         {
             $query = "INSERT INTO Motorista 
-                     (nome_completo, cpf, telefone, cnh, renavan, email, senha, curriculo) 
+                     (nome_completo, cpf, numCtt, cnh, renavan, email_motorista, senha, curriculo) 
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $this->motorista->__get('nome_completo'));
             $stmt->bindValue(2, $this->motorista->__get('cpf'));
-            $stmt->bindValue(3, $this->motorista->__get('telefone'));
+            $stmt->bindValue(3, $this->motorista->__get('numCtt'));
             $stmt->bindValue(4, $this->motorista->__get('cnh'));
             $stmt->bindValue(5, $this->motorista->__get('renavan'));
-            $stmt->bindValue(6, $this->motorista->__get('email'));
+            $stmt->bindValue(6, $this->motorista->__get('email_motorista'));
             $stmt->bindValue(7, $this->motorista->__get('senha'));
             $stmt->bindValue(8, $this->motorista->__get('curriculo'));
             
@@ -34,19 +34,19 @@
 
         public function recuperar()
         {
-            $query = 'SELECT id_motorista, nome_completo, cpf, telefone, cnh, renavan, email, curriculo, data_cadastro 
+            $query = 'SELECT id_motorista, nome_completo, cpf, numCtt, cnh, renavan, email_motorista, curriculo, data_cadastro 
                       FROM Motorista';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
-        public function recuperarMotorista($idm)
+        public function recuperarMotorista($id)
         {
-            $query = 'SELECT id_motorista, nome_completo, cpf, telefone, cnh, renavan, email, curriculo, data_cadastro 
+            $query = 'SELECT id_motorista, nome_completo, cpf, numCtt, cnh, renavan, email_motorista, curriculo, data_cadastro 
                       FROM Motorista WHERE id_motorista = ?';
             $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1, $idm);
+            $stmt->bindValue(1, $id);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_OBJ);
         }
@@ -79,16 +79,16 @@
             }
 
             $query = "UPDATE Motorista 
-                      SET nome_completo = ?, cpf = ?, telefone = ?, cnh = ?, 
-                          renavan = ?, email = ?, senha = ?, curriculo = ? 
+                      SET nome_completo = ?, cpf = ?, numCtt = ?, cnh = ?, 
+                          renavan = ?, email_motorista = ?, senha = ?, curriculo = ? 
                       WHERE id_motorista = ?";
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $this->motorista->__get('nome_completo'));
             $stmt->bindValue(2, $this->motorista->__get('cpf'));
-            $stmt->bindValue(3, $this->motorista->__get('telefone'));
+            $stmt->bindValue(3, $this->motorista->__get('numCtt'));
             $stmt->bindValue(4, $this->motorista->__get('cnh'));
             $stmt->bindValue(5, $this->motorista->__get('renavan'));
-            $stmt->bindValue(6, $this->motorista->__get('email'));
+            $stmt->bindValue(6, $this->motorista->__get('email_motorista'));
             $stmt->bindValue(7, $this->motorista->__get('senha'));
             $stmt->bindValue(8, $this->motorista->__get('curriculo'));
             $stmt->bindValue(9, $this->motorista->__get('id_motorista'));
@@ -107,11 +107,11 @@
         
         public function autenticar() 
         {
-            $query = "SELECT id_motorista, nome_completo, email, curriculo 
+            $query = "SELECT id_motorista, nome_completo, email_motorista, curriculo 
                       FROM Motorista 
                       WHERE email = ? AND senha = ?";
             $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1, $this->motorista->__get('email'));
+            $stmt->bindValue(1, $this->motorista->__get('email_motorista'));
             $stmt->bindValue(2, $this->motorista->__get('senha'));
             $stmt->execute();
             

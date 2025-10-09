@@ -1,0 +1,39 @@
+Prompt usado no lovable:
+Estou criando um site para conectar motoristas e empresas 
+as quais criarão requisições de frete para que o motorista aceite 
+a viagem e realize o transporte de determinada carta. Para tanto, 
+preciso que você crie um banco de dados em sql para armazenar o 
+cadastro do motorista, contendo nome, cpf/cnpj, cnh, currículo, 
+tipo de caminhão que ele tem e documento do veículo. Outra tabela 
+para armazenar o cadastro da empresa, contendo  nome fantasia, email, 
+cnpj, endereço e senha. Para a tabela de criação de frete, preciso que 
+tenha data e horário de saída, estimativa de data e horário de entrega, 
+ponto de partida, destino final, tipo de carga, veículo adequado, 
+salário e descrição.
+
+
+1. Tipos de dados personalizados (ENUMs)
+user_type: Define os tipos de usuário — 'motorista' (motorista) ou 'empresa' (empresa).
+vehicle_type: Define os tipos de veículos — caminhões como 'caminhao_toco', 'caminhao_truck', carreta, bi trem, rodotrem.
+freight_status: Status do frete — 'disponivel', 'aceito', 'em_andamento', 'concluido', 'cancelado'.
+2. Tabela de perfis de usuários (profiles)
+Armazena informações básicas sobre os usuários, vinculando ao sistema de autenticação (auth.users) via id.
+Contém o tipo de usuário (user_type) e timestamps de criação e atualização.
+3. Tabela de motoristas (motoristas)
+Registra motoristas com um ID único, ligação ao perfil de usuário, nome, CPF/CNPJ, CNH, currículo, tipo de caminhão, documento do veículo, e timestamps.
+4. Tabela de empresas (empresas)
+Armazena empresas, vinculando-se ao perfil de usuário, com nome, email, CNPJ, endereço e timestamps.
+5. Tabela de fretes (fretes)
+Registra os transportes com informações como: empresa responsável, motorista, horários de saída e entrega, pontos de origem e destino, tipo de carga, veículo adequado, salário, descrição, status, e timestamps.
+6. Controle de acessos (RLS - Row Level Security)
+Ativado em todas as tabelas para garantir controle de acesso baseado em regras específicas.
+7. Políticas de segurança (Policies)
+Perfis: cada usuário pode ver, atualizar ou inserir seu próprio perfil.
+Motoristas: podem ver e atualizar seus próprios dados; empresas podem visualizar motoristas.
+Empresas: podem gerenciar seus próprios dados.
+Fretes: empresas podem gerenciar seus fretes; motoristas podem visualizar fretes disponíveis e atualizar os que aceitaram.
+8. Funções e triggers automáticos
+update_updated_at_column(): função que automaticamente atualiza o timestamp updated_at em qualquer alteração.
+Triggers que chamam essa função antes de todas as operações de atualização nas tabelas (profiles, motoristas, empresas, fretes).
+9. Automação de criação de perfil ao cadastro do usuário (auth.users)
+Quando um novo usuário é criado, um perfil correspondente é automaticamente inserido. O tipo de usuário padrão é 'motorista', salvo se especificado outro.

@@ -61,5 +61,15 @@
             $stmt->bindValue(5, $this->empresa->__get('id_empresa'));
             $stmt->execute();
         }
+
+        public function recuperarLoginc($email,$senha){
+            $query = 'select * 
+            from empresa where email_empresa = ? and senha = ?';
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(1,$email);
+            $stmt->bindValue(2,$senha);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ); 
+        }
     }
 ?>
