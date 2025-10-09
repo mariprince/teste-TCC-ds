@@ -3,7 +3,8 @@
     session_start();
   }
 
-
+  $acaoc = 'recuperar';
+  require '../cotacao.controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +14,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard - Criar Frete</title>
   <link rel="shortcut icon" type="imagex/png" href="/imagens/logo.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="..\css\dashboard.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+  
   <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -86,30 +89,42 @@
     <div class="fretes-section">
       <h2>Fretes Disponíveis</h2>
       <div class="empty-state" style="display:grid; gap: 10px">
-        <div class="modal" tabindex="-1" >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal header">
-                <div class="modal-header">
-                  <h5 class="modal-title">Frete</h5>
-                </div>
-                <div class="modal-body">
-                  <div style="display: flex; padding: 5px; justify-content: space-evenly;">
-                  <p>$cepOrigem</p>
-                  <p>$cepDestino</p>
-                  </div>
-                  <div style="display: flex; padding: 5px; justify-content: space-evenly; ">
-                  <p>$enderecoOrigem</p>
-                  <p>$enderecoDestino</p>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="">Detalhes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <table class="table table-bordered table-hover">
+                    <thead class="">
+                        <tr>
+                            <th>ID</th>
+                            <th>Data Saída</th>
+                            <th>Cep Origem</th>
+                            <th>Endereço Origem</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($cotacao) && is_array($cotacao)): ?>
+                            <?php foreach ($cotacao as $cota): ?>
+                                <tr>
+                                    <td><?= $cota->id_cotacao ?></td>
+                                    <td><?= htmlspecialchars($cota->data_saida) ?></td>
+                                    <td><?= htmlspecialchars($cota->cep_origem) ?></td>
+                                    <td><?= htmlspecialchars($cota->endereco_origem) ?></td>
+                                    <td><?= htmlspecialchars($cota->valor) ?></td>
+                                    <td>
+                                        <a href="../paginas/areaRestritaCota.php"
+                                            class="btn btn-sm btn-warning">Detalhes</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="14" class="text-center">Nenhum usuário encontrado.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+
+
+
         <div class="warning-icon">⚠️</div>
         <p>Nenhum frete disponível</p>
         <div class="criarBtn">

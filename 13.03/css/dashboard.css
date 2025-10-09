@@ -195,6 +195,7 @@ nav .logout {
 .empty-state {
   text-align: center;
   color: #666;
+  justify-items: center;
 }
 
 .warning-icon {
@@ -208,18 +209,23 @@ nav .logout {
 }
 
 .modal{
-  border: 1px solid black;
+  border-radius: 12px;
   width: 400px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+ 
 }
 
 .modal-title{
   font-weight: 1000;
-  border-bottom: 1px solid black;
+  padding-top: 10px;
+/* border-bottom: 1px solid black;*/
 }
 .modal-body{
   gap: 10px;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+ /* border-bottom: 1px solid black;*/
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .modal-footer{
@@ -230,8 +236,23 @@ nav .logout {
     background-color: blue;
     color: #e9ecef;
     border-radius: 6px 6px 6px 6px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 5px;
+    height: 30px;
+    width: 80px;
   }
 }
+.btn-warning {
+color: #fff;
+background-color: rgb(68, 68, 247);
+border-color: rgb(68, 68, 247);
+}
+
+.btn-warning:hover {
+  color: #fff;
+  background-color: #293649;
+  border-color: #293649;
+  }
 
 
 .footter .box-conteiner {
