@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+#span{
+   justify-content: start;
+   font-size: 1.5rem;
+}
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-top: 80px;
@@ -18,7 +22,6 @@ body {
 header {
   background-color: #ea5504;
   color: white;
-  padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -27,6 +30,11 @@ header {
   z-index: 1000;
   font-weight: 700;
 
+}
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .header-container {
@@ -38,93 +46,144 @@ header {
   align-items: center;
 }
 
+/* Reset básico para nav */
 nav {
   display: flex;
-  list-style: none;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  background-color: #E64A19;
+  padding: 0 15rem;
+  height: 80px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 4vh;
-  font: bold;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
 }
 
+
+/* Logo */
 .logo {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
-  text-decoration: none;
   color: white;
-
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
+.logo img {
+    height: 50px; /* controla a altura da imagem */
+    width: auto;  /* mantém a proporção */
+
+  }
+
+/* Nav lista */
 .nav-list {
   list-style: none;
   display: flex;
-  font-weight: 700;
+  gap: 3rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-nav a {
-  margin-left: 2rem;
+/* Links normais */
+.nav-list li a {
+  font-size: 1rem;
   color: white;
   text-decoration: none;
   font-weight: 700;
+  position: relative;
+  padding: 5px 5;
   transition: color 0.3s ease;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 30px;
-  list-style: none;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  transition: color 0.2s;
-}
-
-nav ul li a:hover {
+/* Hover dos links */
+.nav-list li a:hover {
   color: #d1e0fb;
 }
+
+/* Underline animado ao passar o mouse */
+.nav-list li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1e0fb;
+  transition: width 0.3s ease;
+}
+
+/* Ao hover, underline cresce */
+.nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background-color: #293649;
+  color: #E64A19;
+  padding: 0.5rem 1.3rem;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover botão */
+.btn-cadastrar:hover {
+  background-color: #d14e19;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu mobile - escondido no desktop */
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: #E64A19;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .btn-cadastrar {
+    padding: 0.5rem 1rem;
+  }
+}
+
+
 
 /* Conteúdo de exemplo para demonstrar scrolling */
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-}
-
-
-/* Efeito de header reduzido ao scroll */
-header.scrolled {
-  padding: 8px 0;
-  background: rgba(58, 123, 213, 0.95);
-  backdrop-filter: blur(5px);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav ul li {
-    margin: 0 10px;
-  }
 }
 
 /**/
