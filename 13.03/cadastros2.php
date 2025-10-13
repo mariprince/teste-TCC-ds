@@ -139,7 +139,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
             <button type="submit" class="btn btn-outline-warning custom-btn"><?= $labelBotaoMotorista ?></button>
           </form>
 
-          <a href="login.html">Já tem conta? Login aqui</a>
+          <a href="../paginas/login.php">Já tem conta? Login aqui</a>
         </div>
 
         <div class="cadastroMotorista">
@@ -175,7 +175,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
           <button class="empresaButton">Quero ser parceiro!</button>
         </div>
 
-        <a href="login.html">Já cadastrou sua Empresa? Login aqui</a>
+        <a href="../paginas/login.php">Já cadastrou sua Empresa? Login aqui</a>
       </div>
     </div>
   </section>

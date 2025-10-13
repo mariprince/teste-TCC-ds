@@ -34,8 +34,8 @@
       <ul class="nav-list">
         <li><a href="/paginas/motorista.html">Motorista</a></li>
         <li><a href="/paginas/empresa.html">Empresa</a></li>
-        <li><a href="/paginas/index.html">Início</a></li>
-      <a href="/paginas/cotacao.html">Cotação</a>
+        <li><a href="../index.php">Início</a></li>
+      <a href="../cotacao2.php">Cotação</a>
       <span class="user">👤<?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];}?> </span>
       <a href="/paginas/login.php" class="logout">Sair</a>
     </nav>
@@ -112,6 +112,7 @@
                                     <td>
                                         <a href="../paginas/areaRestritaCota.php"
                                             class="btn btn-sm btn-warning">Detalhes</a>
+                                            <div style="font-size: 20px;"><a href="">✅</a></div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -155,11 +156,11 @@
         </div>
         <div class="box">
             <h3>Navegação</h3>
-            <a href="/paginas/index.html" class="links"><i class="fas fa-arrow-circle-right"></i> Página Inicial</a>
+            <a href="../index.php" class="links"><i class="fas fa-arrow-circle-right"></i> Página Inicial</a>
             <a href="/paginas/motorista.html" class="links"><i class="fas fa-arrow-circle-right"></i> Motorista</a>
             <a href="/paginas/empresa.html" class="links"><i class="fas fa-arrow-circle-right"></i> Empresa</a>
-            <a href="/paginas/login.html" class="links"><i class="fas fa-arrow-circle-right"></i> Login<a>
-            <a href="/paginas/cadastros.html" class="links"><i class="fas fa-arrow-circle-right"></i> Cadastre-se</a>
+            <a href="/paginas/login.php" class="links"><i class="fas fa-arrow-circle-right"></i> Login<a>
+            <a href="../cadastros2.php" class="links"><i class="fas fa-arrow-circle-right"></i> Cadastre-se</a>
         </div>
         <div class="box">
             <h3>Receba notícias</h3>

@@ -74,8 +74,8 @@ if(!isset($_SESSION['idEmpresaLogado'])){
         <div class="line3"></div>
       </div>
       <ul class="nav-list">
-        <li><a href="/paginas/index.html" style="color: #fff;text-decoration: none ;">Início</a></li>
-        <li><a href="/paginas/cadastros.html" style="color: #fff;text-decoration: none ;">Cadastrar</a></li>
+        <li><a href="../index.php" style="color: #fff;text-decoration: none ;">Início</a></li>
+        <li><a href="../cadastros2.php" style="color: #fff;text-decoration: none ;">Cadastrar</a></li>
       </ul>
     </nav>
   </header>

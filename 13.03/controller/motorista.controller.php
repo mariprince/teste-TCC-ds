@@ -120,43 +120,44 @@ if ($acao === 'alterar') {
     $motoristaService->alterar();
 }
 // Login do motorista
-if ($acao === 'loginMotorista') {
-    $email = $_POST['email'] ?? '';
-    $senha = $_POST['senha'] ?? '';
-
-    if (!empty($email) && !empty($senha)) {
-        $motorista = new Motorista();
-        $conexao = new Conexao();
-        $motoristaService = new MotoristaService($motorista, $conexao);
-        
-        // Primeiro busca o motorista pelo email
-        $motoristaData = $motoristaService->buscarPorEmail($email);
-        
-        if ($motoristaData && password_verify($senha, $motoristaData->senha)) {
-            $_SESSION['motoristaLogado'] = $motoristaData->nome_completo;
-            $_SESSION['emailMotorista'] = $motoristaData->email;
-            $_SESSION['idMotorista'] = $motoristaData->id_motorista;
-            $_SESSION['curriculo'] = $motoristaData->curriculo;
-            $_SESSION['tipoUsuario'] = 'motorista';
-            
-            header('location: motorista/dashboard.php');
-            exit;
-        } else {
-            echo '<script>alert("Email ou senha inválidos!")</script>';
-            echo '<meta http-equiv="refresh" content="0;url=index.php?link=login_motorista">';
-        }
+if($acao ==='recuperarLoginM'){
+   
+    $motorista = new Motorista();
+    $conexao = new Conexao();
+    
+    $email = $_POST['email_motorista'];
+    $senha = $_POST['senha'];
+ 
+    $motoristaService = new MotoristaService($motorista,$conexao);
+    $motorista = $motoristaService->recuperarLoginM($email,$senha);
+ 
+    foreach($motorista as $indice => $motorista){
     }
-}
+  
+    if(!isset($motorista->email_motorista)){
+        echo '<script>alert("motorista com email desconhecido")</script>
+        <meta http-equiv="refresh" content="0;url=index.php?link=9">';
+    }else{
+        $_SESSION['motoristaLogado']=$motorista->nome_completo;
+        $_SESSION['emailMotoristaLogado']=$motorista->email_motorista;
+        $_SESSION['idmotoristaLogado']=$motorista->id_motorista;
+     header('location:paginas/dashboard.php');
+     exit;
+   
+    }
+   // echo $_SESSION['idmotoristaLogado'];
+ }
+ 
 
 // Logout
 if ($acao === 'sairMotorista') {
     unset($_SESSION['motoristaLogado']);
-    unset($_SESSION['emailMotorista']);
+    unset($_SESSION['emailMotoristaLogado']);
     unset($_SESSION['idMotorista']);
     unset($_SESSION['curriculo']);
     unset($_SESSION['tipoUsuario']);
     
-    header('location:index.php');
+    header('location:paginas/login.php');
     exit;
 }
 

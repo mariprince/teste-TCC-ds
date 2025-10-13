@@ -146,5 +146,15 @@
                 unlink($caminho);
             }
         }
+
+        public function recuperarLoginM($email,$senha){
+            $query = 'select * 
+            from motorista where email_motorista = ? and senha = ?';
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(1,$email);
+            $stmt->bindValue(2,$senha);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ); 
+        }
     }
 ?>

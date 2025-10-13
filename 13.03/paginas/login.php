@@ -24,9 +24,9 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
             <div class="esquerda">
                 <div class="formMotorista">
                     <h2>Login Motorista</h2>
-                    <form>
-                        <input type="email" placeholder=" Seu E-mail">
-                        <input type="password" placeholder="Sua Senha">
+                    <form action="../motorista.controller.php?acao=recuperarLoginM" method="post">
+                        <input type="email" name="email_motorista" id="email_motorista" placeholder=" Seu E-mail">
+                        <input type="password" name="senha" placeholder="Sua Senha">
                         <button type="submit" class="btn btn-outline-warning custom-btn">
                             Login
                         </button>
