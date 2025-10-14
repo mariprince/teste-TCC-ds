@@ -213,7 +213,7 @@ nav {
 
 .banner-text {
   position: absolute;
-  top: 530px; /* Distância do topo do banner; ajuste conforme necessário */
+  top: 250px; /* Distância do topo do banner; ajuste conforme necessário */
   left: 20px; /* Alinhado à esquerda; ajuste a distância da borda */
   background: rgba(109, 106, 106, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
   color: white;
@@ -221,7 +221,7 @@ nav {
   border-radius: 5px;
   font-size: 16px; /* Tamanho pequeno */
   font-weight: bold;
-  max-width: 500px; /* Limita a largura para não invadir o centro */
+  max-width: 700px; /* Limita a largura para não invadir o centro */
   opacity: 0;
   transform: translateX(-50px); /* Inicialmente deslocado para a esquerda */
   transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
@@ -237,11 +237,11 @@ nav {
 .banner-text h1::after {
   content: '';
   display: block;
-  width: 70px;
+  width: 90px;
   height: 5px;
   background: #e44b2d;
-  margin-top: 1px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .banner-text.active {
@@ -251,7 +251,7 @@ nav {
 
 .banner-textD {
   position: absolute;
-  top: 635px; /* Distância do topo do banner; ajuste conforme necessário */
+  top: 735px; /* Distância do topo do banner; ajuste conforme necessário */
   right: 20px; /* Alinhado à direita; ajuste a distância da borda */
   background: rgba(109, 106, 106, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
   color: white;
