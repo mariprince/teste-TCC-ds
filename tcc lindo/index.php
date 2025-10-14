@@ -2,7 +2,6 @@
   if (session_status() === PHP_SESSION_NONE) {
     session_start();
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -23,152 +22,147 @@
 <body class="font-sans text-gray-800">
   <header>
     <nav>
-      <div class="logo">
-         <a class="logo">🚚 DevLog</a>
+      <div class="logo-group">
+        <a href="#" class="logo img"><img src="../imagens/logosite.png" alt="DevLog"></a>
+        <span id="span">DevLog</span>
       </div>
+      <ul class="nav-list">
+        <li><a href="../paginas/motorista.html">Motorista</a></li>
+        <li><a href="../paginas/empresa.html">Empresa</a></li>
+        <li><?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];  }else{echo '<a href="paginas/login.php?tipo=empresa">Entrar</a>';}?></li>
+      </ul>
       <div class="mobile-menu">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
       </div>
-      <ul class="nav-list">
-        <li><a href="../paginas/motorista.html">Motorista</a></li>
-        <li><a href="../paginas/empresa.html">Empresa</a></li>
-        <li><a href="cadastros2.php">Cadastrar</a></li>
-        <li><?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];  }else{echo '<a href="paginas/login.php?tipo=empresa">Entrar</a>';}?></li>
-      </ul>
     </nav>
-
   </header>
   <!-- Exemplo de onde inserir no body -->
-<section class="container">
-  <div class="content">
-    <h2>Pensados para atender sua empresa</h2>
-
-    <!-- Caminhão que se move -->
-    <div class="truck-wrapper">
-      <img src="caminhao.png" alt="Caminhão" class="truck" />
-</section>
-  <div class="banner">
-    <img src="../imagens/cbann.jpg">
-    <div class="banner-text">
-      <h1>Bem-vindo à DevLog! - Conectando o futuro da logística</h1>
-      <p>
-        A DevLog é a plataforma que transforma a logística, conectando empresas e motoristas de forma eficiente e inovadora. </br> 
-      </p>
-    </div>
-    <div class="banner-textD">
-      <p>Seja você uma empresa buscando soluções logísticas ou um motorista em busca de novas oportunidades,  </br> 
-        a DevLog é a plataforma ideal para suas necessidades. Seja parte da transformação logística!
-      </p>
-    </div>
-
-  </div>
-
-  <div class="sobre-nozes-header"><br><br><br><br><h1>DevLog</h1></div>
-
-  <div class="benefits-container">
-    <div class="benefit-card">
-      <!-- <img src="../imagens/motIdx.png"> -->
-      <i class="fa-solid fa-id-card"></i>
-      <h3>Motorista</h3>
-      <p class="small">Sua experiência é valorizada!</p>
-      <p>Se você é um motorista capacitado, tem tempo de estrada e precisa de conexões, aqui é o lugar certo!</p>
-      <a href="../paginas/motorista.html"
-      class="rounded-2x1 p-4 text-center text-orange font-bold block mx-auto w-fit">Saiba Mais</a>  
-    </div>
-
-    <div class="benefit-card">
-      <!-- <img src="../imagens/BannerIdx1.png"> -->
-      <i class="fa-solid fa-users-rectangle"></i>
-      <h3>Seja parte do time!</h3>
-      <p class="small">Conectamos informações e objetivos.</p>
-      <p>A plataforma para conecta motoristas e empresas para realização de frete da forma mais eficiente e eficaz.</p>
-      <a href="../paginas/motorista.html"
-      class="rounded-2x1 p-4 text-center text-orange font-bold block mx-auto w-fit">Saiba Mais</a>
-    </div>
-      
-    <div class="benefit-card">
-      <!-- <img src="../imagens/empresaIndx.jpg">       -->
-      <i class="fa-solid fa-business-time"></i>
-      <h3>Empresa</h3>
-      <p class="small">Encontre a combinação perfeita!</p>
-      <p>Se sua empresa precisa de frete? Aqui é a melhor plataforma para encontrar o motorista ideal.</p>
-      <a href="../paginas/empresa.html"  class="rounded-2x1 p-4 text-center text-orange font-bold block mx-auto w-fit">Saiba Mais</a>
-    </div>
-  </div>
-
-  <section class="sobre-nozes">
-    <!-- Coluna Esquerda -->
-    <div class="sobre-nozes-header">
-      <h1>SOBRE<br>NÓS</h1>
-      <p>
-        <strong>EQUIPE DEVLOG</strong> Após muita pesquisa e estudo de casos com o objetivo de otimizar a etapa de
-        entrega da cadeia de suprimentos, desenvolvemos a plataforma para conectar motoristas aptos e comprometidos a
-        realizar fretes de curta a longa distância para empresas que têm vendas, movimentação de mercado, mas não
-        possuem modal adequado ou profissional para realizar a fretagem.
-      </p>
-    </div>
-  
-    <!-- Coluna Direita -->
-    <div class="sobre-nozes-info">
-      <div class="box-info">
-        <h2 class="titulo-esquerda">MISSÃO</h2>
-        <p>Conectar motoristas e empresas, entregando valor às operações por meio de inovação e cooperação.</p>
-      </div>
-      <div class="box-info">
-        <h2 class="titulo-esquerda">VISÃO</h2>
-        <p>Ser referência na logística cooperativa, promover desenvolvimento econômico e social sustentável.</p>
-      </div>
-      <div class="box-info">
-        <h2 class="titulo-esquerda">VALOR</h2>
-        <p>Transparência, ética, inovação, simplicidade e respeito em todas as nossas ações.</p>
-      </div>
-    </div>
+  <section class="container">
+    <div class="content">
+      <h2>Pensados para atender sua empresa</h2>
+      <!-- Caminhão que se move -->
+      <div class="truck-wrapper">
+        <img src="caminhao.png" alt="Caminhão" class="truck"/>
   </section>
-  
-  <section class="footter">
-    <div class="box-conteiner">
-      <div class="box">
-        <h3><i class="fa fa-truck"></i> DevLog</h3>
-        <p>Conectar motoristas qualificados com empresas que precisam realizar frete é nossa maior especialidade!</p>
-        <div class="share">
-          <a href="#" class="fab fa-facebook"></a>
-          <a href="#" class="fab fa-twitter"></a>
-          <a href="#" class="fab fa-instagram"></a>
-          <a href="#" class="fab fa-whatsapp"></a>
+    <div class="banner">
+      <img src="../imagens/cbann.jpg">
+      <div class="banner-text">
+        <h1>Bem-vindo à DevLog! - Conectando o futuro da logística</h1>
+        
+      </div>
+      <div class="banner-textD">
+        <p>
+          A DevLog é a plataforma que transforma a logística, conectando empresas e motoristas de forma eficiente e inovadora. </br> 
+        </p>
+      </div>
+    </div>
+
+    <div class="sobre-nozes-header"><br><br><br><br><h1>DevLog</h1></div>
+
+    <div class="benefits-container">
+      <div class="benefit-card">
+        <!-- <img src="../imagens/motIdx.png"> -->
+        <i class="fa-solid fa-id-card"></i>
+        <h3>Motorista</h3>
+        <p class="small">Sua experiência é valorizada!</p>
+        <p>Se você é um motorista capacitado, tem tempo de estrada e precisa de conexões, aqui é o lugar certo!</p>
+        <a href="../paginas/motorista.html"
+        class="rounded-2x1 p-4 text-center text-orange font-bold block mx-auto w-fit">Saiba Mais</a>  
+      </div>
+
+      <div class="benefit-card">
+        <!-- <img src="../imagens/BannerIdx1.png"> -->
+        <i class="fa-solid fa-users-rectangle"></i>
+        <h3>Seja parte do time!</h3>
+        <p class="small">Conectamos informações e objetivos.</p>
+        <p>A plataforma para conecta motoristas e empresas para realização de frete da forma mais eficiente e eficaz.</p>
+        <a href="../paginas/motorista.html"
+        class="rounded-2x1 p-4 text-center text-orange font-bold block mx-auto w-fit">Saiba Mais</a>
+      </div>
+        
+      <div class="benefit-card">
+        <!-- <img src="../imagens/empresaIndx.jpg">       -->
+        <i class="fa-solid fa-business-time"></i>
+        <h3>Empresa</h3>
+        <p class="small">Encontre a combinação perfeita!</p>
+        <p>Se sua empresa precisa de frete? Aqui é a melhor plataforma para encontrar o motorista ideal.</p>
+        <a href="../paginas/empresa.html"  class="rounded-2x1 p-4 text-center text-orange font-bold block mx-auto w-fit">Saiba Mais</a>
+      </div>
+    </div>
+
+    <section class="sobre-nozes">
+      <!-- Coluna Esquerda -->
+      <div class="sobre-nozes-header">
+        <h1>SOBRE<br>NÓS</h1>
+        <p>
+          <strong>EQUIPE DEVLOG</strong> Após muita pesquisa e estudo de casos com o objetivo de otimizar a etapa de
+          entrega da cadeia de suprimentos, desenvolvemos a plataforma para conectar motoristas aptos e comprometidos a
+          realizar fretes de curta a longa distância para empresas que têm vendas, movimentação de mercado, mas não
+          possuem modal adequado ou profissional para realizar a fretagem.
+        </p>
+      </div>
+    
+      <!-- Coluna Direita -->
+      <div class="sobre-nozes-info">
+        <div class="box-info">
+          <h2 class="titulo-esquerda">MISSÃO</h2>
+          <p>Conectar motoristas e empresas, entregando valor às operações por meio de inovação e cooperação.</p>
+        </div>
+        <div class="box-info">
+          <h2 class="titulo-esquerda">VISÃO</h2>
+          <p>Ser referência na logística cooperativa, promover desenvolvimento econômico e social sustentável.</p>
+        </div>
+        <div class="box-info">
+          <h2 class="titulo-esquerda">VALOR</h2>
+          <p>Transparência, ética, inovação, simplicidade e respeito em todas as nossas ações.</p>
         </div>
       </div>
-      <div class="box">
-        <h3>Entre em contato</h3>
-        <a href="" class="links"><i class="fas fa-phone"></i> +123-456-789</a>
-        <a href="" class="links"><i class="fas fa-phone"></i> +123-456-789</a>
-        <a href="" class="links"><i class="fas fa-envelope"></i> DevLogCJM@email.com.br</a>
-        <a href="" class="links"><i class="fas fa-map-marked-alt"></i> Rua dos bobos, n°: 0</a>
+    </section>
+    
+    <section class="footter">
+      <div class="box-conteiner">
+        <div class="box">
+          <h3><i class="fa fa-truck"></i> DevLog</h3>
+          <p>Conectar motoristas qualificados com empresas que precisam realizar frete é nossa maior especialidade!</p>
+          <div class="share">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-whatsapp"></a>
+          </div>
+        </div>
+        <div class="box">
+          <h3>Entre em contato</h3>
+          <a href="" class="links"><i class="fas fa-phone"></i> +123-456-789</a>
+          <a href="" class="links"><i class="fas fa-phone"></i> +123-456-789</a>
+          <a href="" class="links"><i class="fas fa-envelope"></i> DevLogCJM@email.com.br</a>
+          <a href="" class="links"><i class="fas fa-map-marked-alt"></i> Rua dos bobos, n°: 0</a>
+        </div>
+        <div class="box">
+          <h3>Navegação</h3>
+          <a href="../index.php" class="links"><i class="fas fa-arrow-circle-right"></i> Página Inicial</a>
+          <a href="paginas/motorista.html" class="links"><i class="fas fa-arrow-circle-right"></i> Motorista</a>
+          <a href="paginas/empresa.html" class="links"><i class="fas fa-arrow-circle-right"></i> Empresa</a>
+          <a href="paginas/login.php" class="links"><i class="fas fa-arrow-circle-right"></i> Login<a>
+              <a href="cadastros2.php" class="links"><i class="fas fa-arrow-circle-right"></i> Cadastre-se</a>
+        </div>
+        <div class="box">
+          <h3>Receba notícias</h3>
+          <p>Fique por dentro de nossas novidades</p>
+          <input type="email" placeholder="Digite seu email..." class="email">
+          <input type="submit" value="Enviar" class="btn">
+          <img src="./image/payment.png" alt="">
+        </div>
       </div>
-      <div class="box">
-        <h3>Navegação</h3>
-        <a href="../index.php" class="links"><i class="fas fa-arrow-circle-right"></i> Página Inicial</a>
-        <a href="paginas/motorista.html" class="links"><i class="fas fa-arrow-circle-right"></i> Motorista</a>
-        <a href="paginas/empresa.html" class="links"><i class="fas fa-arrow-circle-right"></i> Empresa</a>
-        <a href="paginas/login.php" class="links"><i class="fas fa-arrow-circle-right"></i> Login<a>
-            <a href="cadastros2.php" class="links"><i class="fas fa-arrow-circle-right"></i> Cadastre-se</a>
-      </div>
-      <div class="box">
-        <h3>Receba notícias</h3>
-        <p>Fique por dentro de nossas novidades</p>
-        <input type="email" placeholder="Digite seu email..." class="email">
-        <input type="submit" value="Enviar" class="btn">
-        <img src="./image/payment.png" alt="">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="bg-orange-600 text-white py-4" style="width: 100%; text-align: center;">
-    <p>&copy; 2025 <span>DevLog </span> | Todos os direitos reservados</p>
-  </footer>
-  <script src="../scripts/script_index.js"></script>
-  <script src="../scripts/mobile-navbar.js"></script>
+    <footer class="bg-orange-600 text-white py-4" style="width: 100%; text-align: center;">
+      <p>&copy; 2025 <span>DevLog </span> | Todos os direitos reservados</p>
+    </footer>
+    <script src="../scripts/script_index.js"></script>
+    <script src="../scripts/mobile-navbar.js"></script>
   
 </body>
 
