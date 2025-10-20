@@ -31,6 +31,8 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $conexao = new Conexao();
     $cotacaoService = new CotacaoService($cotacao, $conexao);
     $cotacaoService->inserir();
+
+    header("location:paginas/dashboard.php");
  }
 
  // Recuperar todas as cotacaos

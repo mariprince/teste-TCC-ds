@@ -31,7 +31,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                             Login
                         </button>
                     </form>
-                    <a href="/paginas/cadastros.html">
+                    <a href="../cadastros2.php">
                         Não tem conta? Cadastre-se aqui!
                     </a>
                     <a href="">
@@ -62,7 +62,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                     <h2>Para quem <br />já é empresa parceira!</h2> </br>
                     <button type="submit" class="empresaButton">Login Empresa</button>
                 </div>
-                <a href="/paginas/cadastros.html">
+                <a href="../cadastros2.php">
                     Não cadastrou sua Empresa? Cadastre-se aqui!
                 </a>
                 <a href="">

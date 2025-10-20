@@ -88,6 +88,9 @@ session_start();
        $_SESSION['empresaLogado']=$empresa->nome_empresa;
        $_SESSION['emailEmpresaLogado']=$empresa->email_empresa;
        $_SESSION['idEmpresaLogado']=$empresa->id_empresa;
+       unset($_SESSION['motoristaLogado']);
+       unset($_SESSION['emailMotoristaLogado']);
+       unset($_SESSION['idmotoristaLogado']);
     header('location:paginas/dashboard.php');
     exit;
   

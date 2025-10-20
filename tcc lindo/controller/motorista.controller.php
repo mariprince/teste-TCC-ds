@@ -119,35 +119,43 @@ if ($acao === 'alterar') {
     $motoristaService = new MotoristaService($motorista, $conexao);
     $motoristaService->alterar();
 }
-// Login do motorista
-if($acao ==='recuperarLoginM'){
-   
+
+ if ($acao === 'recuperarLoginM') {
+
     $motorista = new Motorista();
     $conexao = new Conexao();
-    
+
     $email = $_POST['email_motorista'];
-    $senha = $_POST['senha'];
- 
-    $motoristaService = new MotoristaService($motorista,$conexao);
-    $motorista = $motoristaService->recuperarLoginM($email,$senha);
- 
-    foreach($motorista as $indice => $motorista){
+    $senhaDigitada = $_POST['senha'];
+
+    $motoristaService = new MotoristaService($motorista, $conexao);
+    $motoristas = $motoristaService->recuperarLoginM($email);
+
+    // Como recuperarLoginM retorna fetchAll(), precisamos pegar o primeiro registro:
+    if (count($motoristas) === 0) {
+        echo 'Motorista com email desconhecido';
+        exit;
     }
-  
-    if(!isset($motorista->email_motorista)){
-        echo '<script>alert("motorista com email desconhecido")</script>
-        <meta http-equiv="refresh" content="0;url=index.php?link=9">';
-    }else{
-        $_SESSION['motoristaLogado']=$motorista->nome_completo;
-        $_SESSION['emailMotoristaLogado']=$motorista->email_motorista;
-        $_SESSION['idmotoristaLogado']=$motorista->id_motorista;
-     header('location:paginas/dashboard.php');
-     exit;
-   
+
+    $motorista = $motoristas[0];
+
+    // Verifica a senha digitada com o hash armazenado
+    if (!password_verify($senhaDigitada, $motorista->senha)) {
+        echo 'Senha incorreta';
+        exit;
     }
-   // echo $_SESSION['idmotoristaLogado'];
- }
- 
+
+    // Login bem-sucedido
+    $_SESSION['motoristaLogado'] = $motorista->nome_completo;
+    $_SESSION['emailMotoristaLogado'] = $motorista->email_motorista;
+    $_SESSION['idmotoristaLogado'] = $motorista->id_motorista;
+    unset($_SESSION['empresaLogado']);
+    unset($_SESSION['emailEmpresaLogado']);
+    unset($_SESSION['idEmpresaLogado']);
+    header('Location: paginas/dashboard.php');
+    exit;
+}
+
 
 // Logout
 if ($acao === 'sairMotorista') {

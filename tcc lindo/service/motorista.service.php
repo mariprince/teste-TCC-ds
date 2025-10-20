@@ -147,14 +147,24 @@
             }
         }
 
-        public function recuperarLoginM($email,$senha){
+        /*public function recuperarLoginM($email,$senha){
             $query = 'select * 
             from motorista where email_motorista = ? and senha = ?';
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1,$email);
             $stmt->bindValue(2,$senha);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_OBJ); 
-        }
+            return $stmt->fetchALL(PDO::FETCH_OBJ); 
+        }*/
+
+            public function recuperarLoginM($email) {
+    $query = 'SELECT * FROM motorista WHERE email_motorista = ?';
+    $stmt = $this->conexao->prepare($query);
+    $stmt->bindValue(1, $email);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
     }
 ?>
