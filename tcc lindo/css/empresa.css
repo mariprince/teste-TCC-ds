@@ -172,10 +172,10 @@ nav {
 }
 
 .titulo-esquerda1 {
-  font-size: 2.05rem;
+  font-size: 2.20rem;
   font-weight: 900;
   text-transform: uppercase;
-  margin: 20px 0 30px;
+  margin: 103px 0 30px 97px;
   letter-spacing: 1px;
   color: #293649;
   position: relative;
@@ -188,7 +188,7 @@ nav {
   font-size: 2.05rem;
   font-weight: 900;
   text-transform: uppercase;
-  margin: 20px 0 30px;
+  margin: 20px 0 30px 91px;
   letter-spacing: 1px;
   color: #293649;
   position: relative;
@@ -428,7 +428,7 @@ nav {
 }
 
 .carousel {
-  width: 1235px;
+  width: 1050px;
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
@@ -439,12 +439,12 @@ nav {
 .carousel-track {
   display: flex;
   gap: 20px;
-  animation: slide 30s infinite linear;
+  animation: slide 20s infinite linear;
   padding-left: 20px;
 }
 
 .testimonial {
-  flex: 0 0 300px;
+  flex: 0 0 255px;
   background: white;
   border-radius: 12px;
   padding: 20px;
