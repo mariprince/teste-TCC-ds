@@ -24,20 +24,23 @@
 </head>
 <body>
   <header>
-    <nav>
-      <a class="logo">🚚 DevLog</a>
+  <nav>
+      <div class="logo-group">
+        <a href="#" class="logo img"><img src="../imagens/logosite.png" alt="DevLog"></a>
+        <span id="span">DevLog</span>
+      </div>
+      <ul class="nav-list">
+        <li><a href="../index.php">Início</a></li>
+        <li><a href="/paginas/motorista.html">Motorista</a></li>
+        <li><a href="/paginas/empresa.html">Empresa</a></li>
+        <li><a href="../cotacao2.php">Cotação</a></li>
+      <span class="user">👤<?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];}?> </span>
+      <a href="/paginas/login.php" class="logout">Sair</a>
       <div class="mobile-menu">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
       </div>
-      <ul class="nav-list">
-        <li><a href="/paginas/motorista.html">Motorista</a></li>
-        <li><a href="/paginas/empresa.html">Empresa</a></li>
-        <li><a href="../index.php">Início</a></li>
-      <a href="../cotacao2.php">Cotação</a>
-      <span class="user">👤<?php if(isset($_SESSION['idEmpresaLogado'])){ echo $_SESSION['empresaLogado'];}?> </span>
-      <a href="/paginas/login.php" class="logout">Sair</a>
     </nav>
   </header>
 

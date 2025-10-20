@@ -49,16 +49,8 @@
     <div class="banner">
       <img src="../imagens/cbann.jpg">
       <div class="banner-text">
-        <h1>Bem-vindo à DevLog! </br>Conectando o futuro da logística.</h1>
-        
+        <h1>Bem-vindo à DevLog! </br>Conectando o futuro da logística.</h1> 
       </div>
-      <!--
-      <div class="banner-textD">
-        <p>
-          A DevLog é a plataforma que transforma a logística, conectando empresas e motoristas de forma eficiente e inovadora. </br> 
-        </p>
-      </div>
-      -->
     </div> 
 
     <div class="sobre-nozes-header"><br><br><br><br><h1>DevLog</h1></div>

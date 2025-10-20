@@ -31,7 +31,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                             Login
                         </button>
                     </form>
-                    <a href="/paginas/cadastros.html">
+                    <a href="..\cadastros2.php">
                         Não tem conta? Cadastre-se aqui!
                     </a>
                     <a href="">
@@ -39,7 +39,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                     </a>
                 </div>
                 <div class="loginMotorista">
-                    <h2>Já tem conta <br />como motorista?</h2>
+                    <h2>Já tem conta <br/>como motorista?</h2>
                     <button class="motoristaButton">Login Motorista</button>
                 </div>
             </div>
@@ -48,10 +48,9 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                     <h2>Login Empresa</h2>
                     <form class="formEmpresa" action="../empresa.controller.php?acaoe=recuperarLoginE" method="post">
                         <input placeholder="Email Empresa" type="email" name="email_empresa" id="email_empresa"
-                            class="w-full border border-gray-300 rounded-md p-2" required />
-                      
+                            class="w-full border border-gray-300 rounded-md p-2" required/>
                             <input type="password" name="senha" placeholder="Sua Senha">
-                        <br />
+                        <br/>
 
                         <button type="submit" class="btn btn-outline-warning custom-btn">
                             Login
@@ -62,7 +61,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                     <h2>Para quem <br />já é empresa parceira!</h2> </br>
                     <button type="submit" class="empresaButton">Login Empresa</button>
                 </div>
-                <a href="/paginas/cadastros.html">
+                <a href="..\cadastros2.php">
                     Não cadastrou sua Empresa? Cadastre-se aqui!
                 </a>
                 <a href="">
