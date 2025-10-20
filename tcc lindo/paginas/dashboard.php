@@ -30,12 +30,10 @@ $_SESSION['empresaLogado'];
 
 <body>
   <header>
-    <nav>
-      <a class="logo">🚚 DevLog</a>
-      <div class="mobile-menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
+  <nav>
+      <div class="logo-group">
+        <a href="#" class="logo img"><img src="../imagens/logosite.png" alt="DevLog"></a>
+        <span id="span">DevLog</span>
       </div>
       <ul class="nav-list">
     <li><a href="/paginas/motorista.html">Motorista</a></li>
@@ -56,6 +54,11 @@ $_SESSION['empresaLogado'];
 
     <a href="/paginas/login.php" class="logout">Sair</a>
 </ul>
+<div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
     </nav>
   </header>
 

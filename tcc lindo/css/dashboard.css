@@ -11,52 +11,165 @@ body {
 }
 
 header {
-  background-color: #ea580c;
-  color: #fff;
-  position: absolute;
+  background-color: #ea5504;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
   top: 0;
-  width: 100vw;
-
+  z-index: 1000;
+  font-weight: 700;
 }
 
-@media (max-width: 400px) {
-  nav {
-    grid-template-columns: repeat(2, 1fr);
-    size: 10px;
-  }
-
-  header {
-    width: 50vw;
-    padding: 0%;
-  }
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-main {
-  align-content: center;
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
-  font-size: 24px;
-  color: #fff;
-  font-weight: bold;
+#span {
+  justify-content: start;
+  font-size: 1.5rem;
 }
 
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  background-color: #E64A19;
+  padding: 0 15rem;
+  height: 80px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 8vh;
-  font: bold;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  height: 50px;
+  /* controla a altura da imagem */
+  width: auto;
+  /* mantém a proporção */
+}
+
+/* Nav lista */
 .nav-list {
   list-style: none;
   display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-list li {
-  margin-right: 2rem;
+/* Links normais */
+.nav-list li a {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  padding: 5px 5;
+  transition: color 0.3s ease;
+}
+
+/* Hover dos links */
+.nav-list li a:hover {
+  color: #d1e0fb;
+}
+
+/* Underline animado ao passar o mouse */
+.nav-list li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1e0fb;
+  transition: width 0.3s ease;
+}
+
+/* Ao hover, underline cresce */
+.nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background-color: #293649;
+  color: #E64A19;
+  padding: 0.5rem 1.3rem;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover botão */
+.btn-cadastrar:hover {
+  background-color: #d14e19;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu mobile - escondido no desktop */
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: #E64A19;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .btn-cadastrar {
+    padding: 0.5rem 1rem;
+  }
 }
 
 nav a,
@@ -68,7 +181,7 @@ nav a,
 }
 
 nav .logout {
-  color: red;
+  color: black;
 }
 
 .container {
@@ -242,6 +355,7 @@ nav .logout {
     width: 80px;
   }
 }
+
 .btn-warning {
 color: #fff;
 background-color: rgb(68, 68, 247);
@@ -252,7 +366,7 @@ border-color: rgb(68, 68, 247);
   color: #fff;
   background-color: #293649;
   border-color: #293649;
-  }
+}
 
 
 .footter .box-conteiner {
