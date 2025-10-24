@@ -14,6 +14,7 @@
         private $altura; 
         private $largura;
         private $comprimento;
+        private $status;
        
         public function __set($atributo, $valor)
         {

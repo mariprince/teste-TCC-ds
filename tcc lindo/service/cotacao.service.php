@@ -13,8 +13,8 @@
         public function inserir()
         {
             $query = "INSERT INTO cotacao (id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino,
-            valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento, id_empresa) 
-                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento, status, id_empresa) 
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $this->cotacao->__get('id_cotacao'));
             $stmt->bindValue(2, $this->cotacao->__get('data_saida'));
@@ -29,14 +29,15 @@
             $stmt->bindValue(11, $this->cotacao->__get('altura'));
             $stmt->bindValue(12, $this->cotacao->__get('largura'));
             $stmt->bindValue(13, $this->cotacao->__get('comprimento'));
-            $stmt->bindValue(14, $this->cotacao->__get('id_empresa'));
+            $stmt->bindValue(14, $this->cotacao->__get('status'));
+            $stmt->bindValue(15, $this->cotacao->__get('id_empresa'));
             $stmt->execute();
         }
 
         public function recuperar()
         {
             $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino ,
-             tipo_carga, peso, altura, largura, comprimento FROM cotacao';
+             tipo_carga, peso, altura, largura, comprimento, status FROM cotacao';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -44,7 +45,7 @@
 
         public function recuperarCotacao($idc)
         {
-            $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento FROM cotacao
+            $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino , tipo_carga, peso, altura, largura, comprimento, status FROM cotacao
                       WHERE id_cotacao = ?';
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $idc);
@@ -63,7 +64,7 @@
         public function alterar()
         {
             $query = "UPDATE cotacao 
-                      SET  data_saida = ?, cep_origem = ?, endereco_origem = ?, estimativa_entrega = ?, cep_destino = ?, valor = ?, endereco_destino = ?, tipo_carga = ?, peso = ?, altura = ?, largura = ?, comprimento = ?
+                      SET  data_saida = ?, cep_origem = ?, endereco_origem = ?, estimativa_entrega = ?, cep_destino = ?, valor = ?, endereco_destino = ?, tipo_carga = ?, peso = ?, altura = ?, largura = ?, comprimento = ?, status = ?
                       WHERE id_cotacao = ?";
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $this->cotacao->__get('data_saida'));
@@ -78,8 +79,13 @@
             $stmt->bindValue(10, $this->cotacao->__get('altura'));
             $stmt->bindValue(11, $this->cotacao->__get('largura'));
             $stmt->bindValue(12, $this->cotacao->__get('comprimento'));
-            $stmt->bindValue(13, $this->cotacao->__get('id_cotacao'));
+            $stmt->bindValue(13, $this->cotacao->__get('status'));
+            $stmt->bindValue(14, $this->cotacao->__get('id_cotacao'));
             $stmt->execute();
         }
+
+        public function contar(){
+        $query = "SELECT COUNT(*) as total FROM cotacao";
+        $stmt = $conexao->prepare($query);}
     }
 ?>
