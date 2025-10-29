@@ -145,7 +145,7 @@ $_SESSION['empresaLogado'];
               <?php if (isset($_SESSION['motoristaLogado'])):?>
                 <form action="aceitar_frete.php" method="POST" style="display:inline;">
                 <input type="hidden" name="id_cotacao" value="<?= $cota->id_cotacao ?>">
-                <input type="hidden" name="id_motorista" value="<?= $_SESSION['id_motorista'] ?? 0 ?>">
+                
                   <button type="submit" title="Aceitar frete" style="border:none;background:none;font-size:20px;">✅</button>
                 </form>
               <?php endif;?>

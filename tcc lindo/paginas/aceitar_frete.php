@@ -3,25 +3,27 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 require_once '../conexao/conexao.php';
 
-// Pega os dados do formulário
+// 🟩 Pegamos os dados do formulário e da sessão:
 $id_cotacao = $_POST['id_cotacao'] ?? null;
-$id_motorista = $_POST['id_motorista'] ?? ($_SESSION['id_motorista'] ?? null);
+$id_motorista = $_POST['id_motorista'] ?? ($_SESSION['motoristaLogado'] ?? null);
 
+// 🟥 Testa se veio tudo certo
 if (!$id_cotacao || !$id_motorista) {
-    die("Erro: dados insuficientes para aceitar o frete.");
+    die("Erro: dados insuficientes para aceitar o frete. 
+         id_cotacao = " . var_export($id_cotacao, true) . 
+         ", id_motorista = " . var_export($id_motorista, true));
 }
 
 try {
-    // Cria conexão
+    // 🟩 Cria conexão com o banco
     $conexao = new Conexao();
     $conn = $conexao->conectar();
 
-    // Atualiza o status do frete e associa ao motorista
+    // 🟦 Atualiza o status e vincula ao motorista
     $query = "UPDATE cotacao 
-              SET status = 'ACEITO', id_motorista = :id_motorista 
+              SET status = 'ATRIBUIDO', id_motorista = :id_motorista 
               WHERE id_cotacao = :id_cotacao";
 
     $stmt = $conn->prepare($query);
@@ -29,7 +31,7 @@ try {
     $stmt->bindValue(':id_cotacao', $id_cotacao);
     $stmt->execute();
 
-    // Redireciona de volta ao dashboard
+    // 🟨 Redireciona de volta ao dashboard
     header("Location: dashboard.php");
     exit;
 

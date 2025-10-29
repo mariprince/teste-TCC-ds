@@ -8,7 +8,7 @@ if(!isset($_SESSION['idEmpresaLogado'])){
 }
 
   $id_Empresa = $_SESSION['idEmpresaLogado'];
-  $dataSaida = $estimativaEntrega = $cepOrigem = $enderecoOrigem = $cepDestino = $enderecoDestino = $valor = $tipoCargo = $peso = $altura = $largura = $comprimento = $idCotacao = '';
+  $dataSaida = $estimativaEntrega = $cepOrigem = $enderecoOrigem = $cepDestino = $enderecoDestino = $valor = $tipoCargo = $peso = $altura = $largura = $comprimento = $idCotacao = $status = '';
   $acaoFormCotacao = 'inserir';
   $labelBotaoCotacao = 'CRIAR FRETE';
   if (isset($_GET['metodo']) && in_array($_GET['metodo'], ['alterar', 'excluir']) && $_GET['tipo'] === 'cotacao') {
@@ -38,6 +38,7 @@ if(!isset($_SESSION['idEmpresaLogado'])){
         $altura = $cotacao -> altura ?? '';
         $largura = $cotacao -> largura ?? '';
         $comprimento = $cotacao -> comprimento ?? '';
+        $status = $cotacao->status ?? '';
         $id = $cotacao->id_cotacao ?? '';
         $acaoFormCotacao = $metodo;
         $labelBotaoCotacao = ucfirst($metodo);
@@ -196,6 +197,8 @@ if(!isset($_SESSION['idEmpresaLogado'])){
               <input type="checkbox" id="cargas" class="cargas" placeholder="">
               <label for="" id="labelCargas" class="labelCargas">Identificação - N° de risco e N° ONU</label>  
             </div>
+            <input type="hidden" id="status" name="status" value="aberta">
+
             </form>
           </div>
         </div>

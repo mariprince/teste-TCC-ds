@@ -26,7 +26,7 @@ require_once(__DIR__ . '/../conexao/conexao.php');
     $cotacao->__set('altura', $_POST['altura']);
     $cotacao->__set('largura', $_POST['largura']);
     $cotacao->__set('comprimento', $_POST['comprimento']);
-    $cotacao->__set('status', $_POST['status']);
+    $cotacao->__set('status', $_POST['status'] ?? 'ABERTA');
     $cotacao->__set('id_empresa', $_POST['id_empresa']);
 
     $conexao = new Conexao();

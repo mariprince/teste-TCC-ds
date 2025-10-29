@@ -4,6 +4,9 @@ $cardAtivo = 'loginActive'; // padrão = motorista
 if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
     $cardAtivo = 'cadastroActive'; // empresa
 }
+$_SESSION['id_motorista'] = $motorista['id_motorista'];
+$_SESSION['motoristaLogado'] = true;
+
 ?>
 
 <!DOCTYPE html>
