@@ -1,0 +1,826 @@
+html,
+body {
+  height: 100%;
+  /* Garante que o body ocupe toda a altura da tela */
+  width: 100%;
+  margin: 0;
+  /* Remove margens padrão */
+}
+
+body {
+  overflow-x: hidden;
+  background-size: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Helvetica;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #ea5504;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  font-weight: 700;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#span {
+  justify-content: start;
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E64A19;
+  padding: 0 15rem;
+  height: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  height: 50px;
+  /* controla a altura da imagem */
+  width: auto;
+  /* mantém a proporção */
+}
+
+/* Nav lista */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links normais */
+.nav-list li a {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  padding: 5px 5;
+  transition: color 0.3s ease;
+}
+
+/* Hover dos links */
+.nav-list li a:hover {
+  color: #d1e0fb;
+}
+
+/* Underline animado ao passar o mouse */
+.nav-list li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1e0fb;
+  transition: width 0.3s ease;
+}
+
+/* Ao hover, underline cresce */
+.nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background-color: #293649;
+  color: #E64A19;
+  padding: 0.5rem 1.3rem;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover botão */
+.btn-cadastrar:hover {
+  background-color: #d14e19;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu mobile - escondido no desktop */
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: #E64A19;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .btn-cadastrar {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.banner {
+  margin-top: 1502px;
+  width: 100%;
+  height: auto; /* Alteração: altura automática 
+  overflow: hidden;*/
+}
+
+.banner img {
+  width: 100%;
+  height: 900px;  /*Alteração: altura controlada */
+  object-fit: cover; /* Alteração: imagem sempre cobre o espaço sem distorcer */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border-bottom: solid 20px #e06919;
+}
+
+.banner-text {
+  position: absolute;
+  top: 250px; /* Distância do topo do banner; ajuste conforme necessário */
+  left: 20px; /* Alinhado à esquerda; ajuste a distância da borda */
+  background: rgba(109, 106, 106, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px; /* Tamanho pequeno */
+  font-weight: bold;
+  max-width: 700px; /* Limita a largura para não invadir o centro */
+  opacity: 0;
+  transform: translateX(-50px); /* Inicialmente deslocado para a esquerda */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
+}
+
+.banner-text h1{
+  font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1;
+  padding-left: 10px;
+}
+
+.banner-text h1::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  background: #e44b2d;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.banner-text.active {
+  opacity: 1;
+  transform: translateX(0); /* Move para a posição final (alinhado à esquerda) */
+}
+
+.banner-textD {
+  position: absolute;
+  top: 735px; /* Distância do topo do banner; ajuste conforme necessário */
+  right: 20px; /* Alinhado à direita; ajuste a distância da borda */
+  background: rgba(109, 106, 106, 0.5); /* Fundo semi-transparente para legibilidade sobre a imagem */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px; /* Tamanho pequeno */
+  font-weight: bold;
+  max-width: 450px; /* Limita a largura para não invadir o centro */
+  opacity: 0;
+  transform: translateX(50px); /* Inicialmente deslocado para a esquerda */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
+}
+
+.banner-textD.active {
+  opacity: 1;
+  transform: translateX(0); /* Move para a posição final (alinhado à esquerda) */
+}
+
+/* Responsivo: Ajusta para telas menores */
+@media (max-width: 768px) {
+  .banner-text {
+    left: 10px;
+    top: 10px;
+    font-size: 12px;
+    max-width: 250px;
+    padding: 8px 12px;
+  }
+}
+
+
+h2 {
+  color: #333;
+}
+
+.texto {
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.subtexto {
+  max-width: 30%;
+  padding: 5px;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.imagem {
+  width: 300px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.texto {
+  font-size: 18px;
+  color: #333;
+  width: 500px;
+}
+
+.box-info p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: justify;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .sobre-nos {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sobre-nos-info {
+    max-width: 100%;
+  }
+} 
+
+/* ====== BENEFÍCIOS ====== */
+.benefits {
+  text-align: center;
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.benefits h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  color: #000000;
+}
+
+.benefits .subheading {
+  color: #3d3d3d;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+.benefits-container {
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.benefit-card {
+  background: white;
+  border-radius: 2px solid #000;
+  padding: 25px;
+  width: 280px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  text-align: left;
+  cursor: default;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-card i {
+  font-size: 1.8rem;
+  color: #ea5504;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.benefit-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.benefit-card .small {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.benefit-card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.sobre-nozes {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 1500px;
+  height: 5000px;
+  margin-top: 150px;
+  margin-bottom: 80px;
+  background-color: #FFFFFF;
+  color: #111;
+  font-family: Arial, sans-serif;
+  gap: 1rem;
+}
+
+.sobre-nozes-header h1 {
+  font-size: 3.4rem;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  line-height: 1;
+  padding-left: 45px;
+}
+
+.sobre-nozes-header h1::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 5px;
+  background: #e44b2d;
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+
+.sobre-nozes-header p {
+  padding-left: 45px;
+  text-align: justify;
+  max-width: 1000px;
+  margin-top: 3.8rem;
+  color: #222;
+  font-size: 1.4rem;
+}
+
+.sobre-nozes-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.sobre-nozes {
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.sobre-nozes.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sobre-nozes-info :hover {
+  color: #e06919
+}
+
+.titulo-esquerda {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #293649;
+  /* mesmo tom usado nos cards */
+  position: relative;
+  display: inline-block;
+}
+
+.titulo-esquerda::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #e44b2d;
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+
+.footter .box-conteiner {
+  display: flex;
+  width: 100%;
+  /* margin-left: -20px; */
+  background: #293649;
+  grid-template-rows: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 9rem;
+  /* Aumenta o espaço entre as caixas */
+  padding: 0 2rem;
+  /* Adiciona padding lateral 
+  border-radius: 1rem; /* Adiciona bordas arredondadas 
+  box-shadow: 0 4px 10px rgba(255, 251, 251, 0.1); /* Adiciona sombra para profundidade */
+}
+
+.footter .box {
+  width: 100%;
+  padding: 1.5rem;
+  /* Adiciona padding interno */
+  transition: 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box:hover {
+  transform: translateY(-5px);
+  /* Efeito de elevação ao passar o mouse */
+}
+
+.footter .box h3 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  /* Ajusta o tamanho da fonte */
+  margin-bottom: 1rem;
+  /* Adiciona espaço abaixo do TÍTULO */
+}
+
+.footter .box h3 i {
+  color: #fcfcfc;
+  /* Mantém a cor do ícone */
+}
+
+.footter .box .links {
+  display: block;
+  color: #f8f5f5;
+  /* Um tom mais escuro para as links */
+  font-size: 1.2rem;
+  /* Ajusta o tamanho da fonte */
+  padding: 0.5rem 0;
+  /* Ajusta o padding */
+  transition: color 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box .links:hover {
+  color: #e06919;
+  /* Muda a cor ao passar o mouse */
+}
+
+.footter .box p {
+  line-height: 1.6;
+  /* Ajusta o espaçamento entre linhas */
+  color: #d1cece;
+  /* Um tom mais claro para o texto */
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte */
+  margin-bottom: 1rem;
+  /* Adiciona espaço abaixo do parágrafo */
+}
+
+.footter .box .share a {
+  height: 3rem;
+  /* Ajusta a altura dos ícones de compartilhamento */
+  width: 3rem;
+  /* Ajusta a largura dos ícones de compartilhamento */
+  line-height: 3rem;
+  /* Centraliza o texto verticalmente */
+  color: #333;
+  /* Cor do ícone */
+  font-size: 1.5rem;
+  /* Ajusta o tamanho do ícone */
+  margin: 0 0.5rem;
+  /* Ajusta o espaço entre os ícones */
+  border-radius: 50%;
+  /* Torna os ícones circulares */
+  background: #eee;
+  /* Fundo dos ícones */
+  text-align: center;
+  transition: 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box .share a:hover {
+  background: #e06919;
+  /* Muda a cor de fundo ao passar o mouse */
+  color: #ffffff;
+  /* Muda a cor do ícone ao passar o mouse */
+}
+
+.footter .box .email {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  color: #333;
+  /* Cor do texto do input */
+  background: #f0f0f0;
+  /* Fundo do input */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte */
+  border: 1px solid #ccc;
+  /* Adiciona uma borda ao input */
+}
+
+.footter .box .btn {
+  width: 100%;
+  padding: 1rem;
+  /* Adiciona padding ao botão */
+  background: #e06919;
+  /* Cor de fundo do botão */
+  color: #fff;
+  /* Cor do texto do botão */
+  border: none;
+  /* Remove a borda padrão */
+  border-radius: 0.5rem;
+  /* Bordas arredondadas */
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte */
+  cursor: pointer;
+  /* Muda o cursor para pointer */
+  transition: 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box .btn:hover {
+  background: #d05e17;
+  /* Muda a cor ao passar o mouse */
+}
+
+/*  MOTORISTAS PAG */
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+.titulo {
+  margin-top: 15vw;
+  justify-self: center;
+  font-size: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/* ====== RESPONSIVO EMPRESA====== */
+@media (max-width: 768px) {
+  .benefits-container,
+  .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .testimonial {
+    flex: 0 0 80%;
+    text-align: center;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px !important;
+    padding-right: 20px !important;
+    text-align: left !important;
+    left: 0 !important;
+    margin-bottom: 30px;
+  }
+
+  .timeline-icon {
+    top: 0;
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  .timeline-item::after {
+    display: none;
+  }
+
+  .timeline-content {
+    max-width: 100%;
+  }
+}
+
+/*
+SE FOR USAR O CARD ANTIGO
+.cartoes {
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transform: translateY(-60px);
+}
+  
+.card {
+  width: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  padding:  20px 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  border-radius: 3rem;
+}
+
+/* New styles for card-body to centralize content 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card-body a{
+  color: #e06919; 
+  border-radius: 1rem; 
+  justify-self:center; 
+  margin: 1%;
+}
+
+/* Make sure image inside card-body is centered and sized nicely 
+.card-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.card2 {
+  width: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card3 {
+  width: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  align-items: center;
+  color: #e06919;
+}
+
+.card img {
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card2 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card3 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 400px) {
+  .cartoes {
+    grid-template-columns: repeat(2, 1fr);
+    display: contents;
+  }
+  .card {
+    margin: 20px;
+  }
+  .card2 {
+    margin: 20px;
+  }
+  .card3 {
+    margin: 20px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  nav {
+    grid-template-columns: repeat(2, 1fr);
+    size: 10px;
+  }
+  header {
+    width: 50vw;
+    padding: 0%;
+  }
+}
+*/

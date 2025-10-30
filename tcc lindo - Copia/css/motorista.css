@@ -1,0 +1,663 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 80px;
+  /* Espaço para o header fixo */
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/*Parte a ser copiada para os outros*/
+#span {
+  justify-content: start;
+  font-size: 1.5rem;
+}
+
+/* Header estilizado */
+header {
+  background-color: #ea5504;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  font-weight: 700;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Reset básico para nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E64A19;
+  padding: 0 15rem;
+  height: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  height: 50px;
+  /* controla a altura da imagem */
+  width: auto;
+  /* mantém a proporção */
+}
+
+/* Nav lista */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links normais */
+.nav-list li a {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  padding: 5px 5;
+  transition: color 0.3s ease;
+}
+
+/* Hover dos links */
+.nav-list li a:hover {
+  color: #d1e0fb;
+}
+
+/* Underline animado ao passar o mouse */
+.nav-list li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1e0fb;
+  transition: width 0.3s ease;
+}
+
+/* Ao hover, underline cresce */
+.nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  background-color: #293649;
+  color: #E64A19;
+  padding: 0.5rem 1.3rem;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover botão */
+.btn-cadastrar:hover {
+  background-color: #d14e19;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu mobile - escondido no desktop */
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: #E64A19;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .btn-cadastrar {
+    padding: 0.5rem 1rem;
+  }
+}
+
+--
+
+/* Conteúdo de exemplo para demonstrar scrolling */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/**/
+/* Container Principal */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 60px;
+}
+
+.text-box {
+  flex: 1 1 450px;
+}
+
+.text-box p {
+  font-size: 18px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Card da imagem */
+.image-card {
+  flex: 1 1 350px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  top: 48px;
+}
+
+.image-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .text-box h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .text-box p {
+    text-align: left;
+    font-size: 16px;
+  }
+}
+
+/**/
+
+#bg-hero-select {
+  background: linear-gradient(90deg,
+      #fafbe4 0%,
+      rgba(222, 227, 234, 0.609) 25%,
+      hsla(0, 0%, 85%, 0) 50%,
+      rgba(222, 227, 234, 0.609) 75%,
+      #fafbe4 100%);
+}
+
+#titu {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+
+}
+
+.hero {
+  display: flex;
+  padding-bottom: 3rem;
+  justify-content: center;
+}
+
+.aa {
+  margin-left: 2rem;
+  margin-top: 5rem;
+  width: 1000px;
+  height: 300px;
+}
+
+.sobre-cargo-img {
+  position: relative;
+  height: 60vh;
+  padding: 80px 10%;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: url('../imagens/imagemfundo.jpg') center/cover no-repeat;
+}
+
+.sobre-cargo-img .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.sobre-cargo-img .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sobre-cargo-img h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: #e44b2d;
+  text-transform: uppercase;
+}
+
+.sobre-cargo-img p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: justify;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .sobre-cargo-img {
+    padding: 50px 20px;
+    text-align: center;
+  }
+
+  .sobre-cargo-img h2 {
+    font-size: 26px;
+  }
+
+  .sobre-cargo-img p {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+/* Títulos padronizados */
+.titulo-esquerda,
+.titulo-centro {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 20px 0 30px;
+  letter-spacing: 1px;
+  color: #e44b2d;
+  /* mesmo tom usado nos cards */
+  position: relative;
+  display: inline-block;
+}
+
+.titulo-esquerda::after,
+.titulo-centro::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #e44b2d;
+  margin-top: 8px;
+}
+
+.titulo-centro {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 60px;
+}
+
+.subtitulo {
+  color: #e44b2d;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 14px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.subtitulo::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #e44b2d;
+  margin-top: 8px;
+}
+
+.titulo {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 10px 0 40px;
+}
+
+.carrossel-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 0 60px;
+}
+
+.carrossel-container {
+  overflow: hidden;
+}
+
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  user-select: none;
+}
+
+.card {
+  flex: 0 0 calc(25% - 20px);
+  margin: 0 10px;
+  height: 250px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  padding: 20px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* importante pra alinhamento do texto */
+  justify-content: flex-start;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Títulos alinhados à esquerda e linha fixa alinhada */
+.card h3 {
+  width: 100%;
+  text-align: left;
+  /* Alinha título à esquerda */
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e44b2d;
+  margin-bottom: 15px;
+  /* espaço para linha */
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.card h3::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #e44b2d;
+  margin-top: 8px;
+  margin-left: 0;
+  /* linha alinhada à esquerda */
+}
+
+/* Textos dos cards alinhados à esquerda, iniciando todos no mesmo ponto */
+.card p {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  line-height: 1.4;
+  padding-left: 0;
+  text-indent: 0;
+  word-wrap: break-word;
+}
+
+.navegacao {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  user-select: none;
+}
+
+.navegacao.prev {
+  left: 0;
+}
+
+.navegacao.next {
+  right: 0;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .carrossel-wrapper {
+    padding: 0 40px;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    margin: 0 0 20px 0;
+    height: auto;
+  }
+
+  .navegacao.prev {
+    left: 10px;
+  }
+
+  .navegacao.next {
+    right: 10px;
+  }
+}
+
+.footter .box-conteiner {
+  display: flex;
+  width: 100%;
+  background: #293649;
+  grid-template-rows: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 9rem;
+  /* Aumenta o espaço entre as caixas */
+  padding: 0 2rem;
+  /* Adiciona padding lateral */
+}
+
+.footter .box {
+  width: 100%;
+  padding: 1.5rem;
+  /* Adiciona padding interno */
+  transition: 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box:hover {
+  transform: translateY(-5px);
+  /* Efeito de elevação ao passar o mouse */
+}
+
+.footter .box h3 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  /* Ajusta o tamanho da fonte */
+  margin-bottom: 1rem;
+  /* Adiciona espaço abaixo do TÍTULO */
+}
+
+.footter .box h3 i {
+  color: #fcfcfc;
+  /* Mantém a cor do ícone */
+}
+
+.footter .box .links {
+  display: block;
+  color: #f8f5f5;
+  /* Um tom mais escuro para as links */
+  font-size: 1.2rem;
+  /* Ajusta o tamanho da fonte */
+  padding: 0.5rem 0;
+  /* Ajusta o padding */
+  transition: color 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box .links:hover {
+  color: #e06919;
+  /* Muda a cor ao passar o mouse */
+}
+
+.footter .box p {
+  line-height: 1.6;
+  /* Ajusta o espaçamento entre linhas */
+  color: #d1cece;
+  /* Um tom mais claro para o texto */
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte */
+  margin-bottom: 1rem;
+  /* Adiciona espaço abaixo do parágrafo */
+}
+
+.footter .box .share a {
+  height: 3rem;
+  /* Ajusta a altura dos ícones de compartilhamento */
+  width: 3rem;
+  /* Ajusta a largura dos ícones de compartilhamento */
+  line-height: 3rem;
+  /* Centraliza o texto verticalmente */
+  color: #333;
+  /* Cor do ícone */
+  font-size: 1.5rem;
+  /* Ajusta o tamanho do ícone */
+  margin: 0 0.5rem;
+  /* Ajusta o espaço entre os ícones */
+  border-radius: 50%;
+  /* Torna os ícones circulares */
+  background: #eee;
+  /* Fundo dos ícones */
+  text-align: center;
+  transition: 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box .share a:hover {
+  background: #e06919;
+  /* Muda a cor de fundo ao passar o mouse */
+  color: #ffffff;
+  /* Muda a cor do ícone ao passar o mouse */
+}
+
+.footter .box .email {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  color: #333;
+  /* Cor do texto do input */
+  background: #f0f0f0;
+  /* Fundo do input */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte */
+  border: 1px solid #ccc;
+  /* Adiciona uma borda ao input */
+}
+
+.footter .box .btn {
+  width: 100%;
+  padding: 1rem;
+  /* Adiciona padding ao botão */
+  background: #e06919;
+  /* Cor de fundo do botão */
+  color: #fff;
+  /* Cor do texto do botão */
+  border: none;
+  /* Remove a borda padrão */
+  border-radius: 0.5rem;
+  /* Bordas arredondadas */
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte */
+  cursor: pointer;
+  /* Muda o cursor para pointer */
+  transition: 0.3s;
+  /* Transição suave para hover */
+}
+
+.footter .box .btn:hover {
+  background: #d05e17;
+  /* Muda a cor ao passar o mouse */
+}

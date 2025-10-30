@@ -1,7 +1,9 @@
 
 
 <?php 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
  require_once(__DIR__ . '/../model/empresa.model.php');
  require_once(__DIR__ . '/../service/empresa.service.php');
  require_once(__DIR__ . '/../conexao/conexao.php');
@@ -21,6 +23,7 @@ session_start();
     $conexao = new Conexao();
     $empresaService = new EmpresaService($empresa, $conexao);
     $empresaService->inserir();
+    header('location:../paginas/login.php?tipo=empresa');
  }
 
  // Recuperar todas as empresas
@@ -90,7 +93,7 @@ session_start();
        $_SESSION['idEmpresaLogado']=$empresa->id_empresa;
        unset($_SESSION['motoristaLogado']);
        unset($_SESSION['emailMotoristaLogado']);
-       unset($_SESSION['idmotoristaLogado']);
+       unset($_SESSION['id_motorista']);
     header('location:paginas/dashboard.php');
     exit;
   

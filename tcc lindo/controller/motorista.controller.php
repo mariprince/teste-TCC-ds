@@ -38,6 +38,7 @@ if ($acao === 'inserir') {
     $conexao = new Conexao();
     $motoristaService = new MotoristaService($motorista, $conexao);
     $motoristaService->inserir();
+    header('location:../paginas/login.php');
 }
 
 // Recuperar todos os motoristas
@@ -148,7 +149,7 @@ if ($acao === 'alterar') {
     // Login bem-sucedido
     $_SESSION['motoristaLogado'] = $motorista->nome_completo;
     $_SESSION['emailMotoristaLogado'] = $motorista->email_motorista;
-    $_SESSION['idmotoristaLogado'] = $motorista->id_motorista;
+    $_SESSION['id_motorista'] = $motorista->id_motorista;
     unset($_SESSION['empresaLogado']);
     unset($_SESSION['emailEmpresaLogado']);
     unset($_SESSION['idEmpresaLogado']);
@@ -161,7 +162,7 @@ if ($acao === 'alterar') {
 if ($acao === 'sairMotorista') {
     unset($_SESSION['motoristaLogado']);
     unset($_SESSION['emailMotoristaLogado']);
-    unset($_SESSION['idMotorista']);
+    unset($_SESSION['id_motorista']);
     unset($_SESSION['curriculo']);
     unset($_SESSION['tipoUsuario']);
     

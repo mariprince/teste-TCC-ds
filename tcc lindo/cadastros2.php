@@ -103,9 +103,8 @@ if (!empty($empresa) && is_object($empresa[0])) {
       <div class="esquerda">
         <div class="formMotorista">
           <h2><?= $acaoFormMotorista === 'inserir' ? 'Cadastrar Motorista' : $labelBotaoMotorista . ' Motorista' ?></h2>
-          <?=  $acaoFormMotorista ?>  
           <!-- Corrigido o caminho para a pasta controller -->
-          <form id="formCadastroMotorista" action="motorista.controller.php?acao=<?=  $acaoFormMotorista ?>" method="POST" onsubmit="return true;" enctype="multipart/form-data">>
+          <form id="formCadastroMotorista" action="motorista.controller.php?acao=<?=  $acaoFormMotorista ?>" method="POST" onsubmit="return true;" enctype="multipart/form-data">
             <input type="hidden" name="id_motorista" value="<?= $idMotorista ?>">
 
             <!-- Corrigido para não submeter o form -->

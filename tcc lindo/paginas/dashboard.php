@@ -10,6 +10,31 @@ $_SESSION['motoristaLogado'];
 // No login da empresa:
 $_SESSION['empresaLogado'];
 
+// Conecta ao banco para buscar estatísticas
+require_once '../conexao/conexao.php';
+$conexaoStats = new Conexao();
+$connStats = $conexaoStats->conectar();
+
+// Conta total de fretes
+$queryTotal = "SELECT COUNT(*) as total FROM cotacao";
+$stmtTotal = $connStats->query($queryTotal);
+$totalFretes = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Conta fretes pendentes (status ABERTA)
+$queryPendentes = "SELECT COUNT(*) as total FROM cotacao WHERE status = 'ABERTA'";
+$stmtPendentes = $connStats->query($queryPendentes);
+$fretesPendentes = $stmtPendentes->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Conta fretes em andamento (status ATRIBUIDA)
+$queryAndamento = "SELECT COUNT(*) as total FROM cotacao WHERE status = 'ATRIBUIDA'";
+$stmtAndamento = $connStats->query($queryAndamento);
+$fretesAndamento = $stmtAndamento->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Conta fretes concluídos (status CONCLUIDA)
+$queryConcluidos = "SELECT COUNT(*) as total FROM cotacao WHERE status = 'CONCLUIDA'";
+$stmtConcluidos = $connStats->query($queryConcluidos);
+$fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
+
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +105,7 @@ $_SESSION['empresaLogado'];
       <div class="stat-card">
         <div class="stat-icon">📦</div>
         <div class="stat-info">
-          <div class="stat-number">0</div>
+          <div class="stat-number"><?= $totalFretes ?></div>
           <div class="stat-label">Total de Fretes</div>
         </div>
       </div>
@@ -88,8 +113,7 @@ $_SESSION['empresaLogado'];
       <div class="stat-card pending">
         <div class="stat-icon">⏰</div>
         <div class="stat-info">
-          <div class="stat-number">0
-          </div>
+          <div class="stat-number"><?= $fretesPendentes ?></div>
           <div class="stat-label">Pendentes</div>
         </div>
       </div>
@@ -97,7 +121,7 @@ $_SESSION['empresaLogado'];
       <div class="stat-card in-progress">
         <div class="stat-icon">🚛</div>
         <div class="stat-info">
-          <div class="stat-number">0</div>
+          <div class="stat-number"><?= $fretesAndamento ?></div>
           <div class="stat-label">Em Andamento</div>
         </div>
       </div>
@@ -105,18 +129,18 @@ $_SESSION['empresaLogado'];
       <div class="stat-card completed">
         <div class="stat-icon">✅</div>
         <div class="stat-info">
-          <div class="stat-number">0</div>
+          <div class="stat-number"><?= $fretesConcluidos ?></div>
           <div class="stat-label">Concluídos</div>
         </div>
       </div>
     </div>
 
     <div class="tabs">
-  <button class="tab-btn active" onclick="openTab(event, 'disponiveis')">🚚 Fretes Disponíveis</button>
-  <button class="tab-btn" onclick="openTab(event, 'aceitos')">📋 Fretes Aceitos</button>
+  <button class="tab-btn active" id="btn-disponiveis" data-tab="disponiveis">🚚 Fretes Disponíveis</button>
+  <button class="tab-btn" id="btn-aceitos" data-tab="aceitos">📋 Fretes Aceitos</button>
 </div>
 
-    <div class="fretes-section" id="disponiveis">
+    <div class="fretes-section tabcontent" id="disponiveis">
       <h2>Fretes Disponíveis</h2>
       <div class="empty-state" style="display:grid; gap: 10px">
         <?php if(!empty($cotacao)):?>
@@ -133,7 +157,7 @@ $_SESSION['empresaLogado'];
           </thead>
           <tbody>
           <?php foreach ($cotacao as $cota): ?>
-          <?php if ($cota->status != 'ACEITO'): ?>
+          <?php if ($cota->status != 'ATRIBUIDA' && $cota->status != 'CONCLUIDA'): ?>
           <tr>
             <td><?= $cota->id_cotacao ?></td>
             <td><?= htmlspecialchars($cota->data_saida) ?></td>
@@ -145,10 +169,9 @@ $_SESSION['empresaLogado'];
               <?php if (isset($_SESSION['motoristaLogado'])):?>
                 <form action="aceitar_frete.php" method="POST" style="display:inline;">
                 <input type="hidden" name="id_cotacao" value="<?= $cota->id_cotacao ?>">
-                
                   <button type="submit" title="Aceitar frete" style="border:none;background:none;font-size:20px;">✅</button>
                 </form>
-              <?php endif;?>
+                <?php endif;?>
             </td>
           </tr>
           <?php endif; ?>
@@ -161,24 +184,39 @@ $_SESSION['empresaLogado'];
         <?php endif;?>
         <div class="criarBtn">
         <?php if (isset($_SESSION['empresaLogado'])):?>
-            <a class="tab-btn active" href="../cotacao2.php"> Criar Frete </a> 
+            <a class="tab-btn active" href="../cotacao2.php" style="background: #e97400; color: #fff;"> Criar Frete </a> 
             <?php endif;?>
         </div>
       </div>
     </div>
-    <div id="aceitos" class="tabcontent" style="display:none;">
+    <div class="fretes-section tabcontent" id="aceitos" style="display:none;">
   <h2>Fretes Aceitos</h2>
   <?php
-  require_once '../app/database/Conexao.php';
+  require_once '../conexao/conexao.php';
   $conexao = new Conexao();
   $conn = $conexao->conectar();
 
-  $id_motorista = $_SESSION['id_motorista'] ?? 0;
-  $query = "SELECT * FROM cotacao WHERE status = 'ACEITO' AND id_motorista = :id_motorista";
-  $stmt = $conn->prepare($query);
-  $stmt->bindValue(':id_motorista', $id_motorista);
-  $stmt->execute();
-  $fretesAceitos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // Verifica se é motorista ou empresa logado
+  if (isset($_SESSION['motoristaLogado'])) {
+    // Motorista: mostra apenas seus fretes aceitos
+    $id_motorista = $_SESSION['id_motorista'] ?? 0;
+    $query = "SELECT c.*, m.nome_completo as motorista_nome 
+              FROM cotacao c 
+              LEFT JOIN Motorista m ON c.id_motorista = m.id_motorista 
+              WHERE c.status = 'ATRIBUIDA' AND c.id_motorista = :id_motorista";
+    $stmt = $conn->prepare($query);
+    $stmt->bindValue(':id_motorista', $id_motorista);
+    $stmt->execute();
+    $fretesAceitos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } else {
+    // Empresa: mostra todos os fretes aceitos com nome do motorista
+    $query = "SELECT c.*, m.nome_completo as motorista_nome 
+              FROM cotacao c 
+              LEFT JOIN Motorista m ON c.id_motorista = m.id_motorista 
+              WHERE c.status = 'ATRIBUIDA'";
+    $stmt = $conn->query($query);
+    $fretesAceitos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
   ?>
 
   <?php if (!empty($fretesAceitos)): ?>
@@ -191,6 +229,9 @@ $_SESSION['empresaLogado'];
           <th>Endereço Origem</th>
           <th>Valor</th>
           <th>Status</th>
+          <?php if (isset($_SESSION['empresaLogado'])): ?>
+            <th>Motorista</th>
+          <?php endif; ?>
         </tr>
       </thead>
       <tbody>
@@ -202,13 +243,16 @@ $_SESSION['empresaLogado'];
             <td><?= htmlspecialchars($f['endereco_origem']) ?></td>
             <td>R$ <?= number_format($f['valor'], 2, ',', '.') ?></td>
             <td><?= htmlspecialchars($f['status']) ?></td>
+            <?php if (isset($_SESSION['empresaLogado'])): ?>
+              <td><?= htmlspecialchars($f['motorista_nome'] ?? 'Não atribuído') ?></td>
+            <?php endif; ?>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
   <?php else: ?>
     <div class="text-center" style="margin-top:15px;">
-      <p>Você ainda não aceitou nenhum frete.</p>
+      <p><?= isset($_SESSION['motoristaLogado']) ? 'Você ainda não aceitou nenhum frete.' : 'Nenhum frete foi aceito ainda.' ?></p>
     </div>
   <?php endif; ?>
 </div>
@@ -238,8 +282,8 @@ $_SESSION['empresaLogado'];
         <a href="../index.php" class="links"><i class="fas fa-arrow-circle-right"></i> Página Inicial</a>
         <a href="/paginas/motorista.html" class="links"><i class="fas fa-arrow-circle-right"></i> Motorista</a>
         <a href="/paginas/empresa.html" class="links"><i class="fas fa-arrow-circle-right"></i> Empresa</a>
-        <a href="/paginas/login.php" class="links"><i class="fas fa-arrow-circle-right"></i> Login<a>
-            <a href="../cadastros2.php" class="links"><i class="fas fa-arrow-circle-right"></i> Cadastre-se</a>
+        <a href="/paginas/login.php" class="links"><i class="fas fa-arrow-circle-right"></i> Login</a>
+        <a href="../cadastros2.php" class="links"><i class="fas fa-arrow-circle-right"></i> Cadastre-se</a>
       </div>
       <div class="box">
         <h3>Receba notícias</h3>
@@ -254,6 +298,88 @@ $_SESSION['empresaLogado'];
   <footer class="bg-orange-600 text-white py-4" style="text-align: center;">
     <p>&copy; 2025 <span>DevLog </span> | Todos os direitos reservados</p>
   </footer>
+
+  <script>
+    console.log('Script carregado!');
+    
+    // Função para alternar entre abas
+    function openTab(tabName) {
+      console.log('=== openTab chamado ===');
+      console.log('tabName:', tabName);
+      
+      // Esconde todos os conteúdos das abas
+      var tabcontent = document.getElementsByClassName("tabcontent");
+      console.log('Elementos com classe tabcontent encontrados:', tabcontent.length);
+      
+      for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        console.log('Escondido:', tabcontent[i].id);
+      }
+
+      // Remove a classe 'active' de todos os botões
+      var tablinks = document.getElementsByClassName("tab-btn");
+      for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      // Mostra a aba atual
+      var tabElement = document.getElementById(tabName);
+      console.log('Elemento da aba encontrado:', tabElement);
+      
+      if (tabElement) {
+        tabElement.style.display = "block";
+        console.log('Display definido para block em:', tabName);
+        console.log('Display atual:', window.getComputedStyle(tabElement).display);
+      } else {
+        console.error('Elemento não encontrado:', tabName);
+      }
+      
+      // Adiciona 'active' ao botão correspondente
+      var btnAtivo = document.getElementById('btn-' + tabName);
+      if (btnAtivo) {
+        btnAtivo.classList.add('active');
+        console.log('Botão ativado:', 'btn-' + tabName);
+      }
+    }
+
+    // Executa quando a página carregar
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('=== Página carregada ===');
+      
+      // Verifica se os botões existem
+      var btnDisp = document.getElementById('btn-disponiveis');
+      var btnAceit = document.getElementById('btn-aceitos');
+      console.log('Botão disponíveis encontrado:', btnDisp);
+      console.log('Botão aceitos encontrado:', btnAceit);
+      
+      // Adiciona event listeners aos botões
+      if (btnDisp) {
+        btnDisp.addEventListener('click', function() {
+          console.log('Clique no botão disponíveis');
+          openTab('disponiveis');
+        });
+      }
+      
+      if (btnAceit) {
+        btnAceit.addEventListener('click', function() {
+          console.log('Clique no botão aceitos');
+          openTab('aceitos');
+        });
+      }
+      
+      // Verifica se há parâmetro 'tab' na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const tab = urlParams.get('tab');
+      console.log('Parâmetro tab na URL:', tab);
+      
+      if (tab === 'aceitos') {
+        console.log('=== Tentando abrir aba de fretes aceitos ===');
+        setTimeout(function() {
+          openTab('aceitos');
+        }, 100);
+      }
+    });
+  </script>
 
 </body>
 
