@@ -35,6 +35,25 @@ $queryConcluidos = "SELECT COUNT(*) as total FROM cotacao WHERE status = 'CONCLU
 $stmtConcluidos = $connStats->query($queryConcluidos);
 $fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
 
+// Busca dados do usuário logado para o perfil
+$dadosUsuario = null;
+$tipoUsuario = null;
+if (isset($_SESSION['id_motorista'])) {
+    $queryMotorista = "SELECT * FROM Motorista WHERE id_motorista = :id";
+    $stmtMotorista = $connStats->prepare($queryMotorista);
+    $stmtMotorista->bindValue(':id', $_SESSION['id_motorista']);
+    $stmtMotorista->execute();
+    $dadosUsuario = $stmtMotorista->fetch(PDO::FETCH_ASSOC);
+    $tipoUsuario = 'motorista';
+} elseif (isset($_SESSION['idEmpresaLogado'])) {
+    $queryEmpresa = "SELECT * FROM Empresa WHERE id_empresa = :id";
+    $stmtEmpresa = $connStats->prepare($queryEmpresa);
+    $stmtEmpresa->bindValue(':id', $_SESSION['idEmpresaLogado']);
+    $stmtEmpresa->execute();
+    $dadosUsuario = $stmtEmpresa->fetch(PDO::FETCH_ASSOC);
+    $tipoUsuario = 'empresa';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +87,7 @@ $fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
     <a href="../cotacao2.php">Cotação</a>
     
     <!-- Ícone e nome do usuário logado -->
-    <span class="user">👤
+    <span class="user" id="userProfileBtn" style="cursor: pointer;" title="Ver perfil">👤
         <?php
         if (isset($_SESSION['empresaLogado'])) {
             echo $_SESSION['empresaLogado'];
@@ -232,6 +251,7 @@ $fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
           <?php if (isset($_SESSION['empresaLogado'])): ?>
             <th>Motorista</th>
           <?php endif; ?>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -246,6 +266,15 @@ $fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
             <?php if (isset($_SESSION['empresaLogado'])): ?>
               <td><?= htmlspecialchars($f['motorista_nome'] ?? 'Não atribuído') ?></td>
             <?php endif; ?>
+            <td>
+              <a href="../paginas/areaRestritaCota.php" class="btn btn-sm btn-warning">Detalhes</a>
+              <?php if (isset($_SESSION['motoristaLogado'])):?>
+                <form action="finalizar_frete.php" method="POST" style="display:inline;">
+                <input type="hidden" name="id_cotacao" value="<?= $f['id_cotacao'] ?>">
+                  <button type="submit" title="Finalizar frete" style="border:none;background:none;font-size:20px;">🆗</button>
+                </form>
+                <?php endif;?>
+            </td>
           </tr>
         <?php endforeach; ?>
       </tbody>
@@ -256,6 +285,77 @@ $fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
     </div>
   <?php endif; ?>
 </div>
+
+  <!-- Modal de Perfil -->
+  <div id="profileModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:white; border-radius:15px; padding:30px; max-width:500px; width:90%; box-shadow:0 10px 30px rgba(0,0,0,0.3); position:relative;">
+      <button id="closeModal" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:24px; cursor:pointer; color:#666;">&times;</button>
+      
+      <div style="text-align:center; margin-bottom:20px;">
+        <div style="width:100px; height:100px; background:linear-gradient(135deg, #e97400, #ff9933); border-radius:50%; margin:0 auto 15px; display:flex; align-items:center; justify-content:center; font-size:50px;">
+          <?php echo $tipoUsuario === 'motorista' ? '🚚' : '🏢'; ?>
+        </div>
+        <h2 style="margin:0; color:#333;">
+          <?php 
+          if (isset($dadosUsuario)) {
+              echo $tipoUsuario === 'motorista' ? htmlspecialchars($dadosUsuario['nome_completo']) : htmlspecialchars($dadosUsuario['nome_empresa']);
+          }
+          ?>
+        </h2>
+        <p style="color:#666; margin:5px 0;"><?php echo $tipoUsuario === 'motorista' ? 'Motorista' : 'Empresa'; ?></p>
+      </div>
+
+      <div style="background:#f8f9fa; padding:20px; border-radius:10px; margin-bottom:20px;">
+        <?php if ($tipoUsuario === 'motorista' && isset($dadosUsuario)): ?>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-envelope"></i> Email:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['email'] ?? $dadosUsuario['email_motorista'] ?? 'Não informado') ?></p>
+          </div>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-id-card"></i> CPF:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['cpf']) ?></p>
+          </div>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-phone"></i> Telefone:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['telefone'] ?? $dadosUsuario['numCtt'] ?? 'Não informado') ?></p>
+          </div>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-id-badge"></i> CNH:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['cnh'] ?? 'Não informado') ?></p>
+          </div>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-car"></i> Renavan:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['renavan'] ?? 'Não informado') ?></p>
+          </div>
+          <div>
+            <strong style="color:#e97400;"><i class="fas fa-calendar"></i> Cadastrado em:</strong>
+            <p style="margin:5px 0;"><?= date('d/m/Y', strtotime($dadosUsuario['data_cadastro'])) ?></p>
+          </div>
+        <?php elseif ($tipoUsuario === 'empresa' && isset($dadosUsuario)): ?>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-envelope"></i> Email:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['email_empresa']) ?></p>
+          </div>
+          <div style="margin-bottom:15px;">
+            <strong style="color:#e97400;"><i class="fas fa-building"></i> CNPJ:</strong>
+            <p style="margin:5px 0;"><?= htmlspecialchars($dadosUsuario['cnpj']) ?></p>
+          </div>
+          <div>
+            <strong style="color:#e97400;"><i class="fas fa-calendar"></i> Cadastrado em:</strong>
+            <p style="margin:5px 0;"><?= date('d/m/Y', strtotime($dadosUsuario['data_cadastro'])) ?></p>
+          </div>
+        <?php endif; ?>
+      </div>
+
+      <div style="display:flex; gap:10px;">
+       
+        <button id="closeModalBtn" style="flex:1; padding:12px; background:#6c757d; color:white; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">
+          <i class="fas fa-times"></i> Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
   </main>
 
   <section class="footter">
@@ -379,6 +479,43 @@ $fretesConcluidos = $stmtConcluidos->fetch(PDO::FETCH_ASSOC)['total'];
         }, 100);
       }
     });
+
+    // Modal de Perfil
+    const userProfileBtn = document.getElementById('userProfileBtn');
+    const profileModal = document.getElementById('profileModal');
+    const closeModal = document.getElementById('closeModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Abrir modal ao clicar no usuário
+    if (userProfileBtn) {
+      userProfileBtn.addEventListener('click', function() {
+        console.log('Abrindo modal de perfil');
+        profileModal.style.display = 'flex';
+      });
+    }
+
+    // Fechar modal ao clicar no X
+    if (closeModal) {
+      closeModal.addEventListener('click', function() {
+        profileModal.style.display = 'none';
+      });
+    }
+
+    // Fechar modal ao clicar no botão Fechar
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', function() {
+        profileModal.style.display = 'none';
+      });
+    }
+
+    // Fechar modal ao clicar fora dele
+    if (profileModal) {
+      profileModal.addEventListener('click', function(e) {
+        if (e.target === profileModal) {
+          profileModal.style.display = 'none';
+        }
+      });
+    }
   </script>
 
 </body>

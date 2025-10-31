@@ -37,7 +37,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                     <a href="..\cadastros2.php">
                         Não tem conta? Cadastre-se aqui!
                     </a>
-                    <a href="">
+                    <a href="recuperar_senha.php?tipo=motorista">
                         Esqueceu a Senha? Recupere aqui!
                     </a>
                 </div>
@@ -67,7 +67,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
                 <a href="../cadastros2.php">
                     Não cadastrou sua Empresa? Cadastre-se aqui!
                 </a>
-                <a href="">
+                <a href="recuperar_senha.php?tipo=empresa">
                     Esqueceu a Senha? Recupere aqui!
                 </a>
             </div>

@@ -168,7 +168,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
         </div>
 
         <div class="cadastroEmpresa">
-          <h2>Quer adicionar sua<br />empresa e ser nosso parceiro?</h2>
+          <h2 style="margin-bottom: 20px;">Quer adicionar sua<br />empresa e ser nosso parceiro?</h2>
           <button class="empresaButton">Quero ser parceiro!</button>
         </div>
 
