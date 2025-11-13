@@ -36,8 +36,8 @@
 
         public function recuperar()
         {
-            $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor , endereco_destino ,
-             tipo_carga, peso, altura, largura, comprimento, status FROM cotacao';
+            $query = 'SELECT id_cotacao, data_saida, cep_origem, endereco_origem, estimativa_entrega, cep_destino, valor, endereco_destino,
+             tipo_carga, peso, altura, largura, comprimento, status, id_empresa FROM cotacao';
             $stmt = $this->conexao->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);

@@ -62,14 +62,13 @@
             $stmt->execute();
         }
 
-        public function recuperarLoginc($email,$senha){
-            $query = 'select * 
-            from empresa where email_empresa = ? and senha = ?';
+        public function recuperarLoginc($email, $senha){
+            // Busca apenas por email; a validação da senha é feita no controller
+            $query = 'SELECT * FROM empresa WHERE email_empresa = ? LIMIT 1';
             $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1,$email);
-            $stmt->bindValue(2,$senha);
+            $stmt->bindValue(1, $email);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_OBJ); 
+            return $stmt->fetch(PDO::FETCH_OBJ);
         }
     }
 ?>

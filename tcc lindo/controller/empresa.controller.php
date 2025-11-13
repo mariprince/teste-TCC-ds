@@ -71,33 +71,41 @@ if (session_status() === PHP_SESSION_NONE) {
     header('location:../paginas/areaRestritaE.php?link=cotacao&msg=updated');
  }
  if($acaoe ==='recuperarLoginE'){
-   
-   $empresa = new Empresa();
-   $conexao = new Conexao();
-   
-   $email = $_POST['email_empresa'];
-   $senha = $_POST['senha'];
-
-   $empresaService = new EmpresaService($empresa,$conexao);
-   $empresa = $empresaService->recuperarLoginC($email,$senha);
-
-   foreach($empresa as $indice => $empresa){
-   }
- 
-   if(!isset($empresa->email_empresa)){
-       echo '<script>alert("Empresa com email desconhecido")</script>
-       <meta http-equiv="refresh" content="0;url=index.php?link=9">';
-   }else{
-       $_SESSION['empresaLogado']=$empresa->nome_empresa;
-       $_SESSION['emailEmpresaLogado']=$empresa->email_empresa;
-       $_SESSION['idEmpresaLogado']=$empresa->id_empresa;
-       unset($_SESSION['motoristaLogado']);
-       unset($_SESSION['emailMotoristaLogado']);
-       unset($_SESSION['id_motorista']);
-    header('location:paginas/dashboard.php');
-    exit;
   
-   }
+  $empresa = new Empresa();
+  $conexao = new Conexao();
+  
+  $email = $_POST['email_empresa'];
+  $senha = $_POST['senha'];
+
+  $empresaService = new EmpresaService($empresa,$conexao);
+  $empresaObj = $empresaService->recuperarLoginC($email,$senha);
+
+  if(!$empresaObj || !isset($empresaObj->email_empresa)){
+      echo '<script>alert("Empresa com email desconhecido")</script>
+      <meta http-equiv="refresh" content="0;url=../paginas/login.php?tipo=empresa">';
+      exit;
+  }
+
+  $senhaValida = (function($senhaDigitada, $senhaBanco){
+      if (password_verify($senhaDigitada, $senhaBanco)) return true;
+      return $senhaDigitada === $senhaBanco; // compatibilidade com senhas antigas sem hash
+  })($senha, $empresaObj->senha);
+
+  if(!$senhaValida){
+      echo '<script>alert("Senha inválida")</script>
+      <meta http-equiv="refresh" content="0;url=../paginas/login.php?tipo=empresa">';
+      exit;
+  }
+
+  $_SESSION['empresaLogado']=$empresaObj->nome_empresa;
+  $_SESSION['emailEmpresaLogado']=$empresaObj->email_empresa;
+  $_SESSION['idEmpresaLogado']=$empresaObj->id_empresa;
+  unset($_SESSION['motoristaLogado']);
+  unset($_SESSION['emailMotoristaLogado']);
+  unset($_SESSION['id_motorista']);
+  header('location:paginas/dashboard.php');
+  exit;
   // echo $_SESSION['idEmpresaLogado'];
 }
 

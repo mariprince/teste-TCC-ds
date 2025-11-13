@@ -162,45 +162,58 @@ if (isset($_SESSION['id_motorista'])) {
     <div class="fretes-section tabcontent" id="disponiveis">
       <h2>Fretes Disponíveis</h2>
       <div class="empty-state" style="display:grid; gap: 10px">
-        <?php if(!empty($cotacao)):?>
-        <table class="table table-bordered table-hover">
-          <thead class="">
-            <tr>
-              <th>ID</th>
-              <th>Data Saída</th>
-              <th>Cep Origem</th>
-              <th>Endereço Origem</th>
-              <th>Valor</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php foreach ($cotacao as $cota): ?>
-          <?php if ($cota->status != 'ATRIBUIDA' && $cota->status != 'CONCLUIDA'): ?>
-          <tr>
-            <td><?= $cota->id_cotacao ?></td>
-            <td><?= htmlspecialchars($cota->data_saida) ?></td>
-            <td><?= htmlspecialchars($cota->cep_origem) ?></td>
-            <td><?= htmlspecialchars($cota->endereco_origem) ?></td>
-            <td>R$ <?= number_format($cota->valor, 2, ',', '.') ?></td>
-            <td>
-              <a href="../paginas/areaRestritaCota.php" class="btn btn-sm btn-warning">Detalhes</a>
-              <?php if (isset($_SESSION['motoristaLogado'])):?>
-                <form action="aceitar_frete.php" method="POST" style="display:inline;">
-                <input type="hidden" name="id_cotacao" value="<?= $cota->id_cotacao ?>">
-                  <button type="submit" title="Aceitar frete" style="border:none;background:none;font-size:20px;">✅</button>
-                </form>
-                <?php endif;?>
-            </td>
-          </tr>
-          <?php endif; ?>
-        <?php endforeach; ?>
-          </tbody>
-        </table>
+        <?php 
+          // Calcula fretes visíveis para o perfil atual
+          $cotacoesVisiveis = [];
+          if (!empty($cotacao)) {
+            foreach ($cotacao as $c) {
+              if (isset($_SESSION['idEmpresaLogado']) && (int)$c->id_empresa !== (int)$_SESSION['idEmpresaLogado']) {
+                continue;
+              }
+              if ($c->status == 'ATRIBUIDA' || $c->status == 'CONCLUIDA') {
+                continue;
+              }
+              $cotacoesVisiveis[] = $c;
+            }
+          }
+        ?>
+        <?php if (!empty($cotacoesVisiveis)): ?>
+          <table class="table table-bordered table-hover">
+            <thead class="">
+              <tr>
+                <th>ID</th>
+                <th>Data Saída</th>
+                <th>Cep Origem</th>
+                <th>Endereço Origem</th>
+                <th>Valor</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($cotacoesVisiveis as $cota): ?>
+                <tr>
+                  <td><?= $cota->id_cotacao ?></td>
+                  <td><?= htmlspecialchars($cota->data_saida) ?></td>
+                  <td><?= htmlspecialchars($cota->cep_origem) ?></td>
+                  <td><?= htmlspecialchars($cota->endereco_origem) ?></td>
+                  <td>R$ <?= number_format($cota->valor, 2, ',', '.') ?></td>
+                  <td>
+                    <a href="../paginas/areaRestritaCota.php" class="btn btn-sm btn-warning">Detalhes</a>
+                    <?php if (isset($_SESSION['motoristaLogado'])):?>
+                      <form action="aceitar_frete.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="id_cotacao" value="<?= $cota->id_cotacao ?>">
+                        <button type="submit" title="Aceitar frete" style="border:none;background:none;font-size:20px;">✅</button>
+                      </form>
+                    <?php endif;?>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
         <?php else: ?>
-        <div class="warning-icon">⚠️</div>
-        <p>Nenhum frete disponível</p>
-        <?php endif;?>
+          <div class="warning-icon">⚠️</div>
+          <p>Nenhum frete disponível</p>
+        <?php endif; ?>
         <div class="criarBtn">
         <?php if (isset($_SESSION['empresaLogado'])):?>
             <a class="tab-btn active" href="../cotacao2.php" style="background: #e97400; color: #fff;"> Criar Frete </a> 
@@ -228,12 +241,15 @@ if (isset($_SESSION['id_motorista'])) {
     $stmt->execute();
     $fretesAceitos = $stmt->fetchAll(PDO::FETCH_ASSOC);
   } else {
-    // Empresa: mostra todos os fretes aceitos com nome do motorista
+    // Empresa: mostra apenas fretes aceitos criados por ela, com nome do motorista
+    $id_empresa = $_SESSION['idEmpresaLogado'] ?? 0;
     $query = "SELECT c.*, m.nome_completo as motorista_nome 
               FROM cotacao c 
               LEFT JOIN Motorista m ON c.id_motorista = m.id_motorista 
-              WHERE c.status = 'ATRIBUIDA'";
-    $stmt = $conn->query($query);
+              WHERE c.status = 'ATRIBUIDA' AND c.id_empresa = :id_empresa";
+    $stmt = $conn->prepare($query);
+    $stmt->bindValue(':id_empresa', $id_empresa);
+    $stmt->execute();
     $fretesAceitos = $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
   ?>
