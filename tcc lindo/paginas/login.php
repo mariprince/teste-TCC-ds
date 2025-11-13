@@ -16,7 +16,7 @@ if (isset($_GET['tipo']) && $_GET['tipo'] === 'empresa') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
-    <script src="/scripts/scriptLogin.js" defer></script>
+    <script src="../scripts/scriptLogin.js" defer></script>
     <title>Login</title>
     <link rel="shortcut icon" type="imagex/png" href="/imagens/logo.ico">
 </head>

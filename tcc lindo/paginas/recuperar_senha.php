@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             if ($tipoUsuario === 'motorista') {
                 // Verifica se o email existe
-                $query = "SELECT id_motorista FROM Motorista WHERE email = :email";
+                $query = "SELECT id_motorista FROM motorista WHERE email_motorista = :email";
                 $stmt = $conn->prepare($query);
                 $stmt->bindValue(':email', $email);
                 $stmt->execute();
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($usuario) {
                     // Atualiza a senha
                     $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
-                    $updateQuery = "UPDATE Motorista SET senha = :senha WHERE email = :email";
+                    $updateQuery = "UPDATE motorista SET senha = :senha WHERE email_motorista = :email";
                     $updateStmt = $conn->prepare($updateQuery);
                     $updateStmt->bindValue(':senha', $senhaHash);
                     $updateStmt->bindValue(':email', $email);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             } else {
                 // Empresa
-                $query = "SELECT id_empresa FROM Empresa WHERE email_empresa = :email";
+                $query = "SELECT id_empresa FROM empresa WHERE email_empresa = :email";
                 $stmt = $conn->prepare($query);
                 $stmt->bindValue(':email', $email);
                 $stmt->execute();
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($usuario) {
                     // Atualiza a senha
                     $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
-                    $updateQuery = "UPDATE Empresa SET senha = :senha WHERE email_empresa = :email";
+                    $updateQuery = "UPDATE empresa SET senha = :senha WHERE email_empresa = :email";
                     $updateStmt = $conn->prepare($updateQuery);
                     $updateStmt->bindValue(':senha', $senhaHash);
                     $updateStmt->bindValue(':email', $email);

@@ -88,7 +88,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastros</title>
   <link rel="stylesheet" href="css/cadastro.css" />
- <script src="../scripts/script.js" defer></script>
+ <script src="scripts/script.js" defer></script>
 </head>
 
 <body>
@@ -160,7 +160,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
             <input type="text" name="nome_empresa" value="<?= htmlspecialchars($nome) ?>" placeholder="Nome Empresa" required>
             <input type="email" name="email_empresa" value="<?= htmlspecialchars($email) ?>" placeholder="Email Empresa" required>
             <input type="password" name="senha" placeholder="Crie sua Senha" <?= $acaoFormEmpresa === 'inserir' ? 'required' : '' ?>>
-            <input type="text" id="cnpj" name="cnpj" value="<?= htmlspecialchars(trim($cnpj)); ?>" placeholder="CNPJ" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required />
+            <input type="text" id="cnpj" name="cnpj" value="<?= htmlspecialchars(trim($cnpj)); ?>" placeholder="CNPJ" oninput="formatarCNPJ(this)" maxlength="18" required />
 
             <br />
             <button type="submit" class=""><?= $labelBotaoEmpresa; ?></button>
