@@ -86,6 +86,7 @@ if (!empty($empresa) && is_object($empresa[0])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="imagex/png" href="/imagens/logo.ico">
   <title>Cadastros</title>
   <link rel="stylesheet" href="css/cadastro.css" />
  <script src="scripts/script.js" defer></script>

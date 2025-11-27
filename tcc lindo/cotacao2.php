@@ -67,17 +67,17 @@ if(!isset($_SESSION['idEmpresaLogado'])){
 
 <body class="min-h-screen flex flex-col">
   <header style="width: 100vw;">
-    <nav>
-      <a class="logo">🚚 DevLog</a>
-      <div class="mobile-menu">
+  <nav>
+      <div class="logo-group">
+        <a href="#" class="logo img"><img src="../imagens/logosite.png" alt="DevLog"></a>
+        <span id="span">DevLog</span>
+      </div>
+</ul>
+<div class="mobile-menu">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
       </div>
-      <ul class="nav-list">
-        <li><a href="../index.php" style="color: #fff;text-decoration: none ;">Início</a></li>
-        <li><a href="../cadastros2.php" style="color: #fff;text-decoration: none ;">Cadastrar</a></li>
-      </ul>
     </nav>
   </header>
 
@@ -214,24 +214,6 @@ if(!isset($_SESSION['idEmpresaLogado'])){
   <footer class="bg-orange-600 text-white py-4 text-center" style="position: relative;">
     <p>&copy; 2025 <span>DevLog</span> | Todos os direitos reservados</p>
   </footer>
-  <?php  echo $_SESSION['idEmpresaLogado']; ?>
 </body>
-
-<script>
-  /*function openPopup(
-  ) {
-    const checkboxcargaPerigosa = document.getElementById("checkboxcargaPerigosa");
-    const selectcargaPerigosa = document.getElementById("tipos");
-
-    if (checkboxcargaPerigosa.checked && selectcargaPerigosa.value === "perigosa") {
-      document.getElementById("popup").classList.add("show");
-    }
-
-  }
-  function closePopup() {
-    document.getElementById("popup").classList.remove("show");
-  }*/
-
-</script>
 
 </html>
